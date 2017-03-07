@@ -18,4 +18,17 @@
     .hyrule {
         transform: translate3d( $navi-width, 0, 0 );
         }
+    .icon--list {
+        div:nth-child( 1 ) {
+            top: 0;
+            transform: rotate( 45deg );
+            }
+        div:nth-child( 2 ) {
+            top: 0;
+            transform: rotate( -45deg );
+            }
+        div:nth-child( 3 ) {
+            width: 0;
+            }
+    }
 }

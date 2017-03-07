@@ -11,26 +11,32 @@
     svg {
         width: 100%;
         }
+    div {
+        background-color: $black;
+        transition: transform $fast-duration $ease-one,
+                    width $fast-duration $ease-one,
+                    top $fast-duration $ease-one;
+        }
 }
 .icon--list {
-    border-top: 2px solid $black;
-    height: 18px;
+    height: 2px;
     width: 24px;
 
-    &:after,
-    &:before {
-        background-color: $black;
-        content: "";
+    div {
         height: 2px;
         left: 0;
         position: absolute;
         width: 100%;
         }
-    &:after {
-        bottom: 0;
+    div:nth-child( 1 ) {
+        top: -7px;
         }
-    &:before {
-        margin-top: -2px;
-        top: 50%;
+    div:nth-child( 2 ) {
+        top: 7px;
         }
-    }
+    div:nth-child( 3 ) {
+        left: 50%;
+        top: 0;
+        transform: translateX( -50% );
+        }
+}
