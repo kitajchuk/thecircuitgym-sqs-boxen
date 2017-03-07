@@ -1,0 +1,12 @@
+.kit-of-parts {}
+.kit-of-parts__part {
+    position: relative;
+    }
+.kit-of-parts__part + .kit-of-parts__part {
+    border-top: 1px solid $grey-rule;
+    }
+.kit-of-parts__label {
+    left: 0;
+    position: absolute;
+    top: $expander-one;
+    }

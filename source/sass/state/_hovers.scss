@@ -1,0 +1,11 @@
+.is-hoverable {
+
+    .btn--large:hover {
+        background-color: $green-light;
+        }
+    .btn--small:hover,
+    .btn--medium:hover {
+        background-color: $dark;
+        }
+
+}

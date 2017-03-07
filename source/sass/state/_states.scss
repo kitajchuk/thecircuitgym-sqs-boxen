@@ -1,0 +1,21 @@
+/******************************************************************************
+ * Document
+*******************************************************************************/
+.is-scrolling {
+    pointer-events: none;
+}
+
+.is-scrolling-up {
+}
+
+.is-scrolling-down {
+}
+
+.is-navi-open {
+    .navi {
+        transform: translate3d( 0, 0, 0 );
+        }
+    .hyrule {
+        transform: translate3d( $navi-width, 0, 0 );
+        }
+}

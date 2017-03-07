@@ -1,0 +1,36 @@
+/******************************************************************************
+ * Icons
+*******************************************************************************/
+.icon {
+    display: inline-block;
+    line-height: 1;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+
+    svg {
+        width: 100%;
+        }
+}
+.icon--list {
+    border-top: 2px solid $black;
+    height: 18px;
+    width: 24px;
+
+    &:after,
+    &:before {
+        background-color: $black;
+        content: "";
+        height: 2px;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        }
+    &:after {
+        bottom: 0;
+        }
+    &:before {
+        margin-top: -2px;
+        top: 50%;
+        }
+    }
