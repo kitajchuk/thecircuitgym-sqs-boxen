@@ -26,10 +26,17 @@
 }
 
 .is-navi-open {
+    overflow: hidden;
+
+    body {
+        overflow: hidden;
+        }
     .navi {
         transform: translate3d( 0, 0, 0 );
         }
-    .hyrule {
+    .main,
+    .header,
+    .footer {
         transform: translate3d( -$navi-width, 0, 0 );
         }
 }

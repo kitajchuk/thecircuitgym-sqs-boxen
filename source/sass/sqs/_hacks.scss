@@ -1,3 +1,19 @@
 /******************************************************************************
  * Squarespace Hacks
+ *
+ * This is for tweaking layouts into submission
 *******************************************************************************/
+.footer {
+    [class*=sqs-col] {
+        vertical-align: top;
+        }
+    .sqs-layout > .sqs-row {
+        margin: 0 (-$expander-mobile / 2) !important;
+        }
+    .sqs-block h3 {
+        font-size: $btn-size;
+        }
+    a {
+        color: $green-dark;
+        }
+}

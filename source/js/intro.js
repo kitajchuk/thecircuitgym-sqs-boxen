@@ -28,6 +28,11 @@ const intro = {
             core.dom.intro.removeClass( "is-active" );
 
         }, 1000 );
+
+        setTimeout( () => {
+            core.dom.intro.remove();
+
+        }, 2000 );
     }
 };
 

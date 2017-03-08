@@ -28,6 +28,9 @@
         transform: translate3d( 100%, 0, 0 );
         width: $navi-width;
         }
+    .navi__a {
+        color: $white;
+        }
     .navi-controller {
         pointer-events: auto;
         visibility: visible;

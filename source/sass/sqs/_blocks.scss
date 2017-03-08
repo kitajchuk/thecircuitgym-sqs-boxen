@@ -12,6 +12,7 @@
     display: inline-block;
     float: none !important;
     padding: 0 !important;
+    vertical-align: middle;
 }
 [class*="sqs-col"] {
     .sqs-block-content {
@@ -131,7 +132,9 @@
     position: fixed !important;
     right: $expander-one;
     top: auto !important;
-    transition: background-color $base-duration $ease;
+    transition: background-color $base-duration $ease,
+                transform $base-duration $ease-one,
+                opacity $base-duration $ease-one;
     width: $logo-width;
     z-index: ($z_layer_infront - 1) !important;
     }
@@ -141,6 +144,17 @@
 
 
 
+.is-home {
+    .sqs-announcement-bar {
+        opacity: 0;
+        pointer-events: none;
+        }
+}
+.is-navi-open {
+    .sqs-announcement-bar {
+        transform: translate3d( -$navi-width, 0, 0 );
+        }
+}
 .is-hoverable {
     .sqs-announcement-bar:hover {
         background-color: $green-light;

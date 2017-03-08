@@ -1,9 +1,7 @@
 .navi,
-.hyrule {
+.header,
+.footer {
     transition: transform $base-duration $ease-one;
-    }
-.hyrule {
-    position: relative;
     }
 .header {
     left: 0;
@@ -44,7 +42,7 @@
 .footer {
     background-color: $black;
     color: $white;
-    }
+}
 .intro {}
 .intro__logo {
     svg {

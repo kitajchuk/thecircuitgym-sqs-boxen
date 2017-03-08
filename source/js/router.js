@@ -101,6 +101,7 @@ const router = {
      *
      */
     initPage ( /* data */ ) {
+        this.execHomepage( core.dom.main );
         this.execControllers();
     },
 
@@ -175,11 +176,11 @@ const router = {
      *
      */
     changeContent ( data ) {
-        const doc = this.parseDoc( data.response );
+        this.doc = this.parseDoc( data.response );
 
-        core.dom.main[ 0 ].innerHTML = doc.mainHtml;
+        core.dom.main[ 0 ].innerHTML = this.doc.mainHtml;
 
-        core.emitter.fire( "app--analytics-push", doc );
+        core.emitter.fire( "app--analytics-push", this.doc );
     },
 
 
@@ -196,8 +197,21 @@ const router = {
         core.dom.html.removeClass( "is-routing" );
         core.dom.main.removeClass( "is-inactive" );
 
+        this.execHomepage( this.doc.$main );
         this.execControllers();
         this.execSquarespace();
+    },
+
+
+    execHomepage ( $main ) {
+        const data = $main.data();
+
+        if ( data.homepage ) {
+            core.dom.html.addClass( "is-home" );
+
+        } else {
+            core.dom.html.removeClass( "is-home" );
+        }
     },
 
 
