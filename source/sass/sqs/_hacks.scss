@@ -3,6 +3,11 @@
  *
  * This is for tweaking layouts into submission
 *******************************************************************************/
+.cms {
+    .sqs-block {
+        text-align: left;
+        }
+}
 .footer {
     [class*=sqs-col] {
         vertical-align: top;

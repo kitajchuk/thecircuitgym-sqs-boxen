@@ -117,29 +117,3 @@
     @include font-sans-text();
     @include font-sans-text-bold();
 }
-
-
-
-/******************************************************************************
- * Layout / Spacing
-*******************************************************************************/
-@mixin layout-frame() {
-    padding: $header-fix-height $wrapper-padding 0;
-}
-
-
-
-/******************************************************************************
- * Blocks
-*******************************************************************************/
-@mixin block-transition() {
-    opacity: 0;
-    transform: translate3d( 0, $nudge-size, 0 );
-    transition: opacity $long-duration $ease-out,
-                transform $base-duration $ease;
-
-    &.is-active {
-        opacity: 1;
-        transform: translate3d( 0, 0, 0 );
-        }
-}

@@ -94,6 +94,8 @@
         a {
             border-bottom: 1px solid $green-dark;
             color: $green-dark;
+            transition: color $base-duration $ease,
+                        border-bottom-color $base-duration $ease;
             }
     }
 
@@ -156,6 +158,11 @@
         }
 }
 .is-hoverable {
+    .sqs-block p a:hover,
+    .sqs-block li a:hover {
+        color: $green-light;
+        border-bottom-color: $green-light;
+        }
     .sqs-announcement-bar:hover {
         background-color: $green-light;
         }

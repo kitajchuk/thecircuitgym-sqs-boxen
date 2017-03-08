@@ -5,10 +5,14 @@
     }
 .header {
     left: 0;
+    pointer-events: none;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: $z_layer_infront - 1;
+    }
+.header__logo {
+    pointer-events: auto;
     }
 .navi {
     position: fixed;
@@ -29,7 +33,6 @@
     visibility: hidden;
     }
 .main {
-    overflow: hidden;
     position: relative;
     width: 100%;
     transition: opacity $base-duration $ease,
@@ -39,10 +42,12 @@
         opacity: 0;
         }
     }
+.cms {}
+.cms__blocks {}
 .footer {
     background-color: $black;
     color: $white;
-}
+    }
 .intro {}
 .intro__logo {
     svg {
@@ -51,25 +56,23 @@
     }
 .cover {
     height: 100vh;
+    overflow: hidden;
     position: relative;
     width: 100vw;
-    }
-.cover__bg {
-    bottom: 0;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
     }
 .cover__screen {
     background-color: rgba( 0, 0, 0, 0.75 );
     background-image: url( "/assets/images/texture.png" );
     background-repeat: repeat;
-    bottom: 0;
-    left: 0;
+    }
+.cover__bg,
+.cover__screen {
+    height: 105%;
+    left: 50%;
     position: absolute;
-    right: 0;
-    top: 0;
+    top: 50%;
+    transform: translateX( -50% ) translateY( -50% );
+    width: 105%;
     }
 .cover__blocks {
     .image {

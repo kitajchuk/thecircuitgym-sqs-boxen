@@ -4,11 +4,11 @@
 .is-scrolling {
     pointer-events: none;
 }
+.is-scrolling-up {}
+.is-scrolling-down {}
 
-.is-scrolling-up {
-}
-
-.is-scrolling-down {
+.is-home {
+    background-color: $black;
 }
 
 .is-cover {

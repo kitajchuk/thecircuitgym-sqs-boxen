@@ -16,10 +16,14 @@
             {.if collection.homepage}
                 {@|apply cover.block}
             {.or}
-                {squarespace.main-content}
+                <div class="cms -text--center">
+                    <div class="cms__blocks -wrap-copy -wrap-mobile">
+                        {squarespace.main-content}
+                    </div>
+                </div>
             {.end}
         </main>
-        {@|apply footer.block}
+        {# @|apply footer.block #}
         {@|apply action.block}
         {@|apply intro.block}
         <script type="text/javascript" src="/scripts/app.js"></script>
