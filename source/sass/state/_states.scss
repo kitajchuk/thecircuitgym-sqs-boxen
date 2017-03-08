@@ -11,24 +11,25 @@
 .is-scrolling-down {
 }
 
+.is-cover {
+    .navi__a {
+        color: $white;
+        }
+    .header__logo svg {
+        fill: $white;
+        }
+    .icon--list {
+        div {
+            background-color: $white;
+            }
+    }
+}
+
 .is-navi-open {
     .navi {
         transform: translate3d( 0, 0, 0 );
         }
     .hyrule {
-        transform: translate3d( $navi-width, 0, 0 );
+        transform: translate3d( -$navi-width, 0, 0 );
         }
-    .icon--list {
-        div:nth-child( 1 ) {
-            top: 0;
-            transform: rotate( 45deg );
-            }
-        div:nth-child( 2 ) {
-            top: 0;
-            transform: rotate( -45deg );
-            }
-        div:nth-child( 3 ) {
-            width: 0;
-            }
-    }
 }

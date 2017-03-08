@@ -2,50 +2,40 @@
 .hyrule {
     transition: transform $base-duration $ease-one;
     }
+.hyrule {
+    position: relative;
+    }
 .header {
-    background-color: transparent;
-    height: $header-height;
     left: 0;
-    pointer-events: none;
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: $z_layer_infront;
-    }
-.header__main {
-    width: 100%;
-    }
-.header__icon {
-    cursor: pointer;
-    pointer-events: auto;
-    }
-.header__logo {
-    margin-left: 10px;
-    margin-top: -6px;
-    width: 110px;
+    z-index: $z_layer_infront - 1;
     }
 .navi {
-    background-color: $black;
-    height: 100vh;
-    left: 0;
     position: fixed;
+    right: 0;
     top: 0;
-    transform: translate3d( -100%, 0, 0 );
-    width: $navi-width;
-    z-index: $z_layer_10;
+    text-align: right;
+    z-index: $z_layer_infront;
     }
 .navi__a {
-    color: $white;
     padding: 10px 0;
     }
+.navi__li:first-child .navi__a {
+    padding-top: 0;
+    }
+.navi-controller {
+    cursor: pointer;
+    pointer-events: none;
+    visibility: hidden;
+    }
 .main {
-    min-height: 100vh;
     overflow: hidden;
     position: relative;
     width: 100%;
     transition: opacity $base-duration $ease,
                 transform $base-duration $ease-one;
-    z-index: $z_layer_10;
 
     &.is-inactive {
         opacity: 0;
@@ -53,14 +43,57 @@
     }
 .footer {
     background-color: $black;
-    position: relative;
-    z-index: $z_layer_10;
+    color: $white;
     }
 .intro {}
 .intro__logo {
-    width: 256px;
-
     svg {
         fill: $white;
         }
+    }
+.cover {
+    height: 100vh;
+    position: relative;
+    width: 100vw;
+    }
+.cover__bg {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    }
+.cover__screen {
+    background-color: rgba( 0, 0, 0, 0.75 );
+    background-image: url( "/assets/images/texture.png" );
+    background-repeat: repeat;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    }
+.cover__blocks {
+    .image {
+        max-width: 50%;
+        width: 50%;
+        }
+    .btn {
+        background-image: url( "/assets/icons/icon--pencil.svg" );
+        background-size: 16px 16px;
+        background-position: ($expander-mobile / 2) 50%;
+        background-repeat: no-repeat;
+        padding-left: $expander-mobile + 10px;
+        }
+}
+.videofs {
+    height: 100%;
+    position: relative;
+    width: 100%;
+    }
+.videofs__node {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateX( -50% ) translateY( -50% );
     }

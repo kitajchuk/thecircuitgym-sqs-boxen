@@ -1,11 +1,24 @@
-<navi class="navi js-navi ghost -wrap" data-content-field="navigation-navi">
-    <ul class="navi__ul ghost__child">
+<nav class="navi js-navi -wrap -wrap-b -wrap-t" data-content-field="navigation-navi">
+    <ul class="navi__ul">
         {.repeated section items}
             {.section collection}
                 <li class="navi__li">
                     <a class="navi__a btn" href="{fullUrl}">{title}</a>
                 </li>
             {.end}
+        {.or}
+            <li class="navi__li">
+                <a class="navi__a btn" href="#">Circuit</a>
+            </li>
+            <li class="navi__li">
+                <a class="navi__a btn" href="#">Bouldering</a>
+            </li>
+            <li class="navi__li">
+                <a class="navi__a btn" href="/kit-of-parts/">KOP</a>
+            </li>
+            <li class="navi__li">
+                <a class="navi__a btn" href="#">Chalky</a>
+            </li>
         {.end}
     </ul>
-</navi>
+</nav>

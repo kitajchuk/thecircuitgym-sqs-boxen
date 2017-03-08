@@ -1,4 +1,4 @@
-<section class="kit-of-parts">
+<section class="kit-of-parts -exp">
     {.section item}
         {@|apply kit-of-parts-part.block}
     {.end}

@@ -15,12 +15,7 @@
     padding-left: $expander-one;
     padding-right: $expander-one;
     }
-.-wrap-dub {
-    padding-left: $expander-dub;
-    padding-right: $expander-dub;
-    }
-.-wrap-copy,
-.-wrap-block {
+.-wrap-copy {
     display: inline-block;
     width: 100%;
     }
@@ -29,6 +24,12 @@
     }
 .-wrap-r {
     padding-right: $expander-one;
+    }
+.-wrap-t {
+    padding-top: $expander-one;
+    }
+.-wrap-b {
+    padding-bottom: $expander-one;
     }
 .-vtop {
     vertical-align: top;

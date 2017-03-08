@@ -20,7 +20,7 @@ const navi = {
      */
     init () {
         this.isOpen = false;
-        this.trigger = core.dom.body.find( ".js-controller--navi" );
+        this.trigger = core.dom.body.find( ".js-navi-controller" );
         this.bind();
     },
 

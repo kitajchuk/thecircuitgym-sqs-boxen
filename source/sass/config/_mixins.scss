@@ -59,9 +59,15 @@
     @include font-sans-text();
     @include font-sans-text-bold();
 }
-@mixin meta() {
+@mixin q() {
+    font-size: $q-size;
+    line-height: 1.1428571429;
+    @include font-serif-text();
+    font-style: italic;
+}
+@mixin m() {
     color: $grey;
-    font-size: $meta-size;
+    font-size: $m-size;
     line-height: 1.2;
     @include font-sans-text();
 }
@@ -71,11 +77,11 @@
 @mixin p() {
     font-size: $p-size;
     line-height: 1.5;
-    max-width: 700px;
+    max-width: $wrap-copy;
     @include font-serif-text();
 }
 @mixin pp() {
-    margin-top: 50px;
+    margin-top: $expander-mobile;
 }
 @mixin a() {
     color: $green-dark;

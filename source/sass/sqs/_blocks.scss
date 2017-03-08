@@ -13,10 +13,17 @@
     float: none !important;
     padding: 0 !important;
 }
-[class*="sqs-col"]:not( .sqs-col-12 ) {
+[class*="sqs-col"] {
     .sqs-block-content {
         padding-left: $expander-mobile / 2;
         padding-right: $expander-mobile / 2;
+        }
+}
+[class*="sqs-col"].sqs-col-1,
+[class*="sqs-col"].sqs-col-12 {
+    .sqs-block-content {
+        padding-left: 0;
+        padding-right: 0;
         }
 }
 
@@ -88,9 +95,54 @@
             color: $green-dark;
             }
     }
+
+    blockquote {
+        @include q();
+        }
+    blockquote + figcaption {
+        @include m();
+        }
 }
 
 // Block specific
+.sqs-block-quote {
+    max-width: $wrap-copy;
+    }
 .sqs-block-map {
     border: 1px solid $grey-rule;
+    max-width: $wrap-copy;
     }
+.sqs-block-image {
+    img {
+        display: inline-block !important;
+        }
+}
+.sqs-announcement-bar {
+    background-color: $green-dark;
+    background-image: url( "/assets/icons/icon--pencil.svg" );
+    background-size: 16px 16px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    border-radius: $logo-width;
+    bottom: $expander-one;
+    color: $white;
+    height: $logo-width;
+    left: auto !important;
+    position: fixed !important;
+    right: $expander-one;
+    top: auto !important;
+    transition: background-color $base-duration $ease;
+    width: $logo-width;
+    z-index: ($z_layer_infront - 1) !important;
+    }
+.sqs-announcement-bar-text {
+    display: none !important;
+    }
+
+
+
+.is-hoverable {
+    .sqs-announcement-bar:hover {
+        background-color: $green-light;
+        }
+}
