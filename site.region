@@ -14,7 +14,7 @@
         {@|apply header.block}
         <main class="main js-main" {.if collection.homepage}data-homepage="true"{.end} data-content-field="main-content" data-website-id="{website.id}" {.section collection}data-collection-id="{collection.id}" data-collection-title="{.if collection.homepage}{website.siteTitle}{.or}{collection.title} – {website.siteTitle}{.end}"{.end} {.section item}data-item-id="{item.id}" data-item-title="{item.title} – {collection.title} – {website.siteTitle}"{.end}>
             {.if collection.homepage}
-                {@|apply cover.block}
+                {@|apply home.block}
             {.or}
                 <div class="cms -text--center">
                     <div class="cms__blocks -wrap-copy -wrap-mobile">

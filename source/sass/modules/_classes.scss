@@ -53,7 +53,10 @@
     svg {
         fill: $white;
         }
-    }
+    .icon--logo {
+        width: $logo-width * 2;
+        }
+}
 .cover {
     height: 100vh;
     overflow: hidden;

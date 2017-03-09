@@ -1,4 +1,5 @@
 import * as core from "../core";
+import paramalama from "paramalama";
 
 
 /**
@@ -13,9 +14,12 @@ import * as core from "../core";
  */
 class VideoFS {
     constructor ( element ) {
+        this.data = element.data();
+        this.params = paramalama( this.data.url );
+        this.embedUrl = `https://www.youtube.com/embed/${this.params.v}?disablekb=1&autoplay=1&controls=0&iv_load_policy=3&loop=1&playlist=${this.params.v}&modestbranding=1&playsinline=1&rel=0&showinfo=0&wmode=opaque`;
         this.element = element;
+        this.element[ 0 ].src = this.embedUrl;
         this.container = this.element[ 0 ].parentNode;
-        this.contentWindow = this.element[ 0 ].contentWindow;
         this.videoRatio = this.element[ 0 ].width / this.element[ 0 ].height;
         this.originalWidth = this.element[ 0 ].width;
         this.originalHeight = this.element[ 0 ].height;
