@@ -1,6 +1,6 @@
 {.section item}
     <figure class="figure">
-        <img class="figure__image image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" />
+        <img class="figure__image image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}" />
         {.if info.description}
             <figcaption class="figure__cap">
                 <div class="meta -grey">{info.description|safe}</div>
@@ -9,7 +9,7 @@
     </figure>
 {.or}
     <figure class="figure">
-        <img class="figure__image image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" />
+        <img class="figure__image image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}" />
         {.if info.description}
             <figcaption class="figure__cap">
                 <div class="meta -grey">{info.description|safe}</div>

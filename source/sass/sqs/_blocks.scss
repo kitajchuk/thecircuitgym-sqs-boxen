@@ -30,8 +30,7 @@
 
 // Block / Row handling
 .sqs-block + .sqs-row,
-.sqs-row + .sqs-block,
-.sqs-block + .sqs-block {
+.sqs-row + .sqs-block {
     margin-top: $expander-mobile;
     }
 .sqs-block {
@@ -79,14 +78,17 @@
     p {
         @include p();
 
-        & + p {
-            @include pp();
-            }
-
         strong {
             @include b();
             }
     }
+
+
+    p + p,
+    h2 + p,
+    h3 + p {
+        @include pp();
+        }
 
 
     p,
@@ -118,6 +120,11 @@
 .sqs-block-image {
     img {
         display: inline-block !important;
+        }
+}
+.sqs-block-spacer {
+    .sqs-block-content {
+        height: $expander-mobile !important;
         }
 }
 .sqs-announcement-bar {

@@ -13,9 +13,17 @@
     padding-left: $expander-one;
     padding-right: $expander-one;
     }
+.-wrap-2 {
+    padding-left: $expander-two;
+    padding-right: $expander-two;
+    }
 .-wrap-copy {
     display: inline-block;
     max-width: $wrap-copy;
+    width: 100%;
+    }
+.-wrap-head {
+    max-width: 400px;
     width: 100%;
     }
 .-wrap-l {
@@ -82,6 +90,9 @@
     }
 .-light {
     color: $white;
+    }
+.-dark {
+    color: $black;
     }
 .-grey {
     color: $grey;

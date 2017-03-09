@@ -38,6 +38,13 @@
 *******************************************************************************/
 .meta {
     @include m();
+
+    a {
+        border-bottom: 1px solid $green-dark;
+        color: $green-dark;
+        transition: color $base-duration $ease,
+                    border-bottom-color $base-duration $ease;
+        }
     }
 
 
@@ -65,6 +72,8 @@
 *******************************************************************************/
 .a {
     @include a();
+    transition: color $base-duration $ease,
+                border-bottom-color $base-duration $ease;
     }
 
 

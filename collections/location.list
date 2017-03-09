@@ -1,3 +1,4 @@
+{@|apply navi-location.block}
 <article class="article">
     <header class="article__header cover cover--banner js-cover ghost -text--center">
         {.if collection.mainImage}
@@ -11,16 +12,16 @@
         </div>
     </header>
     <main class="cms -text--center -exp-2">
+        <ul class="article__crumb meta -wrap -text--right">
+            <li class="article__crumb__li">
+                <a href="/locations/">Locations</a>
+            </li>
+            <li class="article__crumb__li">
+                {collection.title}
+            </li>
+        </ul>
         <div class="article__body -wrap-copy -wrap-mobile -text--left">
-            {.section collection}
-                {.repeated section collections}
-                    <div>
-                        <a href="{fullUrl}" class="h2">
-                            {title}
-                        </a>
-                    </div>
-                {.end}
-            {.end}
+            <squarespace:block-field id="{collection.urlId}-blocks" columns="12" />
         </div>
     </main>
 </article>

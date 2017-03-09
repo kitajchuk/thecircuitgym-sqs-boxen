@@ -6,4 +6,8 @@
     .btn--medium:hover {
         background-color: $dark;
         }
+    .meta a:hover {
+        border-bottom-color: $green-light;
+        color: $green-light;
+        }
 }

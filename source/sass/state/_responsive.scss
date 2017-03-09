@@ -3,6 +3,10 @@
         padding-left: $expander-mobile;
         padding-right: $expander-mobile;
         }
+    // .-wrap-2 {
+    //     padding-left: $expander-one;
+    //     padding-right: $expander-one;
+    //     }
     .-wrap-l {
         padding-left: $expander-mobile;
         }
@@ -28,7 +32,22 @@
 
 
 
+@media only screen and ( max-width: $break-tablet-medium ) {
+    .cover__blocks {
+        .image {
+            max-width: 70%;
+            width: 70%;
+            }
+    }
+}
+
+
+
 @media only screen and ( max-width: $break-mobile-full ) {
+    .-wrap-2 {
+        padding-left: $expander-mobile;
+        padding-right: $expander-mobile;
+        }
     .navi {
         background-color: $black;
         padding-top: 56px;
@@ -49,4 +68,10 @@
         padding-right: $expander-mobile / 2;
         padding-top: $expander-mobile / 2;
         }
+    .cover__blocks {
+        .image {
+            max-width: 100%;
+            width: 100%;
+            }
+    }
 }

@@ -1,0 +1,29 @@
+<squarespace:query collection="{collection.urlId}">
+    {@|apply navi-location.block}
+</squarespace:query>
+<article class="article">
+    {.if item.assetUrl}
+        <header class="article__header cover cover--banner js-cover ghost -text--center">
+            <div class="cover__bg -cover js-lazy-image" data-img-src="{item.assetUrl}" data-variants="{item.systemDataVariants}" data-original-size="{item.originalSize}"></div>
+            <div class="cover__screen"></div>
+            {.if item.excerpt}
+                <div class="cover__content ghost__child -text--left -wrap-copy -wrap-mobile">
+                    <h2 class="h2 -light -wrap-head">{item.excerpt|safe}</h2>
+                </div>
+            {.end}
+        </header>
+    {.end}
+    <main class="cms -text--center -exp-2">
+        <ul class="article__crumb meta -wrap -text--right">
+            <li class="article__crumb__li">
+                <a href="{collection.fullUrl}">{collection.title}</a>
+            </li>
+            <li class="article__crumb__li">
+                {item.title}
+            </li>
+        </ul>
+        <div class="article__body -wrap-copy -wrap-mobile -text--left">
+            {item.body}
+        </div>
+    </main>
+</article>

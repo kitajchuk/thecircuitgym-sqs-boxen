@@ -43,7 +43,25 @@
         }
     }
 .cms {}
-.cms__blocks {}
+.article {}
+.article__header {
+    background-color: $black;
+    }
+.article__crumb {
+    margin-bottom: $expander-one;
+}
+.article__crumb__li {
+    display: inline-block;
+    vertical-align: middle;
+    }
+.article__crumb__li + .article__crumb__li {
+    &:before {
+        content: "/";
+        padding-left: 10px;
+        padding-right: 10px;
+        }
+}
+.article__body {}
 .footer {
     background-color: $black;
     color: $white;
@@ -63,8 +81,11 @@
     position: relative;
     width: 100vw;
     }
+.cover--banner {
+    height: 60vh;
+    }
 .cover__screen {
-    background-color: rgba( 0, 0, 0, 0.75 );
+    background-color: rgba( 39, 39, 39, 0.75 );
     background-image: url( "/assets/images/texture.png" );
     background-repeat: repeat;
     }
@@ -76,6 +97,9 @@
     top: 50%;
     transform: translateX( -50% ) translateY( -50% );
     width: 105%;
+    }
+.cover__content {
+    position: relative;
     }
 .cover__blocks {
     .image {

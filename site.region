@@ -3,9 +3,6 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <meta name="apple-mobile-web-app-title" content="{.section website}{siteTitle}{.end}" />
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300,100|Montserrat:400,700" rel="stylesheet" />
         {squarespace-headers}
     </head>
@@ -16,10 +13,14 @@
             {.if collection.homepage}
                 {@|apply home.block}
             {.or}
-                {squarespace.main-content}
+                {.equal? collection.typeName "page"}
+                    {@|apply page.block}
+                {.or}
+                    {squarespace.main-content}
+                {.end}
             {.end}
         </main>
-        {# @|apply footer.block #}
+        {@|apply footer.block}
         {@|apply intro.block}
         <script type="text/javascript" src="/scripts/app.js"></script>
         {squarespace-footers}

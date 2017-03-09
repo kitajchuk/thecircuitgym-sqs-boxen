@@ -81,7 +81,7 @@
     @include font-serif-text();
 }
 @mixin pp() {
-    margin-top: $expander-mobile;
+    margin-top: $expander-mobile / 2;
 }
 @mixin a() {
     color: $green-dark;
