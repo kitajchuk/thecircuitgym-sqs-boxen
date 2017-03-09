@@ -1,0 +1,13 @@
+{@|apply navi-location.block}
+<section class="collection -exp">
+    <article class="cms -text--center -exp-2">
+        <div class="cms__blocks -wrap-copy -wrap-mobile -text--left">
+            <div class="h2">
+                {collection.title}
+            </div>
+            <div class="-exp">
+                <squarespace:block-field id="{collection.urlId}-blocks" columns="12" />
+            </div>
+        </div>
+    </article>
+</section>

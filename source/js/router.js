@@ -25,7 +25,7 @@ const router = {
      *
      */
     init () {
-        this.pageDuration = core.util.getTransitionDuration( core.dom.main[ 0 ] );
+        this.mainDuration = core.util.getTransitionDuration( core.dom.main[ 0 ] );
         this.bindEmptyHashLinks();
         this.initPageController();
 
@@ -72,7 +72,7 @@ const router = {
      */
     initPageController () {
         this.controller = new PageController({
-            transitionTime: this.pageDuration
+            transitionTime: this.mainDuration
         });
 
         this.controller.setConfig([
@@ -101,6 +101,7 @@ const router = {
      *
      */
     initPage ( /* data */ ) {
+        navi.checkLocation();
         this.execHomepage( core.dom.main );
         this.execControllers();
     },
@@ -161,8 +162,6 @@ const router = {
         core.dom.main.addClass( "is-inactive" );
 
         navi.close();
-
-        this.destroyControllers();
     },
 
 
@@ -197,6 +196,8 @@ const router = {
         core.dom.html.removeClass( "is-routing" );
         core.dom.main.removeClass( "is-inactive" );
 
+        this.destroyControllers();
+        navi.checkLocation();
         this.execHomepage( this.doc.$main );
         this.execControllers();
         this.execSquarespace();

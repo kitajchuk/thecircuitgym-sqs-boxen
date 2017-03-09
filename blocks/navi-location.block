@@ -1,0 +1,9 @@
+<nav class="navi navi--location js-navi-location -wrap -wrap-b -wrap-t">
+    <ul class="navi__ul">
+        {.repeated section items}
+            <li class="navi__li">
+                <a class="navi__a btn" href="{fullUrl}">{title}</a>
+            </li>
+        {.end}
+    </ul>
+</nav>

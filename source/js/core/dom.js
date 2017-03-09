@@ -47,17 +47,6 @@ const dom = {
     /**
      *
      * @public
-     * @member navi
-     * @memberof core.dom
-     * @description The cached <header> node.
-     *
-     */
-    header: $( ".js-header" ),
-
-
-    /**
-     *
-     * @public
      * @member views
      * @memberof core.dom
      * @description The cached <main> node.
@@ -85,18 +74,7 @@ const dom = {
      * @description The cached <intro> node.
      *
      */
-    intro: $( ".js-intro" ),
-
-
-    /**
-     *
-     * @public
-     * @member views
-     * @memberof core.dom
-     * @description The cached <footer> node.
-     *
-     */
-    footer: $( ".js-footer" )
+    intro: $( ".js-intro" )
 };
 
 

@@ -1,4 +1,4 @@
-<div class="cover js-cover ghost -wrap">
+<section class="cover js-cover ghost -wrap">
     <div class="cover__bg">
         <div class="videofs">
             {.repeated section items}
@@ -14,4 +14,4 @@
             <squarespace:block-field id="homepage-blocks" columns="1" />
         </div>
     </div>
-</div>
+</section>

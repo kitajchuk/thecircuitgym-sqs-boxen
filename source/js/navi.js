@@ -19,6 +19,7 @@ const navi = {
      *
      */
     init () {
+        this.naviLoc = null;
         this.isOpen = false;
         this.trigger = core.dom.body.find( ".js-navi-controller" );
         this.bind();
@@ -46,6 +47,29 @@ const navi = {
     close () {
         this.isOpen = false;
         core.dom.html.removeClass( "is-navi-open" );
+    },
+
+
+    checkLocation () {
+        const naviLoc = core.dom.main.find( ".js-navi-location" );
+
+        // Always remove last location navi
+        if ( this.naviLoc ) {
+            this.naviLoc.remove();
+            this.naviLoc = null;
+        }
+
+        // Check if there is a new location navi
+        if ( naviLoc.length ) {
+            this.naviLoc = naviLoc;
+
+            core.dom.body[ 0 ].insertBefore( this.naviLoc[ 0 ], core.dom.navi[ 0 ] );
+
+            core.dom.html.addClass( "is-location" );
+
+        } else {
+            core.dom.html.removeClass( "is-location" );
+        }
     }
 };
 

@@ -1,7 +1,9 @@
-{.repeated section items}
-    <article>
-        {.image?}<img {@|image-meta} data-load="false" />{.end}
-        {.section title}<h1>{@}</h1>{.end}
-        {.section body}<div>{@}</div>{.end}
-    </article>
-{.end}
+<section class="collection -exp">
+    {.repeated section items}
+        <article class="cms -text--center -exp-2">
+            <div class="cms__blocks -wrap-copy -wrap-mobile -text--left">
+                {body}
+            </div>
+        </article>
+    {.end}
+</section>
