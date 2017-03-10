@@ -1,11 +1,18 @@
 <nav class="navi navi--main js-navi -wrap -wrap-b -wrap-t" data-content-field="navigation-navi">
     <ul class="navi__ul">
         {.repeated section items}
-            {.section collection}
-                <li class="navi__li">
-                    <a class="navi__a btn" href="{fullUrl}">{title}</a>
-                </li>
-            {.end}
+            <li class="navi__li">
+                <a class="navi__a btn js-navi-link" href="{collection.fullUrl}" data-uid="{collection.title|slugify}">{collection.title}</a>
+                {.folder?}
+                    <ul class="navi__sub">
+                        {.repeated section items}
+                            <li class="navi__sub__li">
+                                <a class="navi__sub__a meta js-navi-link" href="{collection.fullUrl}" data-uid="{collection.title|slugify}">{collection.title}</a>
+                            </li>
+                        {.end}
+                    </ul>
+                {.end}
+            </li>
         {.end}
     </ul>
 </nav>

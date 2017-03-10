@@ -7,20 +7,22 @@
         {squarespace-headers}
     </head>
     <body class="-fzero">
-        <squarespace:navigation navigationId="navi" template="navi" />
         {@|apply header.block}
-        <main class="main js-main" {.if collection.homepage}data-homepage="true"{.end} data-content-field="main-content" data-website-id="{website.id}" {.section collection}data-collection-id="{collection.id}" data-collection-title="{.if collection.homepage}{website.siteTitle}{.or}{collection.title} – {website.siteTitle}{.end}"{.end} {.section item}data-item-id="{item.id}" data-item-title="{item.title} – {collection.title} – {website.siteTitle}"{.end}>
-            {.if collection.homepage}
-                {@|apply home.block}
-            {.or}
-                {.equal? collection.typeName "page"}
-                    {@|apply page.block}
+        <main class="main js-main">
+            <squarespace:navigation navigationId="navi" template="navi" />
+            <section class="page js-page" {.if collection.homepage}data-homepage="true"{.end} data-content-field="main-content" data-website-id="{website.id}" {.section collection}data-collection-id="{collection.id}" data-collection-title="{.if collection.homepage}{website.siteTitle}{.or}{collection.title} – {website.siteTitle}{.end}"{.end} {.section item}data-item-id="{item.id}" data-item-title="{item.title} – {collection.title} – {website.siteTitle}"{.end}>
+                {.if collection.homepage}
+                    {@|apply home.block}
                 {.or}
-                    {squarespace.main-content}
+                    {.equal? collection.typeName "page"}
+                        {@|apply page.block}
+                    {.or}
+                        {squarespace.main-content}
+                    {.end}
                 {.end}
-            {.end}
+            </section>
+            {@|apply footer.block}
         </main>
-        {@|apply footer.block}
         {@|apply intro.block}
         <script type="text/javascript" src="/scripts/app.js"></script>
         {squarespace-footers}

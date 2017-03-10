@@ -9,23 +9,28 @@
     vertical-align: middle;
 
     svg {
+        transition: fill $base-duration $ease;
         width: 100%;
         }
     div {
         background-color: $black;
         }
 }
-.icon--logo {
-    width: $logo-width;
-    }
+.icon--logo {}
+.icon--pencil {}
+.icon--rocks {}
 .icon--list {
-    width: 24px;
+    height: 2px;
 
     div {
         height: 2px;
+        position: absolute;
         width: 100%;
         }
-    div + div {
-        margin-top: 6px;
+    div:nth-child( 1 ) {
+        top: -6px;
+        }
+    div:nth-child( 3 ) {
+        top: 6px;
         }
 }

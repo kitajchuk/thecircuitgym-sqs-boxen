@@ -1,4 +1,18 @@
 .is-hoverable {
+    .navi__li:hover {
+        .navi__sub {
+            height: $navi-sub-height;
+            }
+    }
+    .navi__a:hover,
+    .navi__sub__a:hover {
+        color: $green-light;
+        }
+    .header__logo:hover {
+        svg {
+            fill: $green-light;
+            }
+    }
     .btn--large:hover {
         background-color: $green-light;
         }
@@ -10,4 +24,16 @@
         border-bottom-color: $green-light;
         color: $green-light;
         }
+    .tile:hover {
+        .overlay {
+            background-color: rgba( 39, 39, 39, 0.9 );
+            }
+        .btn--large {
+            background-color: $green-light;
+            }
+        // .tile__info {
+        //     opacity: 1;
+        //     transform: translate3d( -50%, $expander-mobile / 2, 0 );
+        //     }
+    }
 }

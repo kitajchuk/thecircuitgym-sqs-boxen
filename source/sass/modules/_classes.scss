@@ -1,4 +1,5 @@
 .navi,
+.page,
 .header,
 .footer {
     transition: transform $base-duration $ease-one;
@@ -9,10 +10,12 @@
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: $z_layer_infront - 1;
+    z-index: $z_layer_infront;
     }
 .header__logo {
+    display: block;
     pointer-events: auto;
+    width: $logo-width;
     }
 .navi {
     position: fixed;
@@ -21,18 +24,56 @@
     text-align: right;
     z-index: $z_layer_infront;
     }
-.navi__a {
+.navi__a,
+.navi__sub__a {
+    display: inline-block;
     padding: 10px 0;
+    transition: color $base-duration $ease;
+
+    &.is-active {
+        color: $green-light;
+        }
     }
-.navi__li:first-child .navi__a {
-    padding-top: 0;
+.navi__sub__a {
+    color: inherit;
+    padding: 5px 0;
+    }
+.navi__ul {
+    margin-top: -10px;
+    }
+.navi__sub {
+    height: 0;
+    overflow: hidden;
+    transition: height $base-duration $ease;
     }
 .navi-controller {
+    background-color: $black;
+    border-radius: $logo-width;
     cursor: pointer;
+    display: inline-block;
+    height: $logo-width;
     pointer-events: none;
+    text-align: center;
+    transition: background-color $base-duration $ease;
     visibility: hidden;
+    width: $logo-width;
+
+    .icon--list {
+        width: $icon-list-width;
+
+        div {
+            background-color: $white;
+            transition: background-color $base-duration $ease;
+            }
     }
+}
 .main {
+    background-color: $black;
+    // height: 100%;
+    // overflow: auto;
+    }
+.page {
+    background-color: $white;
     position: relative;
     width: 100%;
     transition: opacity $base-duration $ease,
@@ -47,21 +88,53 @@
 .article__header {
     background-color: $black;
     }
-.article__crumb {
-    margin-bottom: $expander-one;
+.article__body {}
+.crumb {
+    position: absolute;
+    bottom: $expander-mobile;
+    width: 100%;
 }
-.article__crumb__li {
+.crumb__li {
     display: inline-block;
     vertical-align: middle;
     }
-.article__crumb__li + .article__crumb__li {
+.crumb__li + .crumb__li {
     &:before {
         content: "/";
         padding-left: 10px;
         padding-right: 10px;
         }
 }
-.article__body {}
+.tile {
+    display: block;
+    position: relative;
+    }
+.tile + .tile {
+    margin-top: $expander-one;
+    }
+.tile__screen {
+    height: 100%;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateX( -50% ) translateY( -50% );
+    width: 100%;
+    }
+.tile__content {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    }
+// .tile__info {
+//     left: 50%;
+//     opacity: 0;
+//     position: absolute;
+//     transform: translate3d( -50%, $expander-mobile, 0 );
+//     transition: opacity $base-duration $ease,
+//                 transform $base-duration $ease;
+//     }
 .footer {
     background-color: $black;
     color: $white;
@@ -77,34 +150,31 @@
 }
 .cover {
     height: 100vh;
-    overflow: hidden;
     position: relative;
     width: 100vw;
     }
 .cover--banner {
     height: 60vh;
     }
-.cover__screen {
-    background-color: rgba( 39, 39, 39, 0.75 );
-    background-image: url( "/assets/images/texture.png" );
-    background-repeat: repeat;
-    }
 .cover__bg,
 .cover__screen {
-    height: 105%;
+    height: 100%;
     left: 50%;
     position: absolute;
     top: 50%;
     transform: translateX( -50% ) translateY( -50% );
-    width: 105%;
+    width: 100%;
+    }
+.cover__bg {
+    overflow: hidden;
     }
 .cover__content {
     position: relative;
     }
 .cover__blocks {
     .image {
-        max-width: 50%;
-        width: 50%;
+        height: 70vh;
+        width: auto;
         }
     .btn {
         background-image: url( "/assets/icons/icon--pencil.svg" );
@@ -114,6 +184,12 @@
         padding-left: $expander-mobile + 10px;
         }
 }
+.overlay {
+    background-color: rgba( 39, 39, 39, 0.75 );
+    background-image: url( "/assets/images/texture.png" );
+    background-repeat: repeat;
+    transition: background-color $base-duration $ease;
+    }
 .videofs {
     height: 100%;
     position: relative;

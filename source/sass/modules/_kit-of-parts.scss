@@ -1,7 +1,0 @@
-.kit-of-parts {}
-.kit-of-parts__part {
-    position: relative;
-    }
-.kit-of-parts__part + .kit-of-parts__part {
-    border-top: 1px solid $grey-rule;
-    }

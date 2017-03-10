@@ -145,7 +145,7 @@
                 transform $base-duration $ease-one,
                 opacity $base-duration $ease-one;
     width: $logo-width;
-    z-index: ($z_layer_infront - 1) !important;
+    z-index: $z_layer_infront !important;
     }
 .sqs-announcement-bar-text {
     display: none !important;

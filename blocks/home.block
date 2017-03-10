@@ -8,7 +8,7 @@
             {.end}
         </div>
     </div>
-    <div class="cover__screen"></div>
+    <div class="cover__screen overlay"></div>
     <div class="cover__content ghost__child -full -text--center">
         <div class="cover__blocks">
             <squarespace:block-field id="homepage-blocks" columns="1" />

@@ -49,10 +49,10 @@ const dom = {
      * @public
      * @member views
      * @memberof core.dom
-     * @description The cached <main> node.
+     * @description The cached <page> node.
      *
      */
-    main: $( config.mainSelector ),
+    page: $( config.pageSelector ),
 
 
     /**

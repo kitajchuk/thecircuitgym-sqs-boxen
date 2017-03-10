@@ -10,6 +10,9 @@ import Easing from "properjs-easing";
  *
  */
 const config = {
+    mobileWidth: 640,
+
+
     /**
      *
      * @public
@@ -81,10 +84,10 @@ const config = {
      * @public
      * @member mainSelector
      * @memberof core.config
-     * @description The string selector used for <main> node.
+     * @description The string selector used for <page> node.
      *
      */
-    mainSelector: ".js-main",
+    pageSelector: ".js-page",
 
 
     /**

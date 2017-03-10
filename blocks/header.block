@@ -5,7 +5,7 @@
         </a>
     </div>
     <div class="-column -column--2of4 -text--right">
-        <div class="navi-controller js-navi-controller">
+        <div class="navi-controller js-navi-controller ghost">
             <div class="icon icon--list">
                 <div></div>
                 <div></div>

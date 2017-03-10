@@ -1,7 +1,6 @@
 import $ from "properjs-hobo";
 import PageController from "properjs-pagecontroller";
 import ImageController from "./class/ImageController";
-import AnimateController from "./class/AnimateController";
 import CoverController from "./class/CoverController";
 import VideoFS from "./class/VideoFS";
 import * as core from "./core";
@@ -25,7 +24,7 @@ const router = {
      *
      */
     init () {
-        this.mainDuration = core.util.getTransitionDuration( core.dom.main[ 0 ] );
+        this.pageDuration = core.util.getTransitionDuration( core.dom.page[ 0 ] );
         this.bindEmptyHashLinks();
         this.initPageController();
 
@@ -72,7 +71,7 @@ const router = {
      */
     initPageController () {
         this.controller = new PageController({
-            transitionTime: this.mainDuration
+            transitionTime: this.pageDuration
         });
 
         this.controller.setConfig([
@@ -101,8 +100,9 @@ const router = {
      *
      */
     initPage ( /* data */ ) {
+        navi.checkActive();
         navi.checkLocation();
-        this.execHomepage( core.dom.main );
+        this.execHomepage( core.dom.page );
         this.execControllers();
     },
 
@@ -119,18 +119,18 @@ const router = {
      */
     parseDoc ( html ) {
         let doc = document.createElement( "html" );
-        let main = null;
+        let page = null;
 
         doc.innerHTML = html;
 
         doc = $( doc );
-        main = doc.find( core.config.mainSelector );
+        page = doc.find( core.config.pageSelector );
 
         return {
             $doc: doc,
-            $main: main,
-            mainData: main.data(),
-            mainHtml: main[ 0 ].innerHTML
+            $page: page,
+            pageData: page.data(),
+            pageHtml: page[ 0 ].innerHTML
         };
     },
 
@@ -159,7 +159,7 @@ const router = {
      */
     changePageOut ( /* data */ ) {
         core.dom.html.addClass( "is-routing" );
-        core.dom.main.addClass( "is-inactive" );
+        core.dom.page.addClass( "is-inactive" );
 
         navi.close();
     },
@@ -177,7 +177,14 @@ const router = {
     changeContent ( data ) {
         this.doc = this.parseDoc( data.response );
 
-        core.dom.main[ 0 ].innerHTML = this.doc.mainHtml;
+        core.dom.page[ 0 ].innerHTML = this.doc.pageHtml;
+
+        this.destroyControllers();
+        navi.checkActive();
+        navi.checkLocation();
+        this.execHomepage( this.doc.$page );
+        this.execControllers();
+        this.execSquarespace();
 
         core.emitter.fire( "app--analytics-push", this.doc );
     },
@@ -194,18 +201,12 @@ const router = {
      */
     changePageIn ( /* data */ ) {
         core.dom.html.removeClass( "is-routing" );
-        core.dom.main.removeClass( "is-inactive" );
-
-        this.destroyControllers();
-        navi.checkLocation();
-        this.execHomepage( this.doc.$main );
-        this.execControllers();
-        this.execSquarespace();
+        core.dom.page.removeClass( "is-inactive" );
     },
 
 
-    execHomepage ( $main ) {
-        const data = $main.data();
+    execHomepage ( $page ) {
+        const data = $page.data();
 
         if ( data.homepage ) {
             core.dom.html.addClass( "is-home" );
@@ -217,23 +218,22 @@ const router = {
 
 
     execControllers () {
-        this.anims = core.dom.main.find( core.config.animSelector );
-        this.images = core.dom.main.find( core.config.lazyImageSelector );
-        this.videofs = core.dom.main.find( ".js-video-fs" );
-        this.cover = core.dom.main.find( ".js-cover" );
+        this.images = core.dom.page.find( core.config.lazyImageSelector );
+        this.videofs = core.dom.page.find( ".js-video-fs" );
+        this.cover = core.dom.page.find( ".js-cover" );
 
         this.imageController = new ImageController( this.images );
         this.imageController.on( "preloaded", () => {
-            if ( this.anims.length ) {
-                this.animController = new AnimateController( this.anims );
-            }
-
             if ( this.videofs.length ) {
                 this.videofsController = new VideoFS( this.videofs );
             }
 
+            // Mostly better transitions this way...
             if ( this.cover.length ) {
                 this.coverController = new CoverController( this.cover );
+
+            } else {
+                CoverController.removeClass();
             }
 
             core.emitter.fire( "app--intro-teardown" );
@@ -245,11 +245,6 @@ const router = {
         if ( this.imageController ) {
             this.imageController.destroy();
             this.imageController = null;
-        }
-
-        if ( this.animController ) {
-            this.animController.destroy();
-            this.animController = null;
         }
 
         if ( this.videofsController ) {

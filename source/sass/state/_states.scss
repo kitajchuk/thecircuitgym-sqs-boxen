@@ -18,29 +18,50 @@
 }
 
 .is-cover {
-    .navi__a {
+    .navi__a,
+    .navi__sub__a {
         color: $white;
+
+        &.is-active {
+            color: $green-light;
+            }
         }
     .header__logo svg {
         fill: $white;
         }
-    .icon--list {
-        div {
-            background-color: $white;
-            }
+    .navi-controller {
+        background-color: $white;
+
+        .icon--list {
+            div {
+                background-color: $black;
+                }
+        }
     }
 }
 
 .is-navi-open {
     overflow: hidden;
 
-    body {
-        overflow: hidden;
+    .navi-controller {
+        .icon--list {
+            div:nth-child( 1 ) {
+                top: 0;
+                transform: rotate( 45deg );
+                }
+            div:nth-child( 2 ) {
+                display: none;
+                }
+            div:nth-child( 3 ) {
+                top: 0;
+                transform: rotate( -45deg );
+                }
         }
+    }
     .navi {
         transform: translate3d( 0, 0, 0 );
         }
-    .main,
+    .page,
     .header,
     .footer {
         transform: translate3d( -$navi-width, 0, 0 );

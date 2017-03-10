@@ -22,6 +22,7 @@ const navi = {
         this.naviLoc = null;
         this.isOpen = false;
         this.trigger = core.dom.body.find( ".js-navi-controller" );
+        this.currentLoc = null;
         this.bind();
     },
 
@@ -33,6 +34,12 @@ const navi = {
 
             } else {
                 this.open();
+            }
+        });
+
+        core.emitter.on( "app--resize", () => {
+            if ( window.innerWidth > core.config.mobileWidth ) {
+                this.close();
             }
         });
     },
@@ -50,25 +57,49 @@ const navi = {
     },
 
 
+    checkActive () {
+        const uid = window.location.pathname.replace( /^\/+|\/+$/g, "" ).split( "/" ).pop();
+
+        core.dom.body.find( ".js-navi-link" ).removeClass( "is-active" );
+
+        core.dom.body.find( `.js-navi-link[data-uid='${uid}']` ).addClass( "is-active" );
+    },
+
+
     checkLocation () {
-        const naviLoc = core.dom.main.find( ".js-navi-location" );
+        const naviLoc = core.dom.page.find( ".js-navi-location" );
+        const naviData = naviLoc.data();
 
-        // Always remove last location navi
-        if ( this.naviLoc ) {
-            this.naviLoc.remove();
-            this.naviLoc = null;
-        }
-
-        // Check if there is a new location navi
+        // Location navi in scope
         if ( naviLoc.length ) {
-            this.naviLoc = naviLoc;
+            // Already within the same location scope
+            if ( this.currentLoc === naviData.location ) {
+                // Just remove parsed navi
+                naviLoc.remove();
 
-            core.dom.body[ 0 ].insertBefore( this.naviLoc[ 0 ], core.dom.navi[ 0 ] );
+            // Looking within a different location scope
+            } else {
+                this.naviLoc = naviLoc;
 
-            core.dom.html.addClass( "is-location" );
+                core.dom.navi[ 0 ].parentNode.insertBefore( this.naviLoc[ 0 ], core.dom.navi[ 0 ] );
 
+                core.dom.html.addClass( "is-location" );
+            }
+
+            this.currentLoc = naviData.location;
+
+        // Location navi NOT in scope
         } else {
             core.dom.html.removeClass( "is-location" );
+
+            // Clear scope for location navi
+            this.currentLoc = null;
+
+            // Remove possible location navi
+            if ( this.naviLoc ) {
+                this.naviLoc.remove();
+                this.naviLoc = null;
+            }
         }
     }
 };

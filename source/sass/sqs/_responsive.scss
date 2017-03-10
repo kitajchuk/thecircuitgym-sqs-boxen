@@ -15,4 +15,12 @@
     [class*=sqs-col] + [class*=sqs-col] {
         margin-top: $expander-mobile;
         }
+    .sqs-block {
+        h1 {
+            font-size: $h2-size;
+            }
+    }
+    .sqs-announcement-bar {
+        right: $expander-mobile / 2;
+        }
 }

@@ -158,7 +158,7 @@ const loadImages = function ( images, handler, useVariant ) {
     handler = (handler || isElementLoadable);
 
     // Normalize the images
-    images = (images || dom.main.find( config.lazyImageSelector ));
+    images = (images || dom.page.find( config.lazyImageSelector ));
 
     // Normalize the `useVariant` flag
     if ( !useVariant && useVariant !== false ) {

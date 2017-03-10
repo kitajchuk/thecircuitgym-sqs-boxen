@@ -5,25 +5,30 @@
     {.if item.assetUrl}
         <header class="article__header cover cover--banner js-cover ghost -text--center">
             <div class="cover__bg -cover js-lazy-image" data-img-src="{item.assetUrl}" data-variants="{item.systemDataVariants}" data-original-size="{item.originalSize}"></div>
-            <div class="cover__screen"></div>
-            {.if item.excerpt}
-                <div class="cover__content ghost__child -text--left -wrap-copy -wrap-mobile">
+            <div class="cover__screen overlay"></div>
+            <div class="cover__content ghost__child -text--left -wrap-copy -wrap-mobile">
+                {.if item.excerpt}
                     <h2 class="h2 -light -wrap-head">{item.excerpt|safe}</h2>
-                </div>
-            {.end}
+                {.or}
+                    <h2 class="h1 -light -wrap-head">{item.title}</h2>
+                {.end}
+            </div>
+            <ul class="crumb meta -wrap -text--right -light">
+                <li class="crumb__li">
+                    <a href="/locations/">Locations</a>
+                </li>
+                <li class="crumb__li">
+                    <a href="{collection.fullUrl}">{collection.title}</a>
+                </li>
+                <li class="crumb__li">
+                    {item.title}
+                </li>
+            </ul>
         </header>
     {.end}
-    <main class="cms -text--center -exp-2">
-        <ul class="article__crumb meta -wrap -text--right">
-            <li class="article__crumb__li">
-                <a href="{collection.fullUrl}">{collection.title}</a>
-            </li>
-            <li class="article__crumb__li">
-                {item.title}
-            </li>
-        </ul>
+    <section class="cms -text--center -exp-2">
         <div class="article__body -wrap-copy -wrap-mobile -text--left">
             {item.body}
         </div>
-    </main>
+    </section>
 </article>

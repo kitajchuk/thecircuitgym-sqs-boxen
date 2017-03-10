@@ -42,13 +42,13 @@ class Analytics {
      *
      */
     pushTrack ( doc ) {
-        const mainTitle = (doc.mainData.itemTitle || doc.mainData.collectionTitle);
-        const websiteId = doc.mainData.websiteId;
-        const mainData = doc.mainData.itemId ? { itemId: doc.mainData.itemId } : { collectionId: doc.mainData.collectionId };
+        const pageTitle = (doc.pageData.itemTitle || doc.pageData.collectionTitle);
+        const websiteId = doc.pageData.websiteId;
+        const pageData = doc.pageData.itemId ? { itemId: doc.pageData.itemId } : { collectionId: doc.pageData.collectionId };
 
         // Squarespace Metrics
         if ( core.env.isProd() ) {
-            this.recordHit( websiteId, mainData, mainTitle ).then(( res ) => {
+            this.recordHit( websiteId, pageData, pageTitle ).then(( res ) => {
                 core.log( "Analytics", res );
 
             }).catch(( error ) => {
@@ -56,7 +56,7 @@ class Analytics {
             });
         }
 
-        this.setDocumentTitle( mainTitle );
+        this.setDocumentTitle( pageTitle );
     }
 
 
@@ -79,7 +79,7 @@ class Analytics {
      * @public
      * @method recordHit
      * @param {string} websiteId The site ID
-     * @param {object} mainData IDs for either collection or item
+     * @param {object} pageData IDs for either collection or item
      * @param {string} websiteTitle Page title for tracking
      * @memberof class.Analytics
      * @description Record sqs metrics for async page requests.
@@ -87,7 +87,7 @@ class Analytics {
      * @returns {Promise}
      *
      */
-    recordHit ( websiteId, mainData, websiteTitle ) {
+    recordHit ( websiteId, pageData, websiteTitle ) {
         const datas = {
             url: window.location.href,
             queryString: window.location.search,
@@ -103,11 +103,11 @@ class Analytics {
             templateId: websiteId
         };
 
-        if ( mainData.itemId ) {
-            datas.itemId = mainData.itemId;
+        if ( pageData.itemId ) {
+            datas.itemId = pageData.itemId;
 
         } else {
-            datas.collectionId = mainData.collectionId;
+            datas.collectionId = pageData.collectionId;
         }
 
         return $.ajax({

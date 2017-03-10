@@ -53,11 +53,15 @@ class CoverController extends Controller {
      *
      */
     destroy () {
-        core.dom.html.removeClass( "is-cover" );
-
         this.stop();
     }
 }
+
+
+
+CoverController.removeClass = () => {
+    core.dom.html.removeClass( "is-cover" );
+};
 
 
 
