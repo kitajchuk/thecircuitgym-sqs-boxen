@@ -23,4 +23,9 @@
     .sqs-announcement-bar {
         right: $expander-mobile / 2;
         }
+    #footer-blocks {
+        .social-icon-alignment-right .sqs-svg-icon--list {
+            text-align: left;
+            }
+    }
 }

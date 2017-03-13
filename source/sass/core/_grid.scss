@@ -23,18 +23,8 @@
  * Alignments
 *******************************************************************************/
 .ghost {
-    font-size: 0;
-
-    &:before {
-        content: "";
-        display: inline-block;
-        height: 100%;
-        margin-left: -1px;
-        vertical-align: middle;
-        width: 1px;
-        }
+    @include ghost();
 }
 .ghost__child {
-    display: inline-block;
-    vertical-align: middle;
+    @include ghost-child();
     }

@@ -117,3 +117,19 @@
     @include font-sans-text();
     @include font-sans-text-bold();
 }
+@mixin ghost {
+    font-size: 0;
+
+    &:before {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        margin-left: -1px;
+        vertical-align: middle;
+        width: 1px;
+        }
+}
+@mixin ghost-child {
+    display: inline-block;
+    vertical-align: middle;
+}
