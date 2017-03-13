@@ -187,6 +187,10 @@
         @include font-sans-text();
         }
 
+    span.required {
+        color: $green-dark;
+        }
+
     .form-wrapper .field-list .fields.name .field {
         width: #{"calc( ~\"50% - 10px\" )"};
         }
@@ -240,6 +244,16 @@
         background-color: #cc3b3b;
         display: block;
         padding: 10px;
+        }
+
+    .form-submission-text {
+        @include btn();
+        @include btn-style();
+        @include btn-large();
+        margin-top: 0;
+        }
+    .form-submission-text.hidden {
+        display: none;
         }
 }
 
