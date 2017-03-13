@@ -242,8 +242,10 @@
         @include btn();
         @include btn-style();
         background-color: #cc3b3b;
+        border-radius: 0;
         display: block;
         padding: 10px;
+        text-transform: none;
         }
 
     .form-submission-text {
