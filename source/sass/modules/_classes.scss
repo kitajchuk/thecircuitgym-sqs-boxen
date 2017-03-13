@@ -17,6 +17,10 @@
     pointer-events: auto;
     width: $logo-width;
     }
+.footer {
+    padding-bottom: $expander-two;
+    padding-top: $expander-one;
+    }
 .navi {
     position: fixed;
     right: 0;
@@ -127,14 +131,6 @@
     top: 0;
     width: 100%;
     }
-// .tile__info {
-//     left: 50%;
-//     opacity: 0;
-//     position: absolute;
-//     transform: translate3d( -50%, $expander-mobile, 0 );
-//     transition: opacity $base-duration $ease,
-//                 transform $base-duration $ease;
-//     }
 .footer {
     background-color: $black;
     color: $white;

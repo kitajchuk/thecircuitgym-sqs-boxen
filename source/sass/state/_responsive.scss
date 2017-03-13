@@ -3,10 +3,6 @@
         padding-left: $expander-mobile;
         padding-right: $expander-mobile;
         }
-    // .-wrap-2 {
-    //     padding-left: $expander-one;
-    //     padding-right: $expander-one;
-    //     }
     .-wrap-l {
         padding-left: $expander-mobile;
         }
@@ -24,6 +20,9 @@
 
 
 @media only screen and ( max-width: $wrap-copy + $expander-one ) {
+    .-wrap-copy {
+        max-width: 100%;
+        }
     .-wrap-mobile {
         padding-left: $expander-mobile;
         padding-right: $expander-mobile;
@@ -89,6 +88,9 @@
         padding-left: $expander-mobile / 2;
         padding-right: $expander-mobile / 2;
         padding-top: $expander-mobile / 2;
+        }
+    .cover--banner {
+        height: 50vh;
         }
     .cover__blocks {
         .image {
