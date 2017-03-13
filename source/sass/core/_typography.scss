@@ -7,20 +7,16 @@
 .btn--small,
 .btn--medium,
 .btn--large {
-    color: $white;
-    transition: background-color $base-duration $ease;
+    @include btn-style();
     }
 .btn--large {
-    background-color: $green-dark;
-    padding: 20px;
+    @include btn-large();
     }
 .btn--medium {
-    background-color: $black;
-    padding: 16px;
+    @include btn-medium();
     }
 .btn--small {
-    background-color: $black;
-    padding: 12px;
+    @include btn-small();
     }
 .btn__icon {
     margin-right: 10px;

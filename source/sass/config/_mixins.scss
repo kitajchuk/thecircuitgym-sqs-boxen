@@ -59,6 +59,22 @@
     @include font-sans-text();
     @include font-sans-text-bold();
 }
+@mixin btn-style () {
+    color: $white;
+    transition: background-color $base-duration $ease;
+}
+@mixin btn-large () {
+    background-color: $green-dark;
+    padding: 20px;
+}
+@mixin btn-medium () {
+    background-color: $black;
+    padding: 16px;
+}
+@mixin btn-small () {
+    background-color: $black;
+    padding: 12px;
+}
 @mixin q() {
     font-size: $q-size;
     line-height: 1.1428571429;
