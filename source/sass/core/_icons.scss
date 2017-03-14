@@ -13,7 +13,7 @@
         width: 100%;
         }
     div {
-        background-color: $black;
+        background-color: $true-black;
         }
 }
 .icon--logo {}
@@ -21,6 +21,10 @@
 .icon--rocks {}
 .icon--list {
     height: 2px;
+
+    svg {
+        fill: $true-black;
+        }
 
     div {
         height: 2px;

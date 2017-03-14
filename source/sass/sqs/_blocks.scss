@@ -221,6 +221,7 @@
         font-size: inherit;
         margin: 0;
         padding: 10px;
+        -webkit-appearance: none;
         }
 
     .form-wrapper .field-list .fields .description,
@@ -246,6 +247,7 @@
         @include btn();
         @include btn-style();
         @include btn-medium();
+        border-radius: 0;
         }
 
     .form-wrapper .field-error {
