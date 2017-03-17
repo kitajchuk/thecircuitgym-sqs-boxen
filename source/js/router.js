@@ -25,8 +25,8 @@ const router = {
      */
     init () {
         this.pageDuration = core.util.getTransitionDuration( core.dom.page[ 0 ] );
-        this.bindEmptyHashLinks();
-        this.initPageController();
+        this.bindEmpty();
+        this.initPages();
 
         core.log( "router initialized" );
     },
@@ -64,12 +64,12 @@ const router = {
     /**
      *
      * @public
-     * @method initPageController
+     * @method initPages
      * @memberof router
      * @description Create the PageController instance.
      *
      */
-    initPageController () {
+    initPages () {
         this.controller = new PageController({
             transitionTime: this.pageDuration
         });
@@ -138,12 +138,12 @@ const router = {
     /**
      *
      * @public
-     * @method bindEmptyHashLinks
+     * @method bindEmpty
      * @memberof router
      * @description Suppress #hash links.
      *
      */
-    bindEmptyHashLinks () {
+    bindEmpty () {
         core.dom.body.on( "click", "[href^='#']", ( e ) => e.preventDefault() );
     },
 

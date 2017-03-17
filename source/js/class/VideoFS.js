@@ -1,5 +1,6 @@
 import * as core from "../core";
 import paramalama from "paramalama";
+import ResizeController from "properjs-resizecontroller";
 
 
 /**
@@ -23,10 +24,10 @@ class VideoFS {
         this.videoRatio = this.element[ 0 ].width / this.element[ 0 ].height;
         this.originalWidth = this.element[ 0 ].width;
         this.originalHeight = this.element[ 0 ].height;
-
         this.handleResize = this.onResize.bind( this );
+        this.resizer = new ResizeController();
 
-        core.emitter.on( "app--resize", this.handleResize );
+        this.resizer.on( "resize", this.handleResize );
 
         this.handleResize();
     }
@@ -57,7 +58,7 @@ class VideoFS {
 
     destroy () {
         if ( this.handleResize ) {
-            core.emitter.off( "app--resize", this.handleResize );
+            this.resizer.off( "resize", this.handleResize );
         }
     }
 }

@@ -38,7 +38,6 @@ class App {
     initModules () {
         // Core
         this.core.detect.init();
-        this.core.resizes.init();
 
         // Utility?
 
