@@ -85,9 +85,7 @@
         visibility: visible;
         }
     .figure__cap {
-        padding-left: $expander-mobile / 2;
-        padding-right: $expander-mobile / 2;
-        padding-top: $expander-mobile / 2;
+        @include cap-pad-small();
         }
     .cover--banner {
         height: 50vh;

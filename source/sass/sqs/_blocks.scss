@@ -167,6 +167,12 @@
         background-color: $grey-rule;
         }
 }
+.sqs-block-video {
+    .video-caption p {
+        @include m();
+        @include cap-pad();
+        }
+}
 .sqs-announcement-bar {
     background-color: $green-dark;
     background-image: url( "/assets/icons/icon--pencil.svg" );

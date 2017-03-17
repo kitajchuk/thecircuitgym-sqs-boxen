@@ -20,6 +20,11 @@
             font-size: $h2-size;
             }
     }
+    .sqs-block-video {
+        .video-caption p {
+            @include cap-pad-small();
+            }
+    }
     .sqs-announcement-bar {
         right: $expander-mobile / 2;
         }

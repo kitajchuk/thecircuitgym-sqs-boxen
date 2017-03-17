@@ -149,3 +149,12 @@
     display: inline-block;
     vertical-align: middle;
 }
+@mixin cap-pad {
+    padding-left: $expander-mobile;
+    padding-right: $expander-mobile;
+    padding-top: $expander-mobile / 2;
+}
+@mixin cap-pad-small {
+    padding-left: $expander-mobile / 2;
+    padding-right: $expander-mobile / 2;
+}
