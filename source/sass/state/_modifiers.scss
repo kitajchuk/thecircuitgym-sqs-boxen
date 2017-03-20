@@ -13,14 +13,11 @@
     padding-left: $expander-one;
     padding-right: $expander-one;
     }
-.-wrap-2 {
-    padding-left: $expander-two;
-    padding-right: $expander-two;
+.-wrap-media {
+    @include wrap-media();
     }
 .-wrap-copy {
-    display: inline-block;
-    max-width: $wrap-copy;
-    width: 100%;
+    @include wrap-copy();
     }
 .-wrap-head {
     max-width: 400px;

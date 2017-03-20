@@ -15,6 +15,9 @@
     .-wrap-b {
         padding-bottom: $expander-mobile;
         }
+    .-p {
+        font-size: $p-size-small;
+        }
 }
 
 
@@ -24,8 +27,7 @@
         max-width: 100%;
         }
     .-wrap-mobile {
-        padding-left: $expander-mobile;
-        padding-right: $expander-mobile;
+        @include wrap-mobile();
         }
 }
 
@@ -45,10 +47,6 @@
 @media only screen and ( max-width: $break-mobile-full ) {
     .h1 {
         font-size: $h2-size;
-        }
-    .-wrap-2 {
-        padding-left: $expander-mobile;
-        padding-right: $expander-mobile;
         }
     .-exp {
         padding-top: $expander-one;

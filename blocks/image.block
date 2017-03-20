@@ -1,5 +1,5 @@
 {.section item}
-    <figure class="figure">
+    <figure class="figure {.if info.stretch}-stretch{.end}">
         <img class="figure__image image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}" />
         {.if info.description}
             <figcaption class="figure__cap">
@@ -8,7 +8,7 @@
         {.end}
     </figure>
 {.or}
-    <figure class="figure">
+    <figure class="figure {.if info.stretch}-stretch{.end}">
         <img class="figure__image image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}" />
         {.if info.description}
             <figcaption class="figure__cap">

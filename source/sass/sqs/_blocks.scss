@@ -2,12 +2,35 @@
  * Squarespace Block Spacing
 *******************************************************************************/
 
-// Layout handling
-.sqs-layout > .sqs-row {
+// Need to separate page sqs-layout from footer sqs-layout stylings
+// Need a good hook for multi-column page sqs-layout conditions
+.cms {
+    [class*="sqs-col"] {
+        // Block content
+        .sqs-block-map,
+        .sqs-block-html,
+        .sqs-block-form,
+        .sqs-block-quote,
+        .sqs-block-button,
+        .sqs-block-horizontalrule {
+            @include wrap-copy();
+            }
+        .sqs-block-video,
+        .sqs-block-gallery,
+        .sqs-block-image .figure:not( .-stretch ) {
+            @include wrap-media();
+            }
+    }
+}
+
+// SQS Resets
+.sqs-row {
     margin: 0 !important;
     }
-
-// Grid handling
+.sqs-row + .sqs-block,
+.sqs-block + .sqs-row {
+    margin-top: $expander-one;
+    }
 [class*=sqs-col] {
     display: inline-block;
     float: none !important;
@@ -15,9 +38,11 @@
     vertical-align: top;
 }
 [class*="sqs-col"] {
-    .sqs-block-content {
-        margin-left: $expander-mobile / 2;
-        margin-right: $expander-mobile / 2;
+    .sqs-block {
+        padding-bottom: 0;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 0;
         }
 }
 [class*="sqs-col"].sqs-col-1,
@@ -28,16 +53,8 @@
         }
 }
 
-// Block / Row handling
-.sqs-block + .sqs-row,
-.sqs-row + .sqs-block {
-    margin-top: $expander-mobile;
-    }
-
-// Block Typography
+// Block typography
 .sqs-block {
-    padding: 0 !important;
-
     h1 {
         @include h1();
         }
@@ -134,18 +151,13 @@
 }
 
 // Block Fields
-#footer-blocks,
 #page-58c1a43317bffc0ccdac4ece {
-    margin: 0 (-$expander-mobile / 2);
-}
+    @include wrap-copy();
+    }
 
 // Block specific
-.sqs-block-quote {
-    max-width: $wrap-copy;
-    }
+.sqs-block-quote {}
 .sqs-block-map {
-    max-width: $wrap-copy;
-
     .sqs-block-content.page-map {
         border: 1px solid $grey-rule;
         height: 0;

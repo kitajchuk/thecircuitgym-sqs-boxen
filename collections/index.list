@@ -10,11 +10,11 @@
             </h1>
         </div>
     </header>
-    <section class="cms -text--center -exp-2">
-        <div class="article__body -wrap-copy -wrap-mobile -text--left">
+    <section class="cms -exp-2">
+        <div class="article__body">
             {.section collection}
                 {.repeated section collections}
-                    <a class="tile" href="{fullUrl}">
+                    <a class="tile -wrap-media" href="{fullUrl}">
                         <img class="tile__image image js-lazy-image" data-img-src="{mainImage.assetUrl}" data-variants="{mainImage.systemDataVariants}" data-original-size="{mainImage.originalSize}" />
                         <div class="tile__screen overlay"></div>
                         <div class="tile__content ghost -wrap -text--center">
@@ -25,7 +25,6 @@
                                     </span>
                                     <span class="btn__text">{title}</span>
                                 </div>
-                                <!-- <div class="tile__info h3 -light -wrap-head">{description|safe}</div> -->
                             </div>
                         </div>
                     </a>

@@ -19,8 +19,8 @@
             </li>
         </ul>
     </header>
-    <section class="cms -text--center -exp-2">
-        <div class="article__body -wrap-copy -wrap-mobile -text--left">
+    <section class="cms -exp-2">
+        <div class="article__body">
             <squarespace:block-field id="{collection.urlId}-blocks" columns="12" />
         </div>
     </section>

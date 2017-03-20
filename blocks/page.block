@@ -10,8 +10,8 @@
             </h1>
         </div>
     </header>
-    <main class="cms -text--center -exp-2">
-        <div class="article__body -wrap-copy -wrap-mobile -text--left">
+    <main class="cms -exp-2">
+        <div class="article__body">
             {squarespace.main-content}
         </div>
     </main>

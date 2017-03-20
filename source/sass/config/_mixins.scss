@@ -158,3 +158,20 @@
     padding-left: $expander-mobile / 2;
     padding-right: $expander-mobile / 2;
 }
+@mixin wrap-copy {
+    display: inline-block;
+    max-width: $wrap-copy;
+    width: 100%;
+}
+@mixin wrap-mobile {
+    padding-left: $expander-mobile;
+    padding-right: $expander-mobile;
+}
+@mixin wrap-media {
+    padding-left: $expander-two;
+    padding-right: $expander-two;
+}
+@mixin wrap-media-mobile {
+    padding-left: 0;
+    padding-right: 0;
+}
