@@ -163,6 +163,11 @@
     max-width: $wrap-copy;
     width: 100%;
 }
+@mixin wrap-quote {
+    display: inline-block;
+    max-width: $wrap-quote;
+    width: 100%;
+}
 @mixin wrap-mobile {
     padding-left: $expander-mobile;
     padding-right: $expander-mobile;

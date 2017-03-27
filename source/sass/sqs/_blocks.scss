@@ -10,10 +10,12 @@
         .sqs-block-map,
         .sqs-block-html,
         .sqs-block-form,
-        .sqs-block-quote,
         .sqs-block-button,
         .sqs-block-horizontalrule {
             @include wrap-copy();
+            }
+        .sqs-block-quote {
+            @include wrap-quote();
             }
         .sqs-block-video,
         .sqs-block-gallery,
@@ -104,6 +106,7 @@
 
 
     p + p,
+    h1 + p,
     h2 + p,
     h3 + p {
         @include pp();
@@ -122,9 +125,12 @@
 
     blockquote {
         @include q();
-        }
+        color: $green-dark;
+    }
     blockquote + figcaption {
         @include m();
+        padding-right: $expander-mobile / 2;
+        padding-top: $expander-mobile / 2;
         }
 }
 
