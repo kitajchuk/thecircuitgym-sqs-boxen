@@ -14,6 +14,10 @@
         .sqs-block-horizontalrule {
             @include wrap-copy();
             }
+        // Multi-column rows in main-content
+        .sqs-block + .sqs-row {
+            @include wrap-row();
+            }
         .sqs-block-quote {
             @include wrap-quote();
             }

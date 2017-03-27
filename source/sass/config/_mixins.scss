@@ -163,6 +163,11 @@
     max-width: $wrap-copy;
     width: 100%;
 }
+@mixin wrap-row {
+    display: inline-block;
+    max-width: $wrap-copy;
+    width: 100% !important;
+}
 @mixin wrap-quote {
     display: inline-block;
     max-width: $wrap-quote;

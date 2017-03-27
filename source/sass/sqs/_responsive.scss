@@ -55,7 +55,10 @@
             .sqs-block-html,
             .sqs-block-form,
             .sqs-block-button,
-            .sqs-block-horizontalrule {
+            .sqs-block-horizontalrule,
+
+            // Multi-column rows in main-content
+            .sqs-block + .sqs-row {
                 @include wrap-mobile();
                 }
         }
