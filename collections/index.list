@@ -15,15 +15,17 @@
             {.section collection}
                 {.repeated section collections}
                     <a class="tile -wrap-media" href="{fullUrl}">
-                        <img class="tile__image image js-lazy-image" data-img-src="{mainImage.assetUrl}" data-variants="{mainImage.systemDataVariants}" data-original-size="{mainImage.originalSize}" />
-                        <div class="tile__screen overlay"></div>
-                        <div class="tile__content ghost -wrap -text--center">
-                            <div class="ghost__child">
-                                <div class="btn btn--large">
-                                    <span class="btn__icon">
-                                        {@|apply svg-rocks.block}
-                                    </span>
-                                    <span class="btn__text">{title}</span>
+                        <div class="tile__wrap">
+                            <img class="tile__image image js-lazy-image" data-img-src="{mainImage.assetUrl}" data-variants="{mainImage.systemDataVariants}" data-original-size="{mainImage.originalSize}" />
+                            <div class="tile__screen overlay"></div>
+                            <div class="tile__content ghost -wrap -text--center">
+                                <div class="ghost__child">
+                                    <div class="btn btn--large">
+                                        <span class="btn__icon">
+                                            {@|apply svg-rocks.block}
+                                        </span>
+                                        <span class="btn__text">{title}</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>

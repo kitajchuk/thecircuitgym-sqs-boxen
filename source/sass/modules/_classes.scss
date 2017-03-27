@@ -113,6 +113,8 @@
 }
 .tile {
     display: block;
+    }
+.tile__wrap {
     position: relative;
     }
 .tile + .tile {
