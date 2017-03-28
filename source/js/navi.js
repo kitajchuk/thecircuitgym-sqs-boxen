@@ -58,11 +58,20 @@ const navi = {
 
 
     checkActive () {
-        const uid = window.location.pathname.replace( /^\/+|\/+$/g, "" ).split( "/" ).pop();
+        // Either find a :uid match in the uri params or just let it go man :-)
+        const uris = window.location.pathname.replace( /^\/+|\/+$/g, "" ).split( "/" );
+        const links = core.dom.body.find( ".js-navi-link" ).removeClass( "is-active" );
+        let naviLink = null;
 
-        core.dom.body.find( ".js-navi-link" ).removeClass( "is-active" );
+        for ( let i = uris.length; i--; ) {
+            naviLink = links.filter( `[data-uid='${uris[ i ]}']` );
 
-        core.dom.body.find( `.js-navi-link[data-uid='${uid}']` ).addClass( "is-active" );
+            if ( naviLink.length ) {
+                naviLink.addClass( "is-active" );
+
+                break;
+            }
+        }
     },
 
 

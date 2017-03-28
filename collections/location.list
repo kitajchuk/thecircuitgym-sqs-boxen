@@ -10,15 +10,15 @@
                 {collection.title}
             </h1>
         </div>
-        <ul class="crumb meta -wrap -text--right -light">
-            <li class="crumb__li">
-                <a href="/locations/">Locations</a>
-            </li>
-            <li class="crumb__li">
-                {collection.title}
-            </li>
-        </ul>
     </header>
+    <nav class="crumb meta -wrap -text--right -grey">
+        <div class="crumb__li">
+            <a href="/locations/">Locations</a>
+        </div>
+        <div class="crumb__li">
+            {collection.title}
+        </div>
+    </nav>
     <section class="cms -exp-2">
         <div class="article__body">
             <squarespace:block-field id="{collection.urlId}-blocks" columns="12" />

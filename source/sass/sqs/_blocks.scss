@@ -166,7 +166,7 @@
 .sqs-block-quote {}
 .sqs-block-map {
     .sqs-block-content.page-map {
-        border: 1px solid $grey-rule;
+        border: 1px solid $grey-line;
         height: 0;
         padding-bottom: 56.25%;
         }
@@ -183,7 +183,7 @@
 }
 .sqs-block-horizontalrule {
     hr {
-        background-color: $grey-rule;
+        background-color: $grey-line;
         }
 }
 .sqs-block-video {
@@ -240,7 +240,7 @@
 
     .form-wrapper .field-list .field .field-element,
     .form-wrapper .field-list .field .caption .field-element {
-        border: 1px solid $grey-rule;
+        border: 1px solid $grey-line;
         border-radius: 0;
         font-family: inherit;
         font-size: inherit;

@@ -118,8 +118,10 @@
     }
 .article__body {}
 .crumb {
-    position: absolute;
-    bottom: $expander-mobile;
+    border-bottom: 1px solid $grey-line;
+    // margin-bottom: $expander-mobile;
+    padding-bottom: $expander-mobile / 2;
+    padding-top: $expander-mobile / 2;
     width: 100%;
 }
 .crumb__li {
@@ -336,8 +338,9 @@
         }
 }
 .carousel__navis {
+    height: $logo-width;
     left: 0;
-    padding-bottom: $expander-mobile;
+    overflow: hidden;
     pointer-events: none;
     position: absolute;
     top: 50%;

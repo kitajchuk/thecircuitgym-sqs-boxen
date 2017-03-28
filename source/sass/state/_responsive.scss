@@ -15,8 +15,20 @@
     .-wrap-b {
         padding-bottom: $expander-mobile;
         }
+    .-wrap-media {
+        padding-left: $expander-one;
+        padding-right: $expander-one;
+        }
     .-p {
         font-size: $p-size-small;
+        }
+}
+
+
+
+@media only screen and ( max-width: $wrap-copy + $expander-one + $expander-one ) {
+    .-wrap-media {
+        @include wrap-media-mobile();
         }
 }
 
