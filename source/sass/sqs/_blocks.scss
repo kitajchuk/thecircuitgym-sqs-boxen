@@ -120,10 +120,7 @@
     p,
     li {
         a {
-            border-bottom: 1px solid $green-dark;
-            color: $green-dark;
-            transition: color $base-duration $ease,
-                        border-bottom-color $base-duration $ease;
+            @include a();
             }
     }
 

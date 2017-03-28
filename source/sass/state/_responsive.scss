@@ -40,6 +40,10 @@
             width: 90%;
             }
     }
+    .gridwall {
+        padding-left: $expander-mobile;
+        padding-right: $expander-mobile;
+        }
 }
 
 
@@ -96,4 +100,22 @@
     .tile + .tile {
         margin-top: $expander-mobile;
         }
+    .gridwall {
+        padding-left: 0;
+        padding-right: 0;
+        }
+    .gridwall__item {
+        display: block;
+        width: 100%;
+        }
+    .gridwall__block {
+        .image--tall {
+            padding-bottom: 0;
+            padding-top: 0;
+            }
+        .image--wide {
+            padding-left: 0;
+            padding-right: 0;
+            }
+    }
 }

@@ -1,0 +1,42 @@
+<squarespace:query collection="{collection.urlId}" featured="true">
+    <header class="cover cover--banner js-cover carousel js-carousel">
+        <div class="carousel__items js-carousel-items">
+            {.repeated section items}
+                <div class="carousel__item js-carousel-item ghost -text--center">
+                    <div class="cover__bg -cover js-lazy-image" data-img-src="{customContent.bannerImage.assetUrl}" data-variants="{customContent.bannerImage.systemDataVariants}" data-original-size="{customContent.bannerImage.originalSize}"></div>
+                    <div class="cover__screen overlay"></div>
+                    <div class="cover__content ghost__child -text--left -wrap-copy -wrap-mobile">
+                        {.if excerpt}
+                            <h2 class="cover__title h2 -light -wrap-head">{excerpt|safe}</h2>
+                        {.or}
+                            <h2 class="cover__title h1 -light -wrap-head">{title}</h2>
+                        {.end}
+                        <!-- <a class="cover__cta btn btn--small" href="{fullUrl}">Check it out</a> -->
+                    </div>
+                </div>
+            {.end}
+        </div>
+        <div class="carousel__navis js-carousel-navis">
+            <div class="carousel__navi carousel__prev js-carousel-navi"></div>
+            <div class="carousel__navi carousel__next js-carousel-navi"></div>
+        </div>
+        <div class="carousel__indexes js-carousel-indexes -text--center">
+            {.repeated section items}
+                <div class="carousel__index js-carousel-index" data-index="{@index}"></div>
+            {.end}
+        </div>
+    </header>
+</squarespace:query>
+<section class="gridwall -exp-2 -text--center">
+    {.repeated section items}
+        {.if starred}
+            {# ignore featured news posts since we have the carousel up top ^ #}
+        {.or}
+            <summary class="gridwall__item -column -column--1of3">
+                <a href="{fullUrl}" class="gridwall__block">
+                    <img class="gridwall__image image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}" />
+                </a>
+            </summary>
+        {.end}
+    {.end}
+</section>

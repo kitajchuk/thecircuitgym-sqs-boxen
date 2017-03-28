@@ -94,7 +94,7 @@
         border-bottom-color: $green-light;
         color: $green-light;
         }
-    .tile:hover {
+    .tile__wrap:hover {
         .overlay {
             background-color: rgba( 39, 39, 39, 0.9 );
             }
@@ -102,4 +102,7 @@
             background-color: $green-light;
             }
     }
+    .carousel__navi:hover {
+        opacity: 1;
+        }
 }

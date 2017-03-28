@@ -73,8 +73,6 @@
 *******************************************************************************/
 .a {
     @include a();
-    transition: color $base-duration $ease,
-                border-bottom-color $base-duration $ease;
     }
 
 

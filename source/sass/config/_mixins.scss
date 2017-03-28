@@ -99,13 +99,11 @@
 @mixin pp() {
     margin-top: $expander-mobile / 2;
 }
-@mixin a() {
-    color: $green-dark;
-    display: inline;
-    font-size: $p-size;
-    line-height: 1.5;
-    text-decoration: none;
-    @include font-serif-text();
+@mixin a( $color: $green-dark ) {
+    border-bottom: 1px solid $color;
+    color: $color;
+    transition: color $base-duration $ease,
+                border-bottom-color $base-duration $ease;
 }
 @mixin li() {
     padding-left: 20px;

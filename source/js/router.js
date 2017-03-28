@@ -2,6 +2,7 @@ import $ from "properjs-hobo";
 import PageController from "properjs-pagecontroller";
 import ImageController from "./class/ImageController";
 import CoverController from "./class/CoverController";
+import CarouselController from "./class/CarouselController";
 import VideoFS from "./class/VideoFS";
 import * as core from "./core";
 import navi from "./navi";
@@ -221,6 +222,7 @@ const router = {
         this.images = core.dom.page.find( core.config.lazyImageSelector );
         this.videofs = core.dom.page.find( ".js-video-fs" );
         this.cover = core.dom.page.find( ".js-cover" );
+        this.carousel = core.dom.page.find( ".js-carousel" );
 
         this.imageController = new ImageController( this.images );
         this.imageController.on( "preloaded", () => {
@@ -234,6 +236,10 @@ const router = {
 
             } else {
                 CoverController.removeClass();
+            }
+
+            if ( this.carousel.length ) {
+                this.carouselController = new CarouselController( this.carousel );
             }
 
             core.emitter.fire( "app--intro-teardown" );
@@ -255,6 +261,11 @@ const router = {
         if ( this.coverController ) {
             this.coverController.destroy();
             this.coverController = null;
+        }
+
+        if ( this.carouselController ) {
+            this.carouselController.destroy();
+            this.carouselController = null;
         }
     },
 
