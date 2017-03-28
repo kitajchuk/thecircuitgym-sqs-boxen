@@ -1,6 +1,8 @@
 @media only screen and ( max-width: $break-laptop-medium ) {
     .sqs-block {
-        p {
+        p,
+        ol,
+        ul {
             font-size: $p-size-small;
             }
     }
@@ -55,7 +57,6 @@
             .sqs-block-html,
             .sqs-block-form,
             .sqs-block-button,
-            .sqs-block-horizontalrule,
 
             // Multi-column rows in main-content
             .sqs-block + .sqs-row {

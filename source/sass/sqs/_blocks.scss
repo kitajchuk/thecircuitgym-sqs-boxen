@@ -10,8 +10,7 @@
         .sqs-block-map,
         .sqs-block-html,
         .sqs-block-form,
-        .sqs-block-button,
-        .sqs-block-horizontalrule {
+        .sqs-block-button {
             @include wrap-copy();
             }
         // Multi-column rows in main-content
@@ -112,7 +111,19 @@
     p + p,
     h1 + p,
     h2 + p,
-    h3 + p {
+    h3 + p,
+    p + ul,
+    h1 + ul,
+    h2 + ul,
+    h3 + ul,
+    p + ol,
+    h1 + ol,
+    h2 + ol,
+    h3 + ol,
+    ul + ul,
+    ul + ol,
+    ol + ol,
+    ol + ul {
         @include pp();
         }
 
