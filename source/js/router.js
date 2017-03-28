@@ -102,6 +102,7 @@ const router = {
      */
     initPage ( /* data */ ) {
         navi.checkActive();
+        navi.checkSubmenu();
         navi.checkLocation();
         this.execHomepage( core.dom.page );
         this.execControllers();

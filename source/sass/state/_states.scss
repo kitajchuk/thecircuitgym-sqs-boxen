@@ -69,11 +69,6 @@
 }
 
 .is-hoverable {
-    .navi__li:hover {
-        .navi__sub {
-            height: $navi-sub-height;
-            }
-    }
     .navi__a:hover,
     .navi__sub__a:hover {
         color: $green-light;

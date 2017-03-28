@@ -85,7 +85,7 @@
         width: $navi-width;
         }
     .navi__sub {
-        height: 100%;
+        height: auto !important;
         }
     .navi__a,
     .navi__sub__a {

@@ -1,4 +1,6 @@
+import $ from "properjs-hobo";
 import * as core from "./core";
+import ResizeController from "properjs-resizecontroller";
 
 
 /**
@@ -22,7 +24,9 @@ const navi = {
         this.naviLoc = null;
         this.isOpen = false;
         this.trigger = core.dom.body.find( ".js-navi-controller" );
+        this.submenus = core.dom.navi.find( ".js-navi-submenu" );
         this.currentLoc = null;
+        this.resizer = new ResizeController();
         this.bind();
     },
 
@@ -37,10 +41,30 @@ const navi = {
             }
         });
 
-        core.emitter.on( "app--resize", () => {
+        this.resizer.on( "resize", () => {
             if ( window.innerWidth > core.config.mobileWidth ) {
                 this.close();
             }
+        });
+
+        if ( !core.detect.isDevice() ) {
+            this.hovers();
+        }
+    },
+
+
+    hovers () {
+        core.dom.navi.on( "mouseenter", ".js-navi-hovermenu", ( e ) => {
+            const hover = $( e.target ).closest( ".js-navi-hovermenu" );
+            const submenu = hover.find( ".js-navi-submenu" );
+
+            submenu[ 0 ].style.height = core.util.px( submenu.data( "height" ) );
+
+        }).on( "mouseleave", ".js-navi-hovermenu", ( e ) => {
+            const hover = $( e.target ).closest( ".js-navi-hovermenu" );
+            const submenu = hover.find( ".js-navi-submenu" );
+
+            submenu[ 0 ].style.height = core.util.px( 0 );
         });
     },
 
@@ -72,6 +96,18 @@ const navi = {
                 break;
             }
         }
+    },
+
+
+    checkSubmenu () {
+        const naviSub = core.dom.navi.find( ".js-navi-submenu" );
+
+        naviSub.forEach(( el, i ) => {
+            const submenu = naviSub.eq( i );
+            const height = submenu[ 0 ].getBoundingClientRect().height;
+
+            submenu.data( "height", height ).addClass( "is-determined" );
+        });
     },
 
 

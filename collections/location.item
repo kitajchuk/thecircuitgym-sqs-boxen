@@ -7,7 +7,7 @@
         <div class="cover__screen overlay"></div>
         <div class="cover__content ghost__child -text--left -wrap-copy -wrap-mobile">
             {.if item.excerpt}
-                <h2 class="h2 -light -wrap-head">{item.excerpt|safe}</h2>
+                <h2 class="h2 -light">{item.excerpt|safe}</h2>
             {.or}
                 <h2 class="h1 -light -wrap-head">{item.title}</h2>
             {.end}

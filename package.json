@@ -7,7 +7,7 @@
   "private": true,
   "scripts": {
     "minjs": "./node_modules/.bin/uglifyjs build/scripts/app.js -c -m -o build/scripts/app.min.js",
-    "postinstall": "cd ./node_modules/properjs-hobo && npm install && npm run build -- 'is eq not attr filter detach remove append'",
+    "postinstall": "cd ./node_modules/properjs-hobo && npm install && npm run build -- 'is eq not attr filter detach remove append closest'",
     "build": "./node_modules/.bin/squarespace assemble && webpack --display-modules",
     "watch": "./node_modules/.bin/squarespace assemble --watch & webpack --watch --hide-modules",
     "server": "./node_modules/.bin/squarespace runserver --auto-reload",
