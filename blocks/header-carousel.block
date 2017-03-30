@@ -1,0 +1,31 @@
+<header class="cover cover--banner js-cover carousel js-carousel">
+    <div class="carousel__items js-carousel-items">
+        {.repeated section items}
+            {.if item.customContent.bannerImage}
+                {.var @bannerImage item.customContent.bannerImage}
+            {.or}
+                {.var @bannerImage @}
+            {.end}
+            <div class="carousel__item js-carousel-item ghost -text--center">
+                <div class="cover__bg -cover js-lazy-image" data-img-src="{@bannerImage.assetUrl}" data-variants="{@bannerImage.systemDataVariants}" data-original-size="{@bannerImage.originalSize}"></div>
+                <div class="cover__screen overlay"></div>
+                <div class="cover__content ghost__child -text--left -wrap-copy -wrap-mobile">
+                    {.if excerpt}
+                        <h2 class="cover__title h2 -light -wrap-head">{excerpt|safe}</h2>
+                    {.or}
+                        <h2 class="cover__title h1 -light -wrap-head">{title}</h2>
+                    {.end}
+                </div>
+            </div>
+        {.end}
+    </div>
+    <div class="carousel__navis js-carousel-navis">
+        <div class="carousel__navi carousel__prev js-carousel-navi"></div>
+        <div class="carousel__navi carousel__next js-carousel-navi"></div>
+    </div>
+    <div class="carousel__indexes js-carousel-indexes -text--center">
+        {.repeated section items}
+            <div class="carousel__index js-carousel-index" data-index="{@index}"></div>
+        {.end}
+    </div>
+</header>

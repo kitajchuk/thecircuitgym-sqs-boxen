@@ -124,7 +124,16 @@
     ul + ul,
     ul + ol,
     ol + ol,
-    ol + ul {
+    ol + ul,
+    h1 + h1,
+    h1 + h2,
+    h1 + h3,
+    h2 + h1,
+    h2 + h2,
+    h2 + h3,
+    h3 + h1,
+    h3 + h2,
+    h3 + h3 {
         @include pp();
         }
 
