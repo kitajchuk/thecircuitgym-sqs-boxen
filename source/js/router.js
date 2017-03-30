@@ -3,6 +3,7 @@ import PageController from "properjs-pagecontroller";
 import ImageController from "./class/ImageController";
 import CoverController from "./class/CoverController";
 import CarouselController from "./class/CarouselController";
+import TabsController from "./class/TabsController";
 import VideoFS from "./class/VideoFS";
 import * as core from "./core";
 import navi from "./navi";
@@ -224,6 +225,7 @@ const router = {
         this.videofs = core.dom.page.find( ".js-video-fs" );
         this.cover = core.dom.page.find( ".js-cover" );
         this.carousel = core.dom.page.find( ".js-carousel" );
+        this.tabs = core.dom.page.find( ".js-tabs" );
 
         this.imageController = new ImageController( this.images );
         this.imageController.on( "preloaded", () => {
@@ -241,6 +243,10 @@ const router = {
 
             if ( this.carousel.length ) {
                 this.carouselController = new CarouselController( this.carousel );
+            }
+
+            if ( this.tabs.length ) {
+                this.tabsController = new TabsController( this.tabs );
             }
 
             core.emitter.fire( "app--intro-teardown" );
@@ -267,6 +273,11 @@ const router = {
         if ( this.carouselController ) {
             this.carouselController.destroy();
             this.carouselController = null;
+        }
+
+        if ( this.tabsController ) {
+            this.tabsController.destroy();
+            this.tabsController = null;
         }
     },
 

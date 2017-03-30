@@ -330,14 +330,17 @@
 
     &.is-active {
         opacity: 1;
+        position: relative;
         z-index: 2;
         }
     &.is-exiting {
         opacity: 0;
+        position: absolute;
         z-index: 2;
         }
     &.is-entering {
         opacity: 1;
+        position: relative;
         z-index: 1;
         }
 }
@@ -423,4 +426,63 @@
     }
 .carousel__index + .carousel__index {
     margin-left: $expander-mobile / 4;
+    }
+
+/******************************************************************************
+ * Tabs
+*******************************************************************************/
+.tabs {}
+.tabs__labels {
+    transform: translateY( -100% );
+    }
+.tabs__label {
+    background-color: transparent;
+    border-left: 1px solid rgba( 255, 255, 255, 0.25 );
+    border-top: 1px solid rgba( 255, 255, 255, 0.25 );
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 25%;
+
+    &:last-child {
+        border-right: 1px solid rgba( 255, 255, 255, 0.25 );
+        }
+
+    &.is-active {
+        background-color: $white;
+        border-color: $white;
+        color: $dark;
+        }
+
+    &.is-active + .tabs__label {
+        border-left-color: transparent;
+        }
+}
+.tabs__contents {
+    position: relative;
+    }
+.tabs__content {
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    transition: opacity $base-duration $ease;
+    width: 100%;
+    z-index: $z_layer_behind;
+
+    &.is-active {
+        opacity: 1;
+        position: relative;
+        z-index: 2;
+        }
+    &.is-exiting {
+        opacity: 0;
+        position: absolute;
+        z-index: 2;
+        }
+    &.is-entering {
+        opacity: 1;
+        position: relative;
+        z-index: 1;
+        }
     }

@@ -1,15 +1,5 @@
 <article class="article">
-    <header class="article__header cover cover--banner js-cover ghost -text--center">
-        {.if collection.mainImage}
-            <div class="cover__bg -cover js-lazy-image" data-img-src="{collection.mainImage.assetUrl}" data-variants="{collection.mainImage.systemDataVariants}" data-original-size="{collection.mainImage.originalSize}"></div>
-        {.end}
-        <div class="cover__screen overlay"></div>
-        <div class="cover__content ghost__child -text--left -wrap-copy -wrap-mobile">
-            <h1 class="h1 -light -wrap-head">
-                {collection.title}
-            </h1>
-        </div>
-    </header>
+    {@|apply header-banner.block}
     <section class="cms -exp-2">
         <div class="article__body">
             {.section collection}

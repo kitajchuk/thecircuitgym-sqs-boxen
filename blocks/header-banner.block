@@ -1,0 +1,26 @@
+{.if item}
+    {.if item.customContent.bannerImage}
+        {.var @bannerImage item.customContent.bannerImage}
+    {.or}
+        {.var @bannerImage item}
+    {.end}
+{.or}
+    {# collection #}
+    {.var @bannerImage collection.mainImage}
+{.end}
+<header class="article__header cover cover--banner js-cover ghost -text--center">
+    <div class="cover__bg -cover js-lazy-image" data-img-src="{@bannerImage.assetUrl}" data-variants="{@bannerImage.systemDataVariants}" data-original-size="{@bannerImage.originalSize}"></div>
+    <div class="cover__screen overlay"></div>
+    <div class="cover__content ghost__child -text--left -wrap-copy -wrap-mobile">
+        {.if item}
+            {.if item.excerpt}
+                <h2 class="h2 -light">{item.excerpt|safe}</h2>
+            {.or}
+                <h2 class="h1 -light -wrap-head">{item.title}</h2>
+            {.end}
+        {.or}
+            {# collection #}
+            <h2 class="h1 -light -wrap-head">{collection.title}</h2>
+        {.end}
+    </div>
+</header>

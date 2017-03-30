@@ -100,4 +100,11 @@
     .carousel__navi:hover {
         opacity: 1;
         }
+    .tabs__label:hover {
+        background-color: transparent;
+        }
+    .tabs__label.is-active:hover {
+        background-color: $white;
+        color: $dark;
+        }
 }

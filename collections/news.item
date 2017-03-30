@@ -1,15 +1,7 @@
 <article class="article">
-    <header class="article__header cover cover--banner js-cover ghost -text--center">
-        <div class="cover__bg -cover js-lazy-image" data-img-src="{item.customContent.bannerImage.assetUrl}" data-variants="{item.customContent.bannerImage.systemDataVariants}" data-original-size="{item.customContent.bannerImage.originalSize}"></div>
-        <div class="cover__screen overlay"></div>
-        <div class="cover__content ghost__child -text--left -wrap-copy -wrap-mobile">
-            {.if item.excerpt}
-                <h2 class="h2 -light">{item.excerpt|safe}</h2>
-            {.or}
-                <h2 class="h1 -light -wrap-head">{item.title}</h2>
-            {.end}
-        </div>
-    </header>
+    {.section item}
+        {@|apply header-banner.block}
+    {.end}
     <nav class="crumb meta -wrap -text--right -grey">
         <div class="crumb__li">
             <a href="{collection.fullUrl}">{collection.title}</a>
