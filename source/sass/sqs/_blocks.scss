@@ -21,7 +21,7 @@
             @include wrap-quote();
             }
         .sqs-block-video,
-        .sqs-block-gallery,
+        .sqs-gallery-container,
         .sqs-block-image .figure:not( .-stretch ) {
             @include wrap-media();
             }
@@ -179,10 +179,40 @@
 // Block Fields
 #page-58c1a43317bffc0ccdac4ece {
     @include wrap-copy();
+}
+#people-blocks,
+#page-58c0e4c92994caf4c4bbc8bb {
+    .sqs-gallery-design-grid {
+        margin: 0 (-$expander-one) !important;
+        }
+    .sqs-gallery-design-grid-slide {
+        .margin-wrapper {
+            margin: 0 !important;
+            padding-bottom: $expander-two;
+            padding-left: $expander-one;
+            padding-right: $expander-one;
+            }
     }
+    .sqs-gallery-block-grid .slide .margin-wrapper a.image-slide-anchor {
+        border-radius: 100%;
+        overflow: hidden;
+        }
+    .sqs-gallery-block-grid .slide .margin-wrapper a.image-slide-anchor img {
+        width: 100% !important;
+        }
+    .sqs-gallery-block-grid.sqs-gallery-block-meta-only-title .margin-wrapper .image-slide-title {
+        @include h3();
+        margin-top: 20px;
+        }
+}
 
 // Block specific
-.sqs-block-quote {}
+.sqs-block-gallery {
+    .sqs-gallery-design-grid-slide {
+        display: inline-block;
+        float: none;
+        }
+}
 .sqs-block-map {
     .sqs-block-content.page-map {
         border: 1px solid $grey-line;

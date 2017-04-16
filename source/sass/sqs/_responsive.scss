@@ -13,10 +13,28 @@
     .cms {
         [class*="sqs-col"] {
             .sqs-block-video,
-            .sqs-block-gallery,
+            .sqs-gallery-container,
             .sqs-block-image .figure:not( .-stretch ) {
                 padding-left: $expander-one;
                 padding-right: $expander-one;
+                }
+        }
+    }
+}
+
+
+
+@media only screen and ( max-width: $break-ipad-pro-width ) {
+    #people-blocks,
+    #page-58c0e4c92994caf4c4bbc8bb {
+        .sqs-gallery-design-grid {
+            margin: 0 (-$expander-mobile) !important;
+            }
+        .sqs-gallery-design-grid-slide {
+            .margin-wrapper {
+                padding-bottom: $expander-two;
+                padding-left: $expander-mobile;
+                padding-right: $expander-mobile;
                 }
         }
     }
@@ -28,9 +46,13 @@
     .cms {
         [class*=sqs-col] {
             .sqs-block-video,
-            .sqs-block-gallery,
+            .sqs-gallery-container,
             .sqs-block-image .figure:not( .-stretch ) {
                 @include wrap-media-mobile();
+                }
+            .sqs-gallery-block-grid,
+            .sqs-gallery-design-autogrid {
+                @include wrap-copy();
                 }
         }
     }
@@ -59,7 +81,11 @@
             .sqs-block-button,
 
             // Multi-column rows in main-content
-            .sqs-block + .sqs-row {
+            .sqs-block + .sqs-row,
+
+            // Grid style gallery blocks
+            .sqs-gallery-block-grid,
+            .sqs-gallery-design-autogrid {
                 @include wrap-mobile();
                 }
         }
@@ -93,5 +119,16 @@
         .social-icon-alignment-right .sqs-svg-icon--list {
             text-align: left;
             }
+    }
+    #people-blocks,
+    #page-58c0e4c92994caf4c4bbc8bb {
+        .sqs-gallery-design-grid-slide {
+            width: 50% !important;
+        }
+        .sqs-gallery-design-grid-slide {
+            .margin-wrapper {
+                padding-bottom: $expander-one;
+                }
+        }
     }
 }
