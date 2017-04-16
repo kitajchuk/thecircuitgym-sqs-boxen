@@ -2,10 +2,8 @@
     {@|apply header-banner.block}
     <section class="cms -exp-2">
         <div class="article__body">
-            {.section collection}
-                {.repeated section collections}
-                    {@|apply tiles.block}
-                {.end}
+            {.repeated section items}
+                {@|apply tiles.block}
             {.end}
         </div>
     </section>

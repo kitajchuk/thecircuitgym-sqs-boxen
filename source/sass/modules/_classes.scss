@@ -166,6 +166,10 @@
     top: 0;
     width: 100%;
     }
+.tile__image {}
+.tile__cover {
+    padding-bottom: 41.875%;
+    }
 
 /******************************************************************************
  * Overlays
@@ -448,7 +452,7 @@
     &.is-active {
         background-color: $white;
         border-color: $white;
-        color: $dark;
+        color: $green-light;
         }
 
     &.is-active + .tabs__label {

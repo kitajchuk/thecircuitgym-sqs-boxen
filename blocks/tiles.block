@@ -1,0 +1,27 @@
+{.if mainImage}
+    {# index #}
+    {.var @bannerImage mainImage}
+{.or}
+    {# collection #}
+    {.var @bannerImage @}
+{.end}
+<div class="tile -wrap-media">
+    <a class="tile__wrap" href="{fullUrl}">
+        <div class="tile__cover -cover js-lazy-image" data-img-src="{@bannerImage.assetUrl}" data-variants="{@bannerImage.systemDataVariants}" data-original-size="{@bannerImage.originalSize}"></div>
+        <div class="tile__screen overlay"></div>
+        <div class="tile__content ghost -wrap -text--center">
+            <div class="ghost__child">
+                <div class="btn btn--large">
+                    <span class="btn__icon">
+                        {.equal? collection.urlId "yoga"}
+                            {@|apply svg-yoga.block}
+                        {.or}
+                            {@|apply svg-rocks.block}
+                        {.end}
+                    </span>
+                    <span class="btn__text">{title}</span>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
