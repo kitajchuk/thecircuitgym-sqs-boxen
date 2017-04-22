@@ -3,7 +3,7 @@
 </squarespace:query>
 <article class="article">
     {@|apply header-banner.block}
-    <nav class="crumb meta -wrap -text--right -grey">
+    <nav class="crumb meta -wrap -text--left -grey">
         <div class="crumb__li">
             <a href="/locations/">Locations</a>
         </div>

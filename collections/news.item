@@ -2,7 +2,7 @@
     {.section item}
         {@|apply header-banner.block}
     {.end}
-    <nav class="crumb meta -wrap -text--right -grey">
+    <nav class="crumb meta -wrap -text--left -grey">
         <div class="crumb__li">
             <a href="{collection.fullUrl}">{collection.title}</a>
         </div>
