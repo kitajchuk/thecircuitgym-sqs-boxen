@@ -66,6 +66,19 @@ const router = {
     /**
      *
      * @public
+     * @method topout
+     * @memberof router
+     * @description Method set scroll position to zero.
+     *
+     */
+    topout () {
+        window.scrollTo( 0, 0 );
+    },
+
+
+    /**
+     *
+     * @public
      * @method initPages
      * @memberof router
      * @description Create the PageController instance.
@@ -188,6 +201,9 @@ const router = {
         this.execHomepage( this.doc.$page );
         this.execControllers();
         this.execSquarespace();
+
+        // Ensure topout prior to preload being done...
+        this.topout();
 
         core.emitter.fire( "app--analytics-push", this.doc );
     },
