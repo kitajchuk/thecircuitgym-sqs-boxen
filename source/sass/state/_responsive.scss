@@ -56,6 +56,9 @@
         padding-left: $expander-mobile;
         padding-right: $expander-mobile;
         }
+    .gridwall__item {
+        width: 50%;
+        }
 }
 
 
@@ -121,15 +124,9 @@
         width: 100%;
         }
     .gridwall__block {
-        .image--tall {
-            padding-bottom: 0;
-            padding-top: 0;
-            }
-        .image--wide {
-            padding-left: 0;
-            padding-right: 0;
-            }
-    }
+        padding-left: $expander-mobile;
+        padding-right: $expander-mobile;
+        }
     .tabs__label {
         &:first-child {
             border-left: 0;

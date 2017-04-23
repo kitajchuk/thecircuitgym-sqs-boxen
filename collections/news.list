@@ -7,9 +7,14 @@
             {# ignore featured news posts since we have the carousel up top ^ #}
         {.or}
             <summary class="gridwall__item -column -column--1of3">
-                <a href="{fullUrl}" class="gridwall__block">
-                    <img class="gridwall__image image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}" />
-                </a>
+                <div class="gridwall__block">
+                    <a href="{fullUrl}" class="gridwall__link">
+                        <img class="gridwall__image image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}" />
+                        <div class="gridwall__title h3">
+                            {title}
+                        </div>
+                    </a>
+                </div>
             </summary>
         {.end}
     {.end}

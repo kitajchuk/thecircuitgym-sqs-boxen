@@ -107,4 +107,8 @@
         background-color: $white;
         color: $green-light;
         }
+    .cover__title:hover,
+    .gridwall__link:hover .gridwall__title {
+        color: $green-light;
+        }
 }

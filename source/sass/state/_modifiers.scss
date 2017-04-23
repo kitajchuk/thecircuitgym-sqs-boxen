@@ -23,7 +23,8 @@
     @include wrap-copy();
     }
 .-wrap-head {
-    max-width: 400px;
+    display: inline-block;
+    max-width: 500px;
     width: 100%;
     }
 .-wrap-l {

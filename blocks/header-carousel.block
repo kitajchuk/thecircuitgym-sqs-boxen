@@ -11,9 +11,9 @@
                 <div class="cover__screen overlay"></div>
                 <div class="cover__content ghost__child -text--left -wrap-copy -wrap-mobile">
                     {.if excerpt}
-                        <h2 class="cover__title h2 -light -wrap-head">{excerpt|safe}</h2>
+                        <a href="{fullUrl}" class="cover__title h1 -light -wrap-head">{excerpt}</a>
                     {.or}
-                        <h2 class="cover__title h1 -light -wrap-head">{title}</h2>
+                        <a href="{fullUrl}" class="cover__title h1 -light -wrap-head">{title}</a>
                     {.end}
                 </div>
             </div>
