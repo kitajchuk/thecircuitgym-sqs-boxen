@@ -177,8 +177,8 @@
     padding-right: $expander-mobile;
 }
 @mixin wrap-media {
-    padding-left: $expander-two;
-    padding-right: $expander-two;
+    padding-left: $wrap-media;
+    padding-right: $wrap-media;
 }
 @mixin wrap-media-mobile {
     padding-left: 0;

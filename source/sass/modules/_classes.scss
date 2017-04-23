@@ -225,7 +225,7 @@
     width: 100vw;
     }
 .cover--banner {
-    height: 70vh;
+    height: 60vh;
     }
 .cover__bg,
 .cover__screen {
@@ -435,7 +435,17 @@
 .tabs {}
 .tabs__labels {
     transform: translateY( -100% );
-    }
+
+    &:after {
+        background-color: white;
+        bottom: -1px;
+        content: "";
+        height: 1px;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        }
+}
 .tabs__label {
     background-color: transparent;
     border-left: 1px solid rgba( 255, 255, 255, 0.25 );

@@ -14,6 +14,7 @@
         [class*="sqs-col"] {
             .sqs-block-video,
             .sqs-gallery-container,
+            .sqs-gallery-controls,
             .sqs-block-image .figure:not( .-stretch ) {
                 padding-left: $expander-one;
                 padding-right: $expander-one;
@@ -33,8 +34,6 @@
         .sqs-gallery-design-grid-slide {
             .margin-wrapper {
                 padding-bottom: $expander-two;
-                padding-left: $expander-mobile;
-                padding-right: $expander-mobile;
                 }
         }
     }
@@ -47,6 +46,7 @@
         [class*=sqs-col] {
             .sqs-block-video,
             .sqs-gallery-container,
+            .sqs-gallery-controls,
             .sqs-block-image .figure:not( .-stretch ) {
                 @include wrap-media-mobile();
                 }

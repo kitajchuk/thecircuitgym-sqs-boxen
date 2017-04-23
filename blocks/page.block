@@ -1,6 +1,6 @@
 <article class="article">
     {@|apply header-banner.block}
-    <main class="cms -exp-2">
+    <main class="cms cms--{collection.id} -exp-2">
         <div class="article__body">
             {squarespace.main-content}
         </div>

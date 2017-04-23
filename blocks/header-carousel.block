@@ -1,8 +1,8 @@
 <header class="cover cover--banner js-cover carousel js-carousel">
     <div class="carousel__items js-carousel-items">
         {.repeated section items}
-            {.if item.customContent.bannerImage}
-                {.var @bannerImage item.customContent.bannerImage}
+            {.if customContent.bannerImage}
+                {.var @bannerImage customContent.bannerImage}
             {.or}
                 {.var @bannerImage @}
             {.end}

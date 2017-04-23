@@ -22,6 +22,7 @@
             }
         .sqs-block-video,
         .sqs-gallery-container,
+        .sqs-gallery-controls,
         .sqs-block-image .figure:not( .-stretch ) {
             @include wrap-media();
             }
@@ -110,27 +111,43 @@
 
 
     p + p,
-    h1 + p,
-    h2 + p,
-    h3 + p,
     p + ul,
-    h1 + ul,
-    h2 + ul,
-    h3 + ul,
     p + ol,
-    h1 + ol,
-    h2 + ol,
-    h3 + ol,
+    p + h1,
+    p + h2,
+    p + h3,
+
+    ul + p,
     ul + ul,
     ul + ol,
+    ul + h1,
+    ul + h2,
+    ul + h3,
+
+    ol + p,
     ol + ol,
     ol + ul,
+    ol + h1,
+    ol + h2,
+    ol + h3,
+
+    h1 + p,
+    h1 + ul,
+    h1 + ol,
     h1 + h1,
     h1 + h2,
     h1 + h3,
+
+    h2 + p,
+    h2 + ul,
+    h2 + ol,
     h2 + h1,
     h2 + h2,
     h2 + h3,
+
+    h3 + p,
+    h3 + ul,
+    h3 + ol,
     h3 + h1,
     h3 + h2,
     h3 + h3 {
@@ -151,7 +168,6 @@
     }
     blockquote + figcaption {
         @include m();
-        padding-right: $expander-mobile / 2;
         padding-top: $expander-mobile / 2;
         }
 }
@@ -189,8 +205,8 @@
         .margin-wrapper {
             margin: 0 !important;
             padding-bottom: $expander-two;
-            padding-left: $expander-one;
-            padding-right: $expander-one;
+            padding-left: $circle-photo-pad;
+            padding-right: $circle-photo-pad;
             }
     }
     .sqs-gallery-block-grid .slide .margin-wrapper a.image-slide-anchor {
@@ -205,13 +221,58 @@
         margin-top: 20px;
         }
 }
+#block-yui_3_17_2_1_1492899785996_100777 {
+    background-color: $true-black;
+    color: $white;
+    max-width: 100%;
+    width: 100%;
+
+    .sqs-block-content {
+        padding-bottom: $expander-two - $expander-mobile;
+        padding-top: $expander-two;
+        }
+}
+
+#block-yui_3_17_2_1_1492364839208_29283 {
+    background-color: $true-black;
+    color: $white;
+}
 
 // Block specific
+.sqs-block-quote {
+    .sqs-block-content {
+        padding-bottom: $expander-one;
+        padding-top: $expander-one;
+        }
+    .source {
+        text-align: left;
+        }
+}
 .sqs-block-gallery {
     .sqs-gallery-design-grid-slide {
         display: inline-block;
         float: none;
         }
+    .sqs-gallery-controls {
+        left: 0;
+        position: absolute;
+        top: 50%;
+        transform: translateY( -50% );
+        width: 100%;
+
+        .next,
+        .previous {
+            margin-top: 0;
+            position: relative;
+            top: auto;
+            }
+        .next {
+            float: right;
+            }
+        .previous {
+            float: left;
+            }
+    }
 }
 .sqs-block-map {
     .sqs-block-content.page-map {
@@ -241,29 +302,6 @@
         @include cap-pad();
         }
 }
-.sqs-announcement-bar {
-    background-color: $green-dark;
-    background-image: url( "/assets/icons/icon--pencil.svg" );
-    background-size: 16px 16px;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    border-radius: $logo-width;
-    bottom: $expander-one;
-    color: $white;
-    height: $logo-width;
-    left: auto !important;
-    position: fixed !important;
-    right: $expander-one;
-    top: auto !important;
-    transition: background-color $base-duration $ease,
-                transform $base-duration $ease-one,
-                opacity $base-duration $ease-one;
-    width: $logo-width;
-    z-index: $z_layer_infront !important;
-    }
-.sqs-announcement-bar-text {
-    display: none !important;
-    }
 .sqs-block-form {
     form {
         color: $black;
@@ -344,6 +382,29 @@
         display: none;
         }
 }
+.sqs-announcement-bar {
+    background-color: $green-dark;
+    background-image: url( "/assets/icons/icon--pencil.svg" );
+    background-size: 16px 16px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    border-radius: $logo-width;
+    bottom: $expander-one;
+    color: $white;
+    height: $logo-width;
+    left: auto !important;
+    position: fixed !important;
+    right: $expander-one;
+    top: auto !important;
+    transition: background-color $base-duration $ease,
+                transform $base-duration $ease-one,
+                opacity $base-duration $ease-one;
+    width: $logo-width;
+    z-index: $z_layer_infront !important;
+    }
+.sqs-announcement-bar-text {
+    display: none !important;
+    }
 
 
 
