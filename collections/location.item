@@ -14,7 +14,7 @@
             {item.title}
         </div>
     </nav>
-    <section class="cms -exp-2">
+    <section class="cms">
         <div class="article__body">
             {item.body}
         </div>

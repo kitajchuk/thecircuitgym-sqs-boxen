@@ -1,6 +1,6 @@
 <article class="article">
     {@|apply header-banner.block}
-    <main class="cms -exp-2">
+    <main class="cms">
         <div class="article__body">
             <squarespace:block-field id="people-blocks" columns="1" />
         </div>

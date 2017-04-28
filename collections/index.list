@@ -1,6 +1,6 @@
 <article class="article">
     {@|apply header-banner.block}
-    <section class="cms -exp-2">
+    <section class="cms">
         <div class="article__body">
             {.section collection}
                 {.repeated section collections}

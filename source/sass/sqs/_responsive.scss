@@ -122,6 +122,17 @@
     .sqs-announcement-bar {
         right: $expander-mobile / 2;
         }
+    .sqs-block-spacer {
+        .sqs-block-content {
+            height: ($expander-mobile - 10px) !important;
+            }
+    }
+    .sqs-block-quote {
+        .sqs-block-content {
+            padding-bottom: $expander-mobile - 10px;
+            padding-top: $expander-mobile - 10px;
+            }
+    }
     #footer-blocks {
         .social-icon-alignment-right .sqs-svg-icon--list {
             text-align: left;
@@ -137,5 +148,11 @@
                 padding-bottom: $expander-one;
                 }
         }
+    }
+    #block-yui_3_17_2_1_1492899785996_100777 {
+        .sqs-block-content {
+            padding-bottom: $expander-one;
+            padding-top: $expander-one + 20px;
+            }
     }
 }

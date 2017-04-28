@@ -180,6 +180,6 @@
     padding-right: $wrap-media;
 }
 @mixin wrap-media-mobile {
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: $expander-mobile;
+    padding-right: $expander-mobile;
 }
