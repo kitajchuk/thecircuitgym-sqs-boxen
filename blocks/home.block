@@ -3,7 +3,7 @@
         <div class="videofs">
             {.repeated section items}
                 {.if starred}
-                    <iframe class="videofs__node js-video-fs" width="{oembed.width}" height="{oembed.height}" frameborder="0" allowfullscreen="1" data-url="{oembed.url}"></iframe>
+                    <div class="videofs__node js-video-fs" id="{id}" data-id="{id}" data-url="{oembed.url}" data-width="{oembed.width}" data-height="{oembed.height}"></div>
                 {.end}
             {.end}
         </div>

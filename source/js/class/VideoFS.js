@@ -1,6 +1,10 @@
 import * as core from "../core";
 import paramalama from "paramalama";
+import loadJS from "fg-loadjs";
 import ResizeController from "properjs-resizecontroller";
+
+
+const api = "https://www.youtube.com/iframe_api";
 
 
 /**
@@ -17,19 +21,69 @@ class VideoFS {
     constructor ( element ) {
         this.data = element.data();
         this.params = paramalama( this.data.url );
-        this.embedUrl = `https://www.youtube.com/embed/${this.params.v}?disablekb=1&autoplay=1&controls=0&iv_load_policy=3&loop=1&playlist=${this.params.v}&modestbranding=1&playsinline=1&rel=0&showinfo=0&wmode=opaque`;
+        this.videoId = this.params.v;
         this.element = element;
-        this.element[ 0 ].src = this.embedUrl;
         this.container = this.element[ 0 ].parentNode;
-        this.videoRatio = this.element[ 0 ].width / this.element[ 0 ].height;
-        this.originalWidth = this.element[ 0 ].width;
-        this.originalHeight = this.element[ 0 ].height;
+        this.videoRatio = parseInt( this.data.width, 10 ) / parseInt( this.data.height, 10 );
+        this.originalWidth = parseInt( this.data.width, 10 );
+        this.originalHeight = parseInt( this.data.height, 10 );
         this.handleResize = this.onResize.bind( this );
         this.resizer = new ResizeController();
 
-        this.resizer.on( "resize", this.handleResize );
+        // YouTube JS API loaded?
+        if ( window.YT ) {
+            this.onReady();
 
-        this.handleResize();
+        } else {
+            this.loadJSAPI();
+        }
+    }
+
+
+    loadJSAPI () {
+        window.onYouTubeIframeAPIReady = () => {
+            delete window.onYouTubeIframeAPIReady;
+
+            this.onReady();
+        };
+
+        loadJS( api );
+    }
+
+
+    onReady () {
+        this.player = new window.YT.Player( this.element[ 0 ], {
+            height: this.originalHeight,
+            width: this.originalWidth,
+            videoId: this.videoId,
+            playerVars: {
+                disablekb: 1,
+                controls: 0,
+                iv_load_policy: 3,
+                loop: 1,
+                playlist: this.videoId,
+                modestbranding: 1,
+                playsinline: 1,
+                rel: 0,
+                showinfo: 0,
+                wmode: "opaque",
+                autoplay: 1
+            },
+            events: {
+                onReady: ( e ) => {
+                    e.target.playVideo();
+                },
+                onStateChange: ( e ) => {
+                    if ( e.data === window.YT.PlayerState.PLAYING ) {
+                        this.iframe = this.player.a;
+                        this.container.className += " is-active";
+
+                        this.resizer.on( "resize", this.handleResize );
+                        this.handleResize();
+                    }
+                }
+            }
+        });
     }
 
 
@@ -49,14 +103,15 @@ class VideoFS {
 
         videoHeight = this.originalHeight * videoWidth / this.originalWidth;
 
-        this.element[ 0 ].style.width = core.util.px( videoWidth );
-        this.element[ 0 ].width = videoWidth;
-        this.element[ 0 ].style.height = core.util.px( videoHeight );
-        this.element[ 0 ].height = videoHeight;
+        this.iframe.style.width = core.util.px( videoWidth );
+        this.iframe.width = videoWidth;
+        this.iframe.style.height = core.util.px( videoHeight );
+        this.iframe.height = videoHeight;
     }
 
 
     destroy () {
+        // Kill the resive event
         if ( this.handleResize ) {
             this.resizer.off( "resize", this.handleResize );
         }

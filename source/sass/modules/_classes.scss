@@ -237,6 +237,7 @@
     width: 100%;
     }
 .cover__bg {
+    background-color: $true-black;
     overflow: hidden;
     }
 .cover__content {
@@ -267,8 +268,14 @@
 *******************************************************************************/
 .videofs {
     height: 100%;
+    opacity: 0;
     position: relative;
+    transition: opacity $base-duration $ease;
     width: 100%;
+
+    &.is-active {
+        opacity: 1;
+        }
     }
 .videofs__node {
     left: 50%;
