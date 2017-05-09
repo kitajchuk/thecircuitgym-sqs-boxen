@@ -1,35 +1,21 @@
 {@|apply header-banner.block}
 <squarespace:query collection="{collection.urlId}" featured="true">
     <section class="tabs js-tabs -text--center">
-        <div class="tabs__wrap -column -wrap-copy -text--left">
-            <div class="tabs__labels js-tabs-labels -text--center">
+        <div class="tabs__wrap -column -wrap-copy">
+            <div class="tabs__labels js-tabs-labels">
                 {.repeated section items}
                     <a href="#{title|slugify}" data-index="{@index}" class="tabs__label js-tabs-label btn btn--large">{title}</a>
                 {.end}
             </div>
-            <div class="tabs__contents js-tabs-contents cms">
-                {.repeated section items}
-                    <div class="tabs__content js-tabs-content" data-uid="{title|slugify}">
-                        {body}
-                    </div>
-                {.end}
+            <div class="tabs__cms cms">
+                <div class="tabs__contents js-tabs-contents">
+                    {.repeated section items}
+                        <div class="tabs__content js-tabs-content" data-uid="{title|slugify}">
+                            {body}
+                        </div>
+                    {.end}
+                </div>
             </div>
         </div>
     </section>
 </squarespace:query>
-<div class="-exp-2">
-    <div class="sqs-block-horizontalrule">
-        <hr />
-    </div>
-</div>
-<section class="cms -text--center -exp-2b">
-    <div class="-wrap-copy -text--left">
-        {.repeated section items}
-            {.if starred}
-                {# ignore featured news posts since we have the tabs up top ^ #}
-            {.or}
-                {body}
-            {.end}
-        {.end}
-    </div>
-</section>

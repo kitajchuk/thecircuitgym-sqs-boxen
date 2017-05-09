@@ -38,11 +38,11 @@
 .sqs-row {
     margin: 0 !important;
     }
-.sqs-row + .sqs-block,
-.sqs-block + .sqs-row,
-.sqs-layout + .sqs-layout {
-    margin-top: $expander-one;
-    }
+// .sqs-row + .sqs-block,
+// .sqs-block + .sqs-row,
+// .sqs-layout + .sqs-layout {
+//     margin-top: $expander-one;
+//     }
 [class*=sqs-col] {
     display: inline-block;
     float: none !important;
@@ -238,6 +238,10 @@
         transition: background-color $base-duration $ease,
                     border-color $base-duration $ease;
         }
+    .sqs-col-4 {
+        margin-right: $expander-one;
+        width: auto;
+    }
 }
 
 // Block Fields

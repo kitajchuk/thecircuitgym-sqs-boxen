@@ -422,7 +422,11 @@
  * Tabs
 *******************************************************************************/
 .tabs {}
+.tabs__cms {
+    padding-top: $expander-mobile;
+    }
 .tabs__labels {
+    display: flex;
     transform: translateY( -100% );
 
     &:after {
@@ -439,10 +443,10 @@
     background-color: transparent;
     border-left: 1px solid rgba( 255, 255, 255, 0.25 );
     border-top: 1px solid rgba( 255, 255, 255, 0.25 );
+    flex-grow: 1;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    width: 25%;
 
     &:last-child {
         border-right: 1px solid rgba( 255, 255, 255, 0.25 );

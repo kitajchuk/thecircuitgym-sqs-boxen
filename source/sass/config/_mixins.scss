@@ -84,7 +84,7 @@
 @mixin m() {
     color: $grey;
     font-size: $m-size;
-    line-height: 1.2;
+    line-height: 1.5;
     @include font-sans-text();
 }
 @mixin b() {
