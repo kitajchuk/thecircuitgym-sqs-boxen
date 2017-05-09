@@ -46,12 +46,6 @@
 
 
 @media only screen and ( max-width: $break-tablet-medium ) {
-    .cover__blocks {
-        .image {
-            height: auto;
-            width: 90%;
-            }
-    }
     .gridwall {
         padding-left: $expander-mobile;
         padding-right: $expander-mobile;
@@ -109,9 +103,11 @@
         height: 50vh;
         }
     .cover__blocks {
-        .image {
-            width: 100%;
-            }
+        .sqs-block-image {
+            .image {
+                max-width: 100%;
+                }
+        }
     }
     .tile + .tile {
         margin-top: $expander-mobile;

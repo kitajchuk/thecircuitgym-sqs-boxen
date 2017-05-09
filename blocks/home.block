@@ -1,17 +1,15 @@
-<section class="cover js-cover ghost -wrap">
+<section class="cover js-cover -wrap">
     <div class="cover__bg">
         <div class="videofs">
             {.repeated section items}
                 {.if starred}
-                    <div class="videofs__node js-video-fs" id="{id}" data-id="{id}" data-url="{oembed.url}" data-width="{oembed.width}" data-height="{oembed.height}"></div>
+                    <div class="videofs__node js-video-fs -cover" id="{id}" data-id="{id}" data-url="{oembed.url}" data-width="{oembed.width}" data-height="{oembed.height}" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}"></div>
                 {.end}
             {.end}
         </div>
     </div>
     <div class="cover__screen overlay"></div>
-    <div class="cover__content ghost__child -full -text--center">
-        <div class="cover__blocks">
-            <squarespace:block-field id="homepage-blocks" columns="1" />
-        </div>
+    <div class="cover__content cover__blocks -full -text--center">
+        <squarespace:block-field id="homepage-blocks" columns="1" />
     </div>
 </section>

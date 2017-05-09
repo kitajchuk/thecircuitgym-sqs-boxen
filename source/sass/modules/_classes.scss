@@ -247,17 +247,8 @@
     margin-top: $expander-mobile / 2;
     }
 .cover__blocks {
-    .image {
-        height: 70vh;
-        width: auto;
-        }
-    .btn {
-        background-image: url( "/assets/icons/icon--pencil.svg" );
-        background-size: 16px 16px;
-        background-position: ($expander-mobile / 2) 50%;
-        background-repeat: no-repeat;
-        padding-left: $expander-mobile + 10px;
-        }
+    height: 100%;
+    width: 100%;
 }
 .cover__title {
     transition: color $base-duration $ease;
@@ -278,10 +269,12 @@
         }
     }
 .videofs__node {
+    height: 100%;
     left: 50%;
     position: absolute;
     top: 50%;
     transform: translateX( -50% ) translateY( -50% );
+    width: 100%;
     }
 
 /******************************************************************************

@@ -19,10 +19,10 @@ const api = "https://www.youtube.com/iframe_api";
  */
 class VideoFS {
     constructor ( element ) {
-        this.data = element.data();
+        this.element = element;
+        this.data = this.element.data();
         this.params = paramalama( this.data.url );
         this.videoId = this.params.v;
-        this.element = element;
         this.container = this.element[ 0 ].parentNode;
         this.videoRatio = parseInt( this.data.width, 10 ) / parseInt( this.data.height, 10 );
         this.originalWidth = parseInt( this.data.width, 10 );
@@ -30,13 +30,24 @@ class VideoFS {
         this.handleResize = this.onResize.bind( this );
         this.resizer = new ResizeController();
 
+        // Thumbnail image load for mobile
+        if ( core.detect.isDevice() ) {
+            this.loadImage();
+
         // YouTube JS API loaded?
-        if ( window.YT ) {
+        } else if ( window.YT ) {
             this.onReady();
 
         } else {
             this.loadJSAPI();
         }
+    }
+
+
+    loadImage () {
+        core.util.loadImages( this.element, core.util.noop ).on( "done", () => {
+            this.container.className += " is-active";
+        });
     }
 
 
