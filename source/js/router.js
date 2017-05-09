@@ -4,6 +4,7 @@ import ImageController from "./class/ImageController";
 import CoverController from "./class/CoverController";
 import CarouselController from "./class/CarouselController";
 import TabsController from "./class/TabsController";
+import BlocksCoverController from "./class/BlocksCoverController";
 import VideoFS from "./class/VideoFS";
 import * as core from "./core";
 import navi from "./navi";
@@ -242,6 +243,7 @@ const router = {
         this.cover = core.dom.page.find( ".js-cover" );
         this.carousel = core.dom.page.find( ".js-carousel" );
         this.tabs = core.dom.page.find( ".js-tabs" );
+        this.blocks = core.dom.page.find( "#block-yui_3_17_2_1_1492899785996_100777, #block-yui_3_17_2_1_1492364839208_29283" );
 
         this.imageController = new ImageController( this.images );
         this.imageController.on( "preloaded", () => {
@@ -263,6 +265,10 @@ const router = {
 
             if ( this.tabs.length ) {
                 this.tabsController = new TabsController( this.tabs );
+            }
+
+            if ( this.blocks.length ) {
+                this.blocksController = new BlocksCoverController( this.blocks );
             }
 
             core.emitter.fire( "app--intro-teardown" );
@@ -294,6 +300,11 @@ const router = {
         if ( this.tabsController ) {
             this.tabsController.destroy();
             this.tabsController = null;
+        }
+
+        if ( this.blocksController ) {
+            this.blocksController.destroy();
+            this.blocksController = null;
         }
     },
 
