@@ -46,14 +46,17 @@ class Analytics {
         const websiteId = doc.pageData.websiteId;
         const pageData = doc.pageData.itemId ? { itemId: doc.pageData.itemId } : { collectionId: doc.pageData.collectionId };
 
-        // Squarespace Metrics
         if ( core.env.isProd() ) {
+            // Squarespace Metrics
             this.recordHit( websiteId, pageData, pageTitle ).then(( res ) => {
                 core.log( "Analytics", res );
 
             }).catch(( error ) => {
                 core.log( "warn", error );
             });
+
+            // Google Analytics
+            window.ga( "send", "pageview", window.location.href );
         }
 
         this.setDocumentTitle( pageTitle );

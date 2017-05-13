@@ -41,5 +41,6 @@
         {@|apply intro.block}
         <script type="text/javascript" src="/scripts/app.js?v={squarespace.template-revision}"></script>
         {squarespace-footers}
+        {@|apply google.block}
     </body>
 </html>
