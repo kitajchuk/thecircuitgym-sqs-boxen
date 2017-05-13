@@ -239,8 +239,25 @@
                     border-color $base-duration $ease;
         }
     .sqs-col-4 {
+        margin-bottom: $expander-one;
         margin-right: $expander-one;
         width: auto;
+
+        &:last-child {
+            margin-right: 0;
+            }
+
+        h3 a {
+            color: $green-light !important;
+            }
+        p a {
+            border-bottom-color: $white !important;
+            color: $white !important;
+            }
+    }
+    h3 + p,
+    p + p {
+        margin-top: 10px !important;
     }
 }
 
