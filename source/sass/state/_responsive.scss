@@ -125,6 +125,10 @@
         padding-right: $expander-mobile;
         }
     .tabs__label {
+        font-size: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+
         &:first-child {
             border-left: 0;
             }

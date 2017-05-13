@@ -424,7 +424,11 @@
 .tabs {}
 .tabs__cms {
     padding-top: $expander-mobile;
-    }
+
+    .sqs-col-6:last-child .sqs-block-content {
+        padding-left: $expander-mobile;
+        }
+}
 .tabs__labels {
     display: flex;
     transform: translateY( -100% );
