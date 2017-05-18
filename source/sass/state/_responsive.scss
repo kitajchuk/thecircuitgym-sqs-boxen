@@ -22,6 +22,10 @@
     .-p {
         font-size: $p-size-small;
         }
+
+    .absolute-cart-box {
+        left: $expander-mobile;
+    }
 }
 
 
@@ -41,6 +45,11 @@
     .-wrap-mobile {
         @include wrap-mobile();
         }
+    #sqs-shopping-cart-wrapper {
+        .sqs-fullpage-shopping-cart {
+            @include wrap-mobile();
+            }
+    }
 }
 
 
@@ -52,6 +61,19 @@
         }
     .gridwall__item {
         width: 50%;
+        }
+}
+
+
+
+@media only screen and ( max-width: $break-tablet-small ) {
+    .product__col:first-child {
+        width: 100%;
+        }
+    .product__col:last-child {
+        padding-left: 0;
+        padding-top: $expander-mobile;
+        width: 100%;
         }
 }
 

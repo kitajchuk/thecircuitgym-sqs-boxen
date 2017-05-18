@@ -1,8 +1,13 @@
 {.if item}
-    {.if item.customContent.bannerImage}
-        {.var @bannerImage item.customContent.bannerImage}
+    {.equal? item.recordTypeLabel "store-item"}
+        {# collection #}
+        {.var @bannerImage collection.mainImage}
     {.or}
-        {.var @bannerImage item}
+        {.if item.customContent.bannerImage}
+            {.var @bannerImage item.customContent.bannerImage}
+        {.or}
+            {.var @bannerImage item}
+        {.end}
     {.end}
 {.or}
     {# collection #}
@@ -13,10 +18,14 @@
     <div class="cover__screen overlay"></div>
     <div class="cover__content ghost__child -text--left -wrap-copy -wrap-mobile">
         {.if item}
-            {.if item.excerpt}
-                <h2 class="h2 -light">{item.excerpt|safe}</h2>
-            {.or}
+            {.equal? item.recordTypeLabel "store-item"}
                 <h2 class="h1 -light -wrap-head">{item.title}</h2>
+            {.or}
+                {.if item.excerpt}
+                    <h2 class="h2 -light">{item.excerpt|safe}</h2>
+                {.or}
+                    <h2 class="h1 -light -wrap-head">{item.title}</h2>
+                {.end}
             {.end}
         {.or}
             {# collection #}

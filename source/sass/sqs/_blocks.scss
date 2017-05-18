@@ -378,6 +378,20 @@
         @include cap-pad();
         }
 }
+
+.form-wrapper input[type=submit],
+body:not(.button-style-default) .sqs-editable-button,
+body:not(.button-style-default) .sqs-editable-button-font,
+body:not(.button-style-default) .sqs-editable-button,
+body:not(.button-style-default) .sqs-editable-button-color,
+body:not(.button-style-default) .sqs-editable-button,
+body:not(.button-style-default) .sqs-editable-button-layout {
+    @include btn();
+    @include btn-style();
+    @include btn-medium();
+    border-radius: 0;
+    }
+
 .sqs-block-form {
     form {
         color: $black;
@@ -425,19 +439,6 @@
         margin-left: 0;
         }
 
-    .form-wrapper input[type=submit],
-    body:not(.button-style-default) .sqs-editable-button,
-    body:not(.button-style-default) .sqs-editable-button-font,
-    body:not(.button-style-default) .sqs-editable-button,
-    body:not(.button-style-default) .sqs-editable-button-color,
-    body:not(.button-style-default) .sqs-editable-button,
-    body:not(.button-style-default) .sqs-editable-button-layout {
-        @include btn();
-        @include btn-style();
-        @include btn-medium();
-        border-radius: 0;
-        }
-
     .form-wrapper .field-error {
         @include btn();
         @include btn-style();
@@ -465,7 +466,7 @@
     background-position: 50% 50%;
     background-repeat: no-repeat;
     border-radius: $logo-width;
-    bottom: $expander-one;
+    bottom: $expander-mobile;
     color: $white;
     height: $logo-width;
     left: auto !important;
@@ -520,4 +521,16 @@
     .social-icons-color-white.social-icons-style-border .sqs-svg-icon--wrapper:hover {
         border-color: $green-light;
         }
+    .absolute-cart-box:hover {
+        .sqs-pill-shopping-cart-content {
+            background-color: $green-light !important;
+        }
+    }
+    #sqs-shopping-cart-wrapper {
+        .empty-message {
+            a:hover {
+                background-color: $green-light !important;
+            }
+        }
+    }
 }

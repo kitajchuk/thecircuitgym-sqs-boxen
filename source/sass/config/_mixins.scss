@@ -96,6 +96,11 @@
     max-width: $wrap-copy;
     @include font-serif-text();
 }
+@mixin p--clean() {
+    font-size: $p-size;
+    line-height: 1.5;
+    @include font-serif-text();
+}
 @mixin pp() {
     margin-top: $expander-mobile / 2;
 }

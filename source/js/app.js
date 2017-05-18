@@ -6,6 +6,8 @@ import router from "./router";
 import intro from "./intro";
 import navi from "./navi";
 import Analytics from "./class/Analytics";
+import $ from "properjs-hobo";
+import debounce from "properjs-debounce";
 
 
 /**
@@ -23,6 +25,15 @@ class App {
         this.navi = navi;
 
         this.initModules();
+        this.initEvents();
+    }
+
+
+    initEvents () {
+        this.core.emitter.on( "app--intro-teardown", debounce(() => {
+            $( ".absolute-cart-box" ).addClass( "is-active" );
+
+        }, 500 ));
     }
 
 

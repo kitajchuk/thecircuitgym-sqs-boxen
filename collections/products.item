@@ -1,0 +1,39 @@
+<article class="article">
+    {.section collection}
+        {@|apply header-banner.block}
+    {.end}
+    <main class="cms cms--{collection.id}">
+        <div class="product article__body -wrap-media">
+            <div class="product__col -column -column--2of4">
+                {.section item}
+                    <div class="product__image">
+                        {.repeated section items}
+                            {@|apply image.block}
+                        {.end}
+                    </div>
+                {.end}
+            </div>
+            <div class="product__col -column -column--2of4 -text--left -wrap-l">
+                {.section item}
+                    <div class="product__title h2">
+                        {title}
+                    </div>
+                    <div class="product__copy p">
+                        {.excerpt?}
+                            {excerpt}
+                        {.or}
+                            {.if body}
+                                {@}
+                            {.end}
+                        {.end}
+                    </div>
+                    {# product-status #}
+                    {# product-price #}
+                    <div class="product__checkout h3 -wrap-t">
+                        {@|product-checkout}
+                    </div>
+                {.end}
+            </div>
+        </div>
+    </main>
+</article>

@@ -494,3 +494,125 @@
         z-index: 1;
         }
     }
+
+/******************************************************************************
+ * SQS Commerce
+*******************************************************************************/
+.product {}
+.product__price {
+    color: $green-light;
+    }
+.product__copy,
+.product__price,
+.product-quantity-input,
+.sqs-add-to-cart-button-wrapper {
+    margin-top: $expander-mobile / 2;
+    }
+.sqs-add-to-cart-button {}
+// .sqs-shopping-cart-wrapper {
+//     @include wrap-copy();
+//     }
+#sqs-shopping-cart-wrapper {
+    padding-bottom: $expander-one;
+    padding-top: 25vh;
+    text-align: center;
+    width: 100%;
+    @include p--clean();
+
+    .empty-message {
+        text-align: left;
+
+        a {
+            @include btn();
+            @include btn-style();
+            @include btn-large();
+            margin-left: 20px;
+            background-image: url( "/assets/icons/icon--rocks--light.svg" ) !important;
+            background-size: 16px 16px;
+            background-repeat: no-repeat;
+            background-position: 20px 50%;
+            padding-left: 50px;
+        }
+    }
+
+    .sqs-fullpage-shopping-cart {
+        @include wrap-copy();
+        }
+    .sqs-fullpage-shopping-cart-content {
+        h2 {
+            padding-bottom: $expander-one;
+            @include h2();
+            text-align: left;
+            }
+        .item,
+        .price,
+        .quantity {
+            @include h3();
+            }
+    }
+}
+.absolute-cart-box {
+    top: auto !important;
+    right: auto !important;
+    bottom: $expander-mobile;
+    left: $expander-one;
+    z-index: ($z_layer_infront - 1) !important;
+    transition: transform $base-duration $ease 2000ms;
+    transform: translateY( 200% );
+
+    &.is-active {
+        transform: translateY( 0 );
+        }
+
+    .sqs-pill-shopping-cart {
+        position: static !important;
+        }
+
+    .sqs-pill-shopping-cart-content {
+        height: auto !important;
+        min-width: 0 !important;
+        padding: 20px 40px !important;
+        border-radius: 0 !important;
+        width: auto;
+        border: 0 !important;
+        background: $green-dark !important;
+        box-shadow: none !important;
+        @include btn();
+        @include btn-style();
+        @include btn-large();
+
+        > div,
+        > span {
+            display: inline-block !important;
+            vertical-align: middle !important;
+            @include h3();
+            line-height: 1;
+        }
+
+        > .icon {
+            margin: 0 10px 0 0 !important;
+            top: auto !important;
+            background-image: url( "/assets/icons/icon--rocks--light.svg" ) !important;
+            background-size: 16px 16px;
+            background-repeat: no-repeat;
+            background-color: transparent !important;
+            width: 16px !important;
+            height: 16px !important;
+            display: inline-block;
+            }
+
+        .price {
+            padding-left: 10px;
+
+            &:before {
+                content: "$";
+            }
+        }
+
+        .subtotal {
+            position: relative !important;
+            right: auto !important;
+            top: auto !important;
+            }
+    }
+}
