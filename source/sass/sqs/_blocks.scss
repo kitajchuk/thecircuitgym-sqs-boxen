@@ -515,6 +515,9 @@ body:not(.button-style-default) .sqs-editable-button-layout,
         padding: 15px;
         -webkit-appearance: none;
         }
+    .form-submission-text {
+        @include h2();
+        }
 }
 
 
