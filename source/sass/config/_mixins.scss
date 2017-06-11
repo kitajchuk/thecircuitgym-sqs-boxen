@@ -51,6 +51,7 @@
     cursor: pointer;
     display: inline-block;
     font-size: $btn-size;
+    letter-spacing: normal;
     line-height: 1;
     outline: 0;
     padding: 0;
@@ -96,7 +97,7 @@
     max-width: $wrap-copy;
     @include font-serif-text();
 }
-@mixin p--clean() {
+@mixin p-clean() {
     font-size: $p-size;
     line-height: 1.5;
     @include font-serif-text();

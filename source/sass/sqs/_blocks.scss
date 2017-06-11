@@ -28,6 +28,7 @@
         .sqs-block-video,
         .sqs-gallery-container,
         .sqs-gallery-controls,
+        .newsletter-block .newsletter-form-wrapper,
         .sqs-block-image .figure:not( .-stretch ) {
             @include wrap-media();
             }
@@ -379,19 +380,7 @@
         }
 }
 
-.form-wrapper input[type=submit],
-body:not(.button-style-default) .sqs-editable-button,
-body:not(.button-style-default) .sqs-editable-button-font,
-body:not(.button-style-default) .sqs-editable-button,
-body:not(.button-style-default) .sqs-editable-button-color,
-body:not(.button-style-default) .sqs-editable-button,
-body:not(.button-style-default) .sqs-editable-button-layout {
-    @include btn();
-    @include btn-style();
-    @include btn-medium();
-    border-radius: 0;
-    }
-
+// Forms ( Contact page )
 .sqs-block-form {
     form {
         color: $black;
@@ -459,6 +448,27 @@ body:not(.button-style-default) .sqs-editable-button-layout {
         display: none;
         }
 }
+.form-wrapper input[type=submit],
+body:not(.button-style-default) .sqs-editable-button,
+body:not(.button-style-default) .sqs-editable-button-font,
+body:not(.button-style-default) .sqs-editable-button,
+body:not(.button-style-default) .sqs-editable-button-color,
+body:not(.button-style-default) .sqs-editable-button,
+body:not(.button-style-default) .sqs-editable-button-layout,
+.sqs-async-form-content .form-wrapper input[type=submit],
+.sqs-widgets-confirmation-content .buttons .confirmation-button:not(.reject),
+.sqs-widgets-confirmation-content .buttons .confirmation-button:not(.reject) > * {
+    @include btn();
+    @include btn-style();
+    @include btn-medium();
+    border-radius: 0;
+    }
+.sqs-widgets-confirmation-content .buttons .confirmation-button:not(.reject),
+.sqs-widgets-confirmation-content .buttons .confirmation-button:not(.reject) > * {
+    color: $white !important;
+}
+
+// Announcement Bar
 .sqs-announcement-bar {
     background-color: $green-dark;
     background-image: url( "/assets/icons/icon--pencil.svg" );
@@ -482,6 +492,30 @@ body:not(.button-style-default) .sqs-editable-button-layout {
 .sqs-announcement-bar-text {
     display: none !important;
     }
+
+// Newsletter form ( News page )
+.newsletter-block {
+    .newsletter-form-wrapper {
+        background-color: transparent;
+        padding-bottom: 0;
+        padding-top: 0;
+        text-align: center;
+        }
+    .newsletter-form-wrapper--alignLeft .newsletter-form {
+        @include wrap-copy();
+        text-align: left;
+        }
+    .newsletter-form-field-element{
+        background-color: #fafafa;
+        border: 1px solid $grey-line;
+        border-radius: 0;
+        font-family: inherit;
+        font-size: 12px;
+        margin: 0;
+        padding: 15px;
+        -webkit-appearance: none;
+        }
+}
 
 
 
@@ -512,7 +546,10 @@ body:not(.button-style-default) .sqs-editable-button-layout {
     body:not(.button-style-default) .sqs-editable-button:hover,
     body:not(.button-style-default) .sqs-editable-button-color:hover,
     body:not(.button-style-default) .sqs-editable-button:hover,
-    body:not(.button-style-default) .sqs-editable-button-layout:hover {
+    body:not(.button-style-default) .sqs-editable-button-layout:hover,
+    .sqs-async-form-content .form-wrapper input[type=submit]:hover,
+    .sqs-widgets-confirmation-content .buttons .confirmation-button:not(.reject):hover,
+    .sqs-widgets-confirmation-content .buttons .confirmation-button:not(.reject):hover > * {
         background-color: $dark;
         }
     .social-icons-color-white.social-icons-style-border .sqs-svg-icon--wrapper:hover {
@@ -532,5 +569,8 @@ body:not(.button-style-default) .sqs-editable-button-layout {
                 background-color: $green-light !important;
             }
         }
+    }
+    .sqs-modal-lightbox-content .lightbox-inner .lightbox-content .lightbox-close:hover {
+        background-color: $dark !important;
     }
 }
