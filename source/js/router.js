@@ -311,11 +311,14 @@ const router = {
 
     // Initialize core sqs blocks after ajax routing
     execSquarespace () {
-        window.Squarespace.initializeVideo( window.Y );
-        window.Squarespace.initializeCommerce( window.Y );
-        window.Squarespace.initializeFormBlocks( window.Y );
-        window.Squarespace.initializeLayoutBlocks( window.Y );
-        window.Squarespace.initializeSummaryV2Block( window.Y );
+        setTimeout(() => {
+            window.Squarespace.initializeVideo( window.Y );
+            window.Squarespace.initializeCommerce( window.Y );
+            window.Squarespace.initializeFormBlocks( window.Y );
+            window.Squarespace.initializeLayoutBlocks( window.Y );
+            window.Squarespace.initializeSummaryV2Block( window.Y );
+
+        }, 0 );
     }
 };
 
