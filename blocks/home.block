@@ -10,6 +10,6 @@
     </div>
     <div class="cover__screen overlay"></div>
     <div class="cover__content cover__blocks -full -text--center">
-        <squarespace:block-field id="homepage-blocks" columns="1" />
+        <squarespace:block-field id="homepage-blocks" columns="2" />
     </div>
 </section>
