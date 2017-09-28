@@ -1,4 +1,4 @@
-<section class="cover js-cover -wrap">
+<section class="cover js-cover">
     <div class="cover__bg">
         <div class="videofs">
             {.repeated section items}
