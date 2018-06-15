@@ -98,15 +98,49 @@
         }
     .navi {
         background-color: $black;
+        overflow-x: hidden;
+        overflow-y: scroll;
         padding-top: 54px;
         height: 100%;
         text-align: left;
         transform: translate3d( 100%, 0, 0 );
         width: $navi-width;
+        -webkit-overflow-scrolling: touch;
         }
-    .navi__sub {
-        height: auto !important;
+    // .navi__sub {
+    //     height: auto !important;
+    //     }
+    .navi__index {
+        position: relative;
+
+        &:before,
+        &:after {
+            content: "";
+            left: #{"~\"calc( 100% + 12px )\""};
+            position: absolute;
+            top: 50%;
         }
+
+        &:before {
+            background-color: $white;
+            height: 10px;
+            width: 2px;
+            transform: translateY( -50% );
+        }
+
+        &:after {
+            background-color: $white;
+            height: 2px;
+            width: 10px;
+            transform: translateY( -50% ) translateX( #{"~\"calc( -50% + 1px )\""} );
+        }
+
+        &.is-active {
+            &:before {
+                display: none;
+            }
+        }
+    }
     .navi__a,
     .navi__sub__a {
         color: $white;

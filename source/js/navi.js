@@ -24,7 +24,7 @@ const navi = {
         this.naviLoc = null;
         this.isOpen = false;
         this.trigger = core.dom.body.find( ".js-navi-controller" );
-        this.submenus = core.dom.navi.find( ".js-navi-submenu" );
+        this.indexes = core.dom.navi.find( ".js-navi-index" );
         this.currentLoc = null;
         this.resizer = new ResizeController();
         this.bind();
@@ -38,6 +38,23 @@ const navi = {
 
             } else {
                 this.open();
+            }
+        });
+
+        core.dom.navi.on( "click", ".js-navi-index", ( e ) => {
+            const target = $( e.target );
+            const index = target.is( ".js-navi-index" ) ? target : target.closest( ".js-navi-index" );
+            const hover = target.closest( ".js-navi-hovermenu" );
+            const submenu = hover.find( ".js-navi-submenu" );
+            const isActive = index.is( ".is-active" );
+
+            if ( isActive ) {
+                index.removeClass( "is-active" );
+                submenu[ 0 ].style.height = core.util.px( 0 );
+
+            } else {
+                index.addClass( "is-active" );
+                submenu[ 0 ].style.height = core.util.px( submenu.data( "height" ) );
             }
         });
 
@@ -96,6 +113,19 @@ const navi = {
                 break;
             }
         }
+    },
+
+
+    resetSubmenus () {
+        const naviSub = core.dom.navi.find( ".js-navi-submenu" );
+
+        this.indexes.removeClass( "is-active" );
+
+        naviSub.forEach(( el, i ) => {
+            const submenu = naviSub.eq( i );
+
+            submenu[ 0 ].style.height = core.util.px( 0 );
+        });
     },
 
 

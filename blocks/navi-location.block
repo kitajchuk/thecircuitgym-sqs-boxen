@@ -5,5 +5,8 @@
                 <a class="navi__a btn js-navi-link" href="{fullUrl}" data-uid="{title|slugify}">{title}</a>
             </li>
         {.end}
+        <li class="navi__li">
+            <a class="navi__a btn js-navi-link" href="/" data-uid="home">Home</a>
+        </li>
     </ul>
 </nav>

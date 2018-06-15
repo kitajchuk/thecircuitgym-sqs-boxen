@@ -199,6 +199,7 @@ const router = {
         this.destroyControllers();
         navi.checkActive();
         navi.checkLocation();
+        navi.resetSubmenus();
         this.execHomepage( this.doc.$page );
         this.execControllers();
         this.execSquarespace();

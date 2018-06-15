@@ -5,13 +5,19 @@
                 {# Silence is golden... #}
             {.or}
                 <li class="navi__li {.folder?}js-navi-hovermenu{.end}">
-                    <a class="navi__a btn js-navi-link" href="{collection.fullUrl}" data-uid="{collection.title|slugify}">{collection.title}</a>
+                    <a class="navi__a {.folder?}navi__index{.end} btn js-navi-link {.folder?}js-navi-index{.end}" href="#{collection.fullUrl}" data-uid="{collection.title|slugify}">{collection.title}</a>
                     {.folder?}
                         <ul class="navi__sub js-navi-submenu">
                             {.repeated section items}
-                                <li class="navi__sub__li">
-                                    <a class="navi__sub__a meta js-navi-link" href="{collection.fullUrl}" data-uid="{collection.title|slugify}">{collection.title}</a>
-                                </li>
+                                {.section externalLink}
+                                    <li class="navi__sub__li">
+                                        <a class="navi__sub__a meta js-navi-link" href="{url}" data-uid="{title|slugify}" {.section newWindow}target="_blank"{.end}>{title}</a>
+                                    </li>
+                                {.or}
+                                    <li class="navi__sub__li">
+                                        <a class="navi__sub__a meta js-navi-link" href="{collection.fullUrl}" data-uid="{collection.title|slugify}">{collection.title}</a>
+                                    </li>
+                                {.end}
                             {.end}
                         </ul>
                     {.end}
