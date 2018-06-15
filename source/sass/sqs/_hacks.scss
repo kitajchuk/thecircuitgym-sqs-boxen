@@ -37,7 +37,7 @@
 // .sqs-shopping-cart-wrapper {
 //     @include wrap-copy();
 //     }
-#sqs-shopping-cart-wrapper {
+#sqs-cart-root {
     padding-bottom: $expander-one;
     padding-top: 25vh;
     text-align: center;
@@ -59,22 +59,22 @@
             padding-left: 50px;
         }
     }
+}
+#sqs-cart-container {
+    @include wrap-copy();
 
-    .sqs-fullpage-shopping-cart {
-        @include wrap-copy();
+    > div > h2 {
+        padding-bottom: $expander-one;
+        @include h2();
+        text-align: left;
+        font-weight: 600;
         }
-    .sqs-fullpage-shopping-cart-content {
-        h2 {
-            padding-bottom: $expander-one;
-            @include h2();
-            text-align: left;
-            }
-        .item,
-        .price,
-        .quantity {
-            @include h3();
-            }
+    > div > h2 + div {
+        text-align: left;
     }
+}
+.Form-form-33joO .sqs-modal-lightbox-content .lightbox-inner .lightbox-content {
+    background: white !important;
 }
 .absolute-cart-box {
     top: auto !important;
@@ -129,9 +129,9 @@
         .price {
             padding-left: 10px;
 
-            &:before {
-                content: "$";
-            }
+            // &:before {
+            //     content: "$";
+            // }
         }
 
         .subtotal {

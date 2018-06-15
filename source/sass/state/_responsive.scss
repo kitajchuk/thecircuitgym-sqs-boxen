@@ -45,7 +45,7 @@
     .-wrap-mobile {
         @include wrap-mobile();
         }
-    #sqs-shopping-cart-wrapper {
+    #sqs-cart-root {
         .sqs-fullpage-shopping-cart {
             @include wrap-mobile();
             }
