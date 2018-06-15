@@ -5,7 +5,7 @@
                 {# Silence is golden... #}
             {.or}
                 <li class="navi__li {.folder?}js-navi-hovermenu{.end}">
-                    <a class="navi__a {.folder?}navi__index{.end} btn js-navi-link {.folder?}js-navi-index{.end}" href="{.folder?}#{.end}{collection.fullUrl}" data-uid="{collection.title|slugify}">{collection.title}</a>
+                    <a class="navi__a {.folder?}navi__index{.end} btn js-navi-link {.folder?}js-navi-index{.end}" href="{.folder?}#{.end}{collection.fullUrl}" data-uid="{collection.fullUrl|slugify}">{collection.title}</a>
                     {.folder?}
                         <ul class="navi__sub js-navi-submenu">
                             {.repeated section items}
