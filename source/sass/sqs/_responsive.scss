@@ -1,4 +1,4 @@
-@media only screen and ( max-width: $break-laptop-medium ) {
+@media screen and ( max-width: $break-laptop-medium ) {
     .sqs-block {
         p,
         ol,
@@ -32,7 +32,7 @@
 
 
 
-@media only screen and ( max-width: $break-ipad-pro-width ) {
+@media screen and ( max-width: $break-ipad-pro-width ) {
     #people-blocks,
     #page-58c0e4c92994caf4c4bbc8bb {
         .sqs-gallery-design-grid {
@@ -48,7 +48,7 @@
 
 
 
-@media only screen and ( max-width: $wrap-copy + $expander-one + $expander-one ) {
+@media screen and ( max-width: $wrap-copy + $expander-one + $expander-one ) {
     .cms {
         [class*=sqs-col] {
             .sqs-block-video,
@@ -68,7 +68,7 @@
 
 
 
-@media only screen and ( max-width: $wrap-quote + $expander-one ) {
+@media screen and ( max-width: $wrap-quote + $expander-one ) {
     .cms {
         [class*=sqs-col] {
             .sqs-block-quote {
@@ -82,7 +82,7 @@
 
 
 
-@media only screen and ( max-width: $wrap-copy + $expander-one ) {
+@media screen and ( max-width: $wrap-copy + $expander-one ) {
     .cms {
         [class*=sqs-col] {
             // Block content
@@ -109,7 +109,7 @@
 
 
 
-@media only screen and ( max-width: $break-mobile-full ) {
+@media screen and ( max-width: $break-mobile-full ) {
     [class*=sqs-col] {
         display: block;
         width: 100% !important;
@@ -177,5 +177,31 @@
             padding-bottom: $expander-one;
             padding-top: $expander-one + 20px;
             }
+    }
+    #page-5edfb8b72638073b62c92830 {
+        > .sqs-row > .col > .sqs-row {
+            > .sqs-col-6 {
+                margin-top: 0 !important;
+                width: auto !important;
+            }
+
+            > .sqs-col-6 + .sqs-col-6 {
+                margin-left: $expander-mobile !important;
+            }
+        }
+    }
+}
+
+@media screen and ( max-width: $break-mobile-medium ) {
+    #page-5edfb8b72638073b62c92830 {
+        > .sqs-row > .col > .sqs-row {
+            > .sqs-col-6 {
+                display: block !important;
+            }
+
+            > .sqs-col-6 + .sqs-col-6 {
+                margin-left: 0 !important;
+            }
+        }
     }
 }

@@ -1,4 +1,4 @@
-@media only screen and ( max-width: $break-laptop-medium ) {
+@media screen and ( max-width: $break-laptop-medium ) {
     .-wrap {
         padding-left: $expander-mobile;
         padding-right: $expander-mobile;
@@ -30,7 +30,7 @@
 
 
 
-@media only screen and ( max-width: $wrap-copy + $expander-one + $expander-one ) {
+@media screen and ( max-width: $wrap-copy + $expander-one + $expander-one ) {
     .-wrap-media {
         @include wrap-media-mobile();
         }
@@ -38,7 +38,7 @@
 
 
 
-@media only screen and ( max-width: $wrap-copy + $expander-one ) {
+@media screen and ( max-width: $wrap-copy + $expander-one ) {
     .-wrap-copy {
         max-width: 100%;
         }
@@ -54,7 +54,7 @@
 
 
 
-@media only screen and ( max-width: $break-tablet-medium ) {
+@media screen and ( max-width: $break-tablet-medium ) {
     .gridwall {
         padding-left: $expander-mobile;
         padding-right: $expander-mobile;
@@ -66,7 +66,7 @@
 
 
 
-@media only screen and ( max-width: $break-tablet-small ) {
+@media screen and ( max-width: $break-tablet-small ) {
     .product__col:first-child {
         width: 100%;
         }
@@ -79,7 +79,7 @@
 
 
 
-@media only screen and ( max-width: $break-mobile-full ) {
+@media screen and ( max-width: $break-mobile-full ) {
     .h1 {
         font-size: $h2-size;
         }

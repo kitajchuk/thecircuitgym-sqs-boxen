@@ -348,10 +348,27 @@
         padding-top: $expander-two;
         }
 }
-
 #block-yui_3_17_2_1_1492364839208_29283 {
     background-color: $true-black;
     color: $white;
+}
+#page-5edfb8b72638073b62c92830 {
+    > .sqs-row > .col > .sqs-row {
+        text-align: left;
+
+        > .sqs-col-6 {
+            display: inline-block;
+            width: auto;
+
+            .sqs-block-content {
+                padding: 0 !important;
+            }
+        }
+
+        > .sqs-col-6 + .sqs-col-6 {
+            margin-left: $expander-mobile;
+        }
+    }
 }
 
 // Block specific
