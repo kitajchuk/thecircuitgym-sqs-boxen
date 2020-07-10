@@ -6,7 +6,8 @@
             font-size: $p-size-small;
             }
     }
-    .sqs-announcement-bar {
+    .sqs-announcement-bar,
+    body:not(.sqs-seven-one) .sqs-announcement-bar {
         bottom: $expander-mobile;
         right: $expander-mobile;
         }
@@ -126,7 +127,8 @@
             @include cap-pad-small();
             }
     }
-    .sqs-announcement-bar {
+    .sqs-announcement-bar,
+    body:not(.sqs-seven-one) .sqs-announcement-bar {
         right: $expander-mobile / 2;
         }
     .sqs-block-spacer {

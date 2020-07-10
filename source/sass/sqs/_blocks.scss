@@ -515,12 +515,13 @@ body:not(.button-style-default) .sqs-editable-button-layout,
 }
 
 // Announcement Bar
-.sqs-announcement-bar {
-    background-color: $green-dark;
-    background-image: url( "/assets/icons/icon--pencil.svg" );
-    background-size: 16px 16px;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
+.sqs-announcement-bar,
+body:not(.sqs-seven-one) .sqs-announcement-bar {
+    background-color: $green-dark !important;
+    background-image: url( "/assets/icons/icon--pencil.svg" ) !important;
+    background-size: 16px 16px !important;
+    background-position: 50% 50% !important;
+    background-repeat: no-repeat !important;
     border-radius: $logo-width;
     bottom: $expander-mobile;
     color: $white;
