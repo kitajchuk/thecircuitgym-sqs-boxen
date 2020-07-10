@@ -26,7 +26,35 @@
     color: $white;
     padding-bottom: $expander-two;
     padding-top: $expander-one;
+
+    .sqs-row > .col > .sqs-row:first-child {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        &:before,
+        &:after {
+            display: none;
+        }
     }
+    .sqs-row > .col > .sqs-row:first-child > [class*=sqs-col] {
+        display: inline-block;
+        width: auto;
+        float: none;
+
+        @media only screen and ( max-width: $break-tablet-medium ) {
+            margin-top: $expander-mobile;
+            width: 50%;
+        }
+    }
+
+    // Spacers in between these rows...
+
+    .sqs-row > .col > .sqs-row:last-child > [class*=sqs-col] {
+        vertical-align: middle;
+    }
+}
 
 /******************************************************************************
  * Navigation
