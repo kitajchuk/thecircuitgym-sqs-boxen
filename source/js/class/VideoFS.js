@@ -21,6 +21,8 @@ class VideoFS {
     constructor ( element ) {
         this.element = element;
         this.data = this.element.data();
+        this.script = this.element.find( "script" ).detach();
+        this.blockJson = JSON.parse( this.script[ 0 ].textContent );
         this.params = paramalama( this.data.url );
         this.videoId = this.params.v;
         this.container = this.element[ 0 ].parentNode;
@@ -85,8 +87,18 @@ class VideoFS {
                     e.target.playVideo();
                 },
                 onStateChange: ( e ) => {
-                    if ( e.data === window.YT.PlayerState.PLAYING ) {
-                        this.iframe = this.player.a;
+                    // For example:
+                    // Firefox with Block Audio / Video enabled
+                    // Users can choose to set browsers to block autoplay content
+                    // For this we apply a weak fallback (background image)
+                    if ( e.data === window.YT.PlayerState.UNSTARTED ) {
+                        this.iframe = this.player.f;
+                        this.iframe.style.display = "none";
+                        this.iframe.parentNode.appendChild( this.element[ 0 ] );
+                        this.loadImage();
+
+                    } else if ( e.data === window.YT.PlayerState.PLAYING ) {
+                        this.iframe = this.player.f;
                         this.container.className += " is-active";
 
                         this.resizer.on( "resize", this.handleResize );
