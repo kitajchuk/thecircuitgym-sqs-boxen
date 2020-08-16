@@ -1,5 +1,3 @@
-import $ from "properjs-hobo";
-import PageController from "properjs-pagecontroller";
 import ImageController from "./class/ImageController";
 import CoverController from "./class/CoverController";
 import CarouselController from "./class/CarouselController";
@@ -29,80 +27,9 @@ const router = {
     init () {
         this.pageDuration = core.util.getTransitionDuration( core.dom.page[ 0 ] );
         this.bindEmpty();
-        this.initPages();
+        this.initPage();
 
         core.log( "router initialized" );
-    },
-
-
-    /**
-     *
-     * @public
-     * @method route
-     * @param {string} path The uri to route to
-     * @memberof router
-     * @description Trigger app to route a specific page. [Reference]{@link https://github.com/ProperJS/Router/blob/master/Router.js#L222}
-     *
-     */
-    route ( path ) {
-        this.controller.getRouter().trigger( path );
-    },
-
-
-    /**
-     *
-     * @public
-     * @method push
-     * @param {string} path The uri to route to
-     * @param {function} cb Optional callback to fire
-     * @memberof router
-     * @description Trigger a silent route with a supplied callback.
-     *
-     */
-    push ( path, cb ) {
-        this.controller.routeSilently( path, (cb || core.util.noop) );
-    },
-
-
-    /**
-     *
-     * @public
-     * @method topout
-     * @memberof router
-     * @description Method set scroll position to zero.
-     *
-     */
-    topout () {
-        window.scrollTo( 0, 0 );
-    },
-
-
-    /**
-     *
-     * @public
-     * @method initPages
-     * @memberof router
-     * @description Create the PageController instance.
-     *
-     */
-    initPages () {
-        this.controller = new PageController({
-            transitionTime: this.pageDuration
-        });
-
-        this.controller.setConfig([
-            "*"
-        ]);
-
-        this.controller.setModules( [] );
-
-        //this.controller.on( "page-controller-router-samepage", () => {} );
-        this.controller.on( "page-controller-router-transition-out", this.changePageOut.bind( this ) );
-        this.controller.on( "page-controller-router-refresh-document", this.changeContent.bind( this ) );
-        this.controller.on( "page-controller-router-transition-in", this.changePageIn.bind( this ) );
-        this.controller.on( "page-controller-initialized-page", this.initPage.bind( this ) );
-
-        this.controller.initPage();
     },
 
 
@@ -127,34 +54,6 @@ const router = {
     /**
      *
      * @public
-     * @method parseDoc
-     * @param {string} html The responseText to parse out
-     * @memberof router
-     * @description Get the DOM information to cache for a request.
-     * @returns {object}
-     *
-     */
-    parseDoc ( html ) {
-        let doc = document.createElement( "html" );
-        let page = null;
-
-        doc.innerHTML = html;
-
-        doc = $( doc );
-        page = doc.find( core.config.pageSelector );
-
-        return {
-            $doc: doc,
-            $page: page,
-            pageData: page.data(),
-            pageHtml: page[ 0 ].innerHTML
-        };
-    },
-
-
-    /**
-     *
-     * @public
      * @method bindEmpty
      * @memberof router
      * @description Suppress #hash links.
@@ -162,67 +61,6 @@ const router = {
      */
     bindEmpty () {
         core.dom.body.on( "click", "[href^='#']", ( e ) => e.preventDefault() );
-    },
-
-
-    /**
-     *
-     * @public
-     * @method changePageOut
-     * @param {object} data The PageController data object
-     * @memberof router
-     * @description Trigger transition-out animation.
-     *
-     */
-    changePageOut ( /* data */ ) {
-        core.dom.html.addClass( "is-routing" );
-        core.dom.page.addClass( "is-inactive" );
-
-        navi.close();
-    },
-
-
-    /**
-     *
-     * @public
-     * @method changeContent
-     * @param {object} data The PageController data object
-     * @memberof router
-     * @description Swap the new content into the DOM.
-     *
-     */
-    changeContent ( data ) {
-        this.doc = this.parseDoc( data.response );
-
-        core.dom.page[ 0 ].innerHTML = this.doc.pageHtml;
-
-        this.destroyControllers();
-        navi.checkActive();
-        navi.checkLocation();
-        navi.resetSubmenus();
-        this.execHomepage( this.doc.$page );
-        this.execControllers();
-        this.execSquarespace();
-
-        // Ensure topout prior to preload being done...
-        this.topout();
-
-        core.emitter.fire( "app--analytics-push", this.doc );
-    },
-
-
-    /**
-     *
-     * @public
-     * @method changePageIn
-     * @param {object} data The PageController data object
-     * @memberof router
-     * @description Trigger transition-in animation.
-     *
-     */
-    changePageIn ( /* data */ ) {
-        core.dom.html.removeClass( "is-routing" );
-        core.dom.page.removeClass( "is-inactive" );
     },
 
 
@@ -277,37 +115,37 @@ const router = {
     },
 
 
-    destroyControllers () {
-        if ( this.imageController ) {
-            this.imageController.destroy();
-            this.imageController = null;
-        }
-
-        if ( this.videofsController ) {
-            this.videofsController.destroy();
-            this.videofsController = null;
-        }
-
-        if ( this.coverController ) {
-            this.coverController.destroy();
-            this.coverController = null;
-        }
-
-        if ( this.carouselController ) {
-            this.carouselController.destroy();
-            this.carouselController = null;
-        }
-
-        if ( this.tabsController ) {
-            this.tabsController.destroy();
-            this.tabsController = null;
-        }
-
-        if ( this.blocksController ) {
-            this.blocksController.destroy();
-            this.blocksController = null;
-        }
-    },
+    // destroyControllers () {
+    //     if ( this.imageController ) {
+    //         this.imageController.destroy();
+    //         this.imageController = null;
+    //     }
+    //
+    //     if ( this.videofsController ) {
+    //         this.videofsController.destroy();
+    //         this.videofsController = null;
+    //     }
+    //
+    //     if ( this.coverController ) {
+    //         this.coverController.destroy();
+    //         this.coverController = null;
+    //     }
+    //
+    //     if ( this.carouselController ) {
+    //         this.carouselController.destroy();
+    //         this.carouselController = null;
+    //     }
+    //
+    //     if ( this.tabsController ) {
+    //         this.tabsController.destroy();
+    //         this.tabsController = null;
+    //     }
+    //
+    //     if ( this.blocksController ) {
+    //         this.blocksController.destroy();
+    //         this.blocksController = null;
+    //     }
+    // },
 
 
     // Initialize core sqs blocks after ajax routing

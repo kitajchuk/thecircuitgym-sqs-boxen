@@ -5,7 +5,6 @@ import * as core from "./core";
 import router from "./router";
 import intro from "./intro";
 import navi from "./navi";
-import Analytics from "./class/Analytics";
 import $ from "properjs-hobo";
 import debounce from "properjs-debounce";
 
@@ -55,9 +54,6 @@ class App {
         // Views
         this.intro.init();
         this.navi.init();
-
-        // Analytics
-        this.analytics = new Analytics();
 
         // Controller
         this.router.init();
