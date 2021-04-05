@@ -144,12 +144,13 @@
     }
     #homepage-blocks {
         .sqs-block-image + .sqs-row {
-            .col {
+            .col .sqs-block-button {
                 display: block !important;
                 width: 100% !important;
             }
-            .col:last-child {
+            .col .sqs-block-button + .sqs-block-button {
                 margin-top: 10px !important;
+                margin-left: 0 !important;
             }
             .col .sqs-block-button .btn {
                 width: 70vw;

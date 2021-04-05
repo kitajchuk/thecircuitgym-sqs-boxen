@@ -220,12 +220,22 @@
 
         .col {
             width: auto !important;
-            }
+        }
+
+        .col .sqs-block-button {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .col .sqs-block-button + .sqs-block-button {
+            margin-left: 10px;
+        }
 
         .col .sqs-block-button .btn {
             height: 56px;
         }
-        .col:first-child .sqs-block-button .btn:before {
+
+        .col .sqs-block-button:nth-child(1) .btn:before {
             content: url( "/assets/icons/icon--pencil.svg" );
             display: inline-block;
             height: 16px;
@@ -234,37 +244,37 @@
             width: 16px;
         }
 
-        .col:last-child .sqs-block-button .btn:before {
+        .col .sqs-block-button:nth-child(2) .btn:before {
             content: url( "/assets/icons/icon--rocks--light.svg" );
             display: inline-block;
             height: 19px;
             margin-right: 10px;
             vertical-align: middle;
             width: 20px;
-            }
+        }
     }
 
     // Logged in /config
-    .squarespace-damask & {
-        display: inline-block;
-        height: 100%;
-        max-width: 700px;
-        width: 100%;
-        @include ghost();
+    // .squarespace-damask & {
+    //     display: inline-block;
+    //     height: 100%;
+    //     max-width: 700px;
+    //     width: 100%;
+    //     @include ghost();
 
-        > .sqs-row {
-            @include ghost-child();
-            }
+    //     > .sqs-row {
+    //         @include ghost-child();
+    //         }
 
-        .sqs-block-image,
-        .sqs-block-image + .sqs-row {
-            display: inline-block;
-            left: auto;
-            position: relative;
-            top: auto;
-            transform: none;
-        }
-    }
+    //     .sqs-block-image,
+    //     .sqs-block-image + .sqs-row {
+    //         display: inline-block;
+    //         left: auto;
+    //         position: relative;
+    //         top: auto;
+    //         transform: none;
+    //     }
+    // }
 }
 
 // Footer block
