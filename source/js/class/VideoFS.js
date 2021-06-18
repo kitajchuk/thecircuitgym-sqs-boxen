@@ -64,6 +64,15 @@ class VideoFS {
     }
 
 
+    getIframe () {
+        for ( let i in this.player ) {
+            if ( this.player[ i ] instanceof Element && this.player[ i ].tagName === "IFRAME" ) {
+                return this.player[ i ];
+            }
+        }
+    }
+
+
     onReady () {
         this.player = new window.YT.Player( this.element[ 0 ], {
             height: this.originalHeight,
@@ -92,13 +101,13 @@ class VideoFS {
                     // Users can choose to set browsers to block autoplay content
                     // For this we apply a weak fallback (background image)
                     if ( e.data === window.YT.PlayerState.UNSTARTED ) {
-                        this.iframe = this.player.f;
+                        this.iframe = this.getIframe();
                         this.iframe.style.display = "none";
                         this.iframe.parentNode.appendChild( this.element[ 0 ] );
                         this.loadImage();
 
                     } else if ( e.data === window.YT.PlayerState.PLAYING ) {
-                        this.iframe = this.player.f;
+                        this.iframe = this.getIframe();
                         this.container.className += " is-active";
 
                         this.resizer.on( "resize", this.handleResize );
