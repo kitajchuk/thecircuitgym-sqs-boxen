@@ -5,21 +5,29 @@
 # git config --global core.excludesfile ~/.gitignore_global
 
 
-# Kitajchuk
+
+# OS / cache
 .DS_Store
 .sass-cache
-.notes
-tmp
-local
+
+
+
+# Node / npm
 node_modules
 npm-debug.log
+npm-debug.log*
+
+
+
+# Boxen
+.notes
+tester.js
+assets/pdf
+assets/img
 
 
 
 # Squarespace
 sftp-config.json
 build
-assets
-gx8y
-.npmrc
 .env

@@ -1,0 +1,16 @@
+{
+    "open": true,
+    "webpack": {
+        "entry": {
+            "app": "./source/js/app.js"
+        }
+    },
+    "postcss": {
+        "browsers": "last 2 versions"
+    },
+    "browserUrl": "http://localhost:9000",
+    "reloadUrl": "http://localhost:9000/local-api/reload/trigger",
+    "properjs": {
+        "hobo": "is eq not one next prev attr last first index parent filter detach append remove trigger prepend closest children removeAttr toggleClass"
+    }
+}

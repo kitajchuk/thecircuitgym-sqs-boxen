@@ -1,44 +1,71 @@
+// Load modules
+const fs = require( "fs" );
 const path = require( "path" );
+const webpack = require( "webpack" );
+const lager = require( "properjs-lager" );
+const open = require( "open" );
+const fetch = require( "node-fetch" );
 const root = path.resolve( __dirname );
 const source = path.join( root, "source" );
 const nodeModules = "node_modules";
-const webpack = require( "webpack" );
-const autoprefixer = require( "autoprefixer" );
-const execSync = require( "child_process" ).execSync;
-const WebpackOnBuildPlugin = require( "on-build-webpack" );
-const request = require( "request" );
-const lager = require( "properjs-lager" );
-const open = require( "open" );
-const local = "http://localhost:9000";
+const config = require( "./boxen.config" );
+const ESLintPlugin = require( "eslint-webpack-plugin" );
+
+
+
+// https://webpack.js.org/contribute/writing-a-plugin/
+// https://webpack.js.org/api/compiler-hooks/
+class BoxenHooksPlugin {
+    constructor ( options ) {
+        this.options = options;
+    }
+
+    apply ( compiler ) {
+        compiler.hooks.afterCompile.tap( "BoxenHooksPlugin", ( compilation ) => {
+            if ( typeof this.options.afterCompile === "function" ) {
+                this.options.afterCompile();
+            }
+        });
+    }
+}
+
+
+
+// Define after config loads
 const plugins = [
-    new webpack.LoaderOptionsPlugin({
-        options: {
-            postcss: [autoprefixer( { browsers: ["last 2 versions"] } )]
-        }
-    })
+    new ESLintPlugin({
+        emitError: true,
+        emitWarning: false,
+        failOnError: true,
+        quiet: true,
+        context: path.resolve( __dirname, "source" ),
+        exclude: [
+            "node_modules",
+        ],
+    }),
 ];
-let isOpen = false;
+const pluginHooks = new BoxenHooksPlugin({
+    afterCompile: () => {
+        // First build opens localhost for you
+        if ( config.open ) {
+            config.open = false;
+            open( `${config.browserUrl}` );
+
+        // Subsequent builds trigger SQS reloads
+        } else {
+            fetch( config.reloadUrl ).then(() => {
+                lager.server( "sqs local-api reload trigger" );
+            });
+        }
+    },
+});
 
 
 
-module.exports = ( env ) => {
+const webpackConfig = ( env, argv ) => {
     // Only handle builds for sandbox dev environment
     if ( env.sandbox ) {
-        plugins.push(new WebpackOnBuildPlugin(() => {
-            // First build opens localhost for you
-            if ( !isOpen ) {
-                isOpen = true;
-                open( `${local}` );
-
-            // Subsequent builds trigger SQS reloads
-            } else {
-                request({
-                    url: `${local}/local-api/reload/trigger`,
-                    method: "GET"
-
-                }, () => lager.server( "local-api reload trigger..." ) );
-            }
-        }));
+        plugins.push( pluginHooks );
     }
 
     return {
@@ -57,9 +84,7 @@ module.exports = ( env ) => {
         },
 
 
-        entry: {
-            "app": path.resolve( __dirname, "source/js/app.js" )
-        },
+        entry: config.webpack.entry,
 
 
         output: {
@@ -70,11 +95,45 @@ module.exports = ( env ) => {
 
         module: {
             rules: [
-                { test: /source\/js\/.*\.js$/, exclude: /node_modules/, use: ["eslint-loader"], enforce: "pre" },
-                { test: /source\/js\/.*\.js$/, exclude: /node_modules/, use: [{ loader: "babel-loader", options: { presets: ["env"] } }] },
-                { test: /(hobo|hobo.build)\.js$/, use: ["expose-loader?hobo"] },
-                { test: /\.(sass|scss)$/, exclude: /node_modules/, use: ["file-loader?name=../styles/[name].css", "postcss-loader", "sass-loader"] }
+                {
+                    // test: /source\/.*\.js$/i,
+                    // exclude: /node_modules/,
+                    test: /source\/.*\.js$|node_modules\/[properjs-|konami-|paramalama].*/i,
+                    use: [
+                        {
+                            loader: "babel-loader",
+                            options: {
+                                presets: ["@babel/preset-env"],
+                            },
+                        },
+                    ],
+                },
+                {
+                    test: /(hobo|hobo.build)\.js$/i,
+                    use: ["expose-loader?hobo"],
+                },
+                {
+                    test: /\.s[ac]ss$/i,
+                    exclude: /node_modules/,
+                    use: [
+                        "file-loader?name=../styles/[name].css",
+                        "sass-loader",
+                    ],
+                },
+                {
+                    test: /svg-.*\.block$|\.svg$/i,
+                    exclude: /node_modules/,
+                    use: [
+                        "svg-inline-loader",
+                    ],
+                },
             ]
         }
     };
 };
+
+
+
+module.exports = [
+    webpackConfig,
+];
