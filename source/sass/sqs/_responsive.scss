@@ -23,11 +23,6 @@
                 }
         }
     }
-    #homepage-blocks {
-        .sqs-block-image + .sqs-row {
-            bottom: $expander-mobile;
-        }
-    }
 }
 
 
@@ -141,21 +136,6 @@
             padding-bottom: $expander-mobile - 10px;
             padding-top: $expander-mobile - 10px;
             }
-    }
-    #homepage-blocks {
-        .sqs-block-image + .sqs-row {
-            .col .sqs-block-button {
-                display: block !important;
-                width: 100% !important;
-            }
-            .col .sqs-block-button + .sqs-block-button {
-                margin-top: 10px !important;
-                margin-left: 0 !important;
-            }
-            .col .sqs-block-button .btn {
-                width: 70vw;
-            }
-        }
     }
     #footer-blocks {
         .social-icon-alignment-right .sqs-svg-icon--list {

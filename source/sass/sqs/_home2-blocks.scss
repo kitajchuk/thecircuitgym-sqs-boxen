@@ -1,0 +1,85 @@
+#homepage2-blocks {
+
+}
+
+#homepage2-blocks-image {
+    left: 50%;
+    padding-left: $expander-mobile;
+    padding-right: $expander-mobile;
+    position: absolute;
+    top: 50%;
+    transform: translateX( -50% ) translateY( -50% );
+    width: 100%;
+    z-index: 1;
+
+    .image {
+        max-width: 700px;
+        width: 100%;
+    }
+}
+
+#item-60ce0536973a5f58939e88f7 {
+    bottom: $expander-one;
+    position: absolute;
+    text-align: center;
+    z-index: 2;
+    width: 100%;
+
+    > .sqs-row > .col > .sqs-row {
+        display: flex;
+        justify-content: center;
+
+        > .col {
+            display: inline-block;
+            width: auto;
+            margin: 0 5px;
+
+            .btn {
+                height: 56px;
+            }
+
+            &:nth-child(1) .btn:before {
+                content: url( "/assets/icons/icon--pencil.svg" );
+                display: inline-block;
+                height: 16px;
+                margin-right: 10px;
+                vertical-align: middle;
+                width: 16px;
+            }
+
+            &:nth-child(2) .btn:before {
+                content: url( "/assets/icons/icon--rocks--light.svg" );
+                display: inline-block;
+                height: 19px;
+                margin-right: 10px;
+                vertical-align: middle;
+                width: 20px;
+            }
+        }
+    }
+}
+
+@media screen and ( max-width: $break-laptop-medium ) {
+    #item-60ce0536973a5f58939e88f7 {
+        bottom: $expander-mobile;
+    }
+}
+
+@media screen and ( max-width: $break-mobile-full ) {
+    #item-60ce0536973a5f58939e88f7 {
+        > .sqs-row > .col > .sqs-row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+    
+            > .col {
+                width: 100%;
+                margin: 5px;
+
+                .btn {
+                    width: 70vw;
+                }
+            }
+        }
+    }
+}

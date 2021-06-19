@@ -43,9 +43,9 @@ const router = {
      *
      */
     initPage ( /* data */ ) {
-        navi.checkActive();
-        navi.checkSubmenu();
         navi.checkLocation();
+        navi.checkSubmenu();
+        navi.checkActive();
         this.execHomepage( core.dom.page );
         this.execControllers();
     },

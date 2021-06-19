@@ -3,9 +3,7 @@
         <div class="videofs">
             {.repeated section items}
                 {.if starred}
-                    <div class="videofs__node js-video-fs -cover" id="{id}" data-id="{id}" data-url="{oembed.url}" data-width="{oembed.width}" data-height="{oembed.height}" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}">
-                        <script type="application/json">{oembed|json}</script>
-                    </div>
+                    <div class="videofs__node js-video-fs -cover" id="{id}" data-id="{id}" data-url="{oembed.url}" data-width="{oembed.width}" data-height="{oembed.height}" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}"></div>
                 {.end}
             {.end}
         </div>

@@ -26,21 +26,21 @@
         {@|apply header.block}
         <div class="main js-main">
             <squarespace:navigation navigationId="navi" template="navi" />
-            <section class="page js-page" {.if collection.homepage}data-homepage="true"{.end} data-content-field="main-content" data-website-id="{website.id}" {.section collection}data-collection-id="{collection.id}" data-collection-title="{.if collection.homepage}{website.siteTitle}{.or}{collection.title} – {website.siteTitle}{.end}"{.end} {.section item}data-item-id="{item.id}" data-item-title="{item.title} – {collection.title} – {website.siteTitle}"{.end}>
-                {.if collection.homepage}
+            <section class="page js-page" {.equal? collection.urlId "home2"}data-homepage="true"{.or equal? collection.homepage true}data-homepage="true"{.end} data-content-field="main-content" data-website-id="{website.id}" {.section collection}data-collection-id="{collection.id}" data-collection-title="{.if collection.homepage}{website.siteTitle}{.or}{collection.title} – {website.siteTitle}{.end}"{.end} {.section item}data-item-id="{item.id}" data-item-title="{item.title} – {collection.title} – {website.siteTitle}"{.end}>
+                {.equal? collection.urlId "home2"}
+                    {@|apply home2.block}
+                {.or equal? collection.homepage true}
                     {@|apply home.block}
+                {.or equal? collection.typeName "page"}
+                    {@|apply page.block}
                 {.or}
-                    {.equal? collection.typeName "page"}
-                        {@|apply page.block}
-                    {.or}
-                        {squarespace.main-content}
-                    {.end}
+                    {squarespace.main-content}
                 {.end}
             </section>
             {@|apply footer.block}
         </div>
         {@|apply intro.block}
-        <script type="text/javascript" src="/scripts/app.js?v={squarespace.template-revision}"></script>
+        <script type="text/javascript" src="/scripts/boxen.js?v={squarespace.template-revision}"></script>
         {squarespace-footers}
         {@|apply google.block}
     </body>

@@ -1,6 +1,3 @@
-import Easing from "properjs-easing";
-
-
 /**
  *
  * @public
@@ -11,17 +8,6 @@ import Easing from "properjs-easing";
  */
 const config = {
     mobileWidth: 640,
-
-
-    /**
-     *
-     * @public
-     * @member defaultEasing
-     * @memberof core.config
-     * @description The default easing function for javascript Tweens.
-     *
-     */
-    defaultEasing: Easing.easeInOutCubic,
 
 
     /**

@@ -130,6 +130,11 @@ const navi = {
 
 
     checkSubmenu () {
+        if ( this.currentLoc !== null || this.naviLoc !== null ) {
+            core.log( "Skip checkSubmenu for location nav" );
+            return;
+        }
+
         const naviSub = core.dom.navi.find( ".js-navi-submenu" );
 
         naviSub.forEach(( el, i ) => {

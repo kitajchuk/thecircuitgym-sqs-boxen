@@ -1,0 +1,18 @@
+<section class="cover js-cover" id="homepage2-blocks">
+    <div class="cover__bg">
+        <div class="videofs">
+            {.section items.0}
+                <div class="videofs__node js-video-fs -cover" id="{id}" data-id="{id}" data-url="{sourceUrl}" data-width="" data-height="" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}"></div>
+            {.end}
+        </div>
+    </div>
+    <div class="cover__screen overlay"></div>
+    <div class="cover__content cover__blocks -full -text--center">
+        <div id="homepage2-blocks-image">
+            <img class="image js-lazy-image" data-img-src="/assets/images/circuit-home-logo.png" data-variants="780x768,100w,300w,500w,750w" data-original-size="780x768" />
+        </div>
+        {.section items.0}
+            {body}
+        {.end}
+    </div>
+</section>

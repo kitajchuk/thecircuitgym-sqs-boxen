@@ -2,7 +2,7 @@
     "open": true,
     "webpack": {
         "entry": {
-            "app": "./source/js/app.js"
+            "boxen": "./source/js/app.js"
         }
     },
     "postcss": {

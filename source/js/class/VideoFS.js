@@ -21,16 +21,15 @@ class VideoFS {
     constructor ( element ) {
         this.element = element;
         this.data = this.element.data();
-        this.script = this.element.find( "script" ).detach();
-        this.blockJson = JSON.parse( this.script[ 0 ].textContent );
         this.params = paramalama( this.data.url );
         this.videoId = this.params.v;
         this.container = this.element[ 0 ].parentNode;
-        this.videoRatio = parseInt( this.data.width, 10 ) / parseInt( this.data.height, 10 );
-        this.originalWidth = parseInt( this.data.width, 10 );
-        this.originalHeight = parseInt( this.data.height, 10 );
+        this.originalWidth = 854;
+        this.originalHeight = 480;
+        this.videoRatio = this.originalWidth / this.originalHeight;
         this.handleResize = this.onResize.bind( this );
         this.resizer = new ResizeController();
+        this.isVideoActive = false;
 
         // Thumbnail image load for mobile
         if ( core.detect.isDevice() ) {
@@ -96,6 +95,10 @@ class VideoFS {
                     e.target.playVideo();
                 },
                 onStateChange: ( e ) => {
+                    if ( this.isVideoActive ) {
+                        return;
+                    }
+
                     // For example:
                     // Firefox with Block Audio / Video enabled
                     // Users can choose to set browsers to block autoplay content
@@ -107,9 +110,9 @@ class VideoFS {
                         this.loadImage();
 
                     } else if ( e.data === window.YT.PlayerState.PLAYING ) {
+                        this.isVideoActive = true;
                         this.iframe = this.getIframe();
                         this.container.className += " is-active";
-
                         this.resizer.on( "resize", this.handleResize );
                         this.handleResize();
                     }
