@@ -192,4 +192,11 @@
             border-right: 0;
             }
     }
+
+    .cover__content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
 }
