@@ -28,10 +28,10 @@
     padding-top: $expander-one;
 
     .sqs-row > .col > .sqs-row:first-child {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: flex-start;
+        display: grid;
+        row-gap: 32px;
+        column-gap: 16px;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 
         &:before,
         &:after {
@@ -39,20 +39,22 @@
         }
     }
     .sqs-row > .col > .sqs-row:first-child > [class*=sqs-col] {
-        display: inline-block;
         width: auto;
-        float: none;
-
-        @media only screen and ( max-width: $break-tablet-medium ) {
-            margin-top: $expander-mobile;
-            width: 50%;
-        }
     }
 
     // Spacers in between these rows...
 
     .sqs-row > .col > .sqs-row:last-child > [class*=sqs-col] {
         vertical-align: middle;
+    }
+}
+@media screen and ( max-width: $break-mobile-full ) {
+    .footer {
+        .sqs-row > .col > .sqs-row:first-child {
+            [class*=sqs-col] + [class*=sqs-col] {
+                margin-top: 0;
+                }
+        }
     }
 }
 
