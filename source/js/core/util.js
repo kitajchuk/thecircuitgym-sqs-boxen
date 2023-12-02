@@ -7,7 +7,7 @@
  */
 
 
-import $ from "properjs-hobo";
+import $ from "../../../properjs-hobo/dist/hobo.build";
 import ImageLoader from "properjs-imageloader";
 import dom from "./dom";
 import config from "./config";

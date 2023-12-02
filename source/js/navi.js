@@ -1,4 +1,4 @@
-import $ from "properjs-hobo";
+import $ from "../../properjs-hobo/dist/hobo.build";
 import * as core from "./core";
 import ResizeController from "properjs-resizecontroller";
 

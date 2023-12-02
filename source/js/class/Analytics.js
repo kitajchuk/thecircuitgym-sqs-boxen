@@ -1,5 +1,5 @@
 import * as core from "../core";
-import $ from "properjs-hobo";
+import $ from "../../../properjs-hobo/dist/hobo.build";
 import Store from "../core/Store";
 
 

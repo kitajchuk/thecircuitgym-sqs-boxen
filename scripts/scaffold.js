@@ -1,11 +1,8 @@
-const fs = require( "fs" );
 const path = require( "path" );
-const root = __dirname;
-const child_process = require( "child_process" );
 const lager = require( "properjs-lager" );
-const config = require( "./boxen.config" );
-const utils = require( "./boxen.utils" );
-const siteBuildPath = path.join( __dirname, "build", "site.region" );
+const config = require( "./config" );
+const utils = require( "./utils" );
+const siteBuildPath = path.join( process.cwd(), "build", "site.region" );
 const siteBuildRegion = utils.read( siteBuildPath, true );
 const siteFooters = "{squarespace-footers}";
 const entryPoints = [];
@@ -16,7 +13,7 @@ const siteReplacements = [
 
 
 for ( let module in config.webpack.entry ) {
-    if ( module !== "boxen" && config.webpack.entry.hasOwnProperty( module ) ) {
+    if ( module !== "boxen" && config.webpack.entry[ module ] ) {
         lager.server( `Scaffold entry, ${siteFooters}:${module}` );
 
         entryPoints.push(

@@ -1,11 +1,8 @@
-require( "../sass/screen.scss" );
-
-
 import * as core from "./core";
 import router from "./router";
 import intro from "./intro";
 import navi from "./navi";
-import $ from "properjs-hobo";
+import $ from "../../properjs-hobo/dist/hobo.build";
 import debounce from "properjs-debounce";
 
 

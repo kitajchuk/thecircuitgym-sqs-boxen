@@ -29,5 +29,5 @@ assets/img
 
 # Squarespace
 sftp-config.json
-build
+build/
 .env

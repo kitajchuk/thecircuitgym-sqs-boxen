@@ -1,14 +1,10 @@
-// Load modules
-const fs = require( "fs" );
 const path = require( "path" );
-const webpack = require( "webpack" );
 const lager = require( "properjs-lager" );
 const open = require( "open" );
 const fetch = require( "node-fetch" );
-const root = path.resolve( __dirname );
-const source = path.join( root, "source" );
+const config = require( "./scripts/config" );
+const source = path.join( __dirname, "source" );
 const nodeModules = "node_modules";
-const config = require( "./boxen.config" );
 const ESLintPlugin = require( "eslint-webpack-plugin" );
 
 
@@ -21,7 +17,7 @@ class BoxenHooksPlugin {
     }
 
     apply ( compiler ) {
-        compiler.hooks.afterCompile.tap( "BoxenHooksPlugin", ( compilation ) => {
+        compiler.hooks.afterCompile.tap( "BoxenHooksPlugin", () => {
             if ( typeof this.options.afterCompile === "function" ) {
                 this.options.afterCompile();
             }
@@ -41,9 +37,11 @@ const plugins = [
         context: path.resolve( __dirname, "source" ),
         exclude: [
             "node_modules",
+            "hobo.build.dist",
         ],
     }),
 ];
+
 const pluginHooks = new BoxenHooksPlugin({
     afterCompile: () => {
         // First build opens localhost for you
@@ -62,24 +60,24 @@ const pluginHooks = new BoxenHooksPlugin({
 
 
 
-const webpackConfig = ( env, argv ) => {
+const webpackConfig = ( env ) => {
     // Only handle builds for sandbox dev environment
     if ( env.sandbox ) {
         plugins.push( pluginHooks );
     }
 
     return {
-        mode: "none",
+        mode: process.env.NODE_ENV === "production" ? "production" : "development",
 
 
-        devtool: "source-map",
+        devtool: process.env.NODE_ENV === "production" ? false : "eval-source-map",
 
 
         plugins,
 
 
         resolve: {
-            modules: [root, source, nodeModules],
+            modules: [__dirname, source, nodeModules],
             mainFields: ["webpack", "browserify", "web", "hobo", "main"]
         },
 
@@ -109,18 +107,6 @@ const webpackConfig = ( env, argv ) => {
                     ],
                 },
                 {
-                    test: /(hobo|hobo.build)\.js$/i,
-                    use: ["expose-loader?hobo"],
-                },
-                {
-                    test: /\.s[ac]ss$/i,
-                    exclude: /node_modules/,
-                    use: [
-                        "file-loader?name=../styles/[name].css",
-                        "sass-loader",
-                    ],
-                },
-                {
                     test: /svg-.*\.block$|\.svg$/i,
                     exclude: /node_modules/,
                     use: [
@@ -134,6 +120,4 @@ const webpackConfig = ( env, argv ) => {
 
 
 
-module.exports = [
-    webpackConfig,
-];
+module.exports = webpackConfig;

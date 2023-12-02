@@ -1,0 +1,89 @@
+{
+  "_args": [
+    [
+      "properjs-hobo@0.3.26",
+      "/Users/kitajchuk/Sites/kitajchuk/thecircuitgym-sqs-boxen"
+    ]
+  ],
+  "_development": true,
+  "_from": "properjs-hobo@0.3.26",
+  "_id": "properjs-hobo@0.3.26",
+  "_inBundle": false,
+  "_integrity": "sha512-txwMWddRU1mwD7budWXVnNwm41VEq3/ppvBzE+Yee3Q2fYggEWE5tLszAkGLtBUGNRLWQV2XGKReaj7hlcFOiw==",
+  "_location": "/properjs-hobo",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "properjs-hobo@0.3.26",
+    "name": "properjs-hobo",
+    "escapedName": "properjs-hobo",
+    "rawSpec": "0.3.26",
+    "saveSpec": null,
+    "fetchSpec": "0.3.26"
+  },
+  "_requiredBy": [
+    "#DEV:/"
+  ],
+  "_resolved": "https://registry.npmjs.org/properjs-hobo/-/properjs-hobo-0.3.26.tgz",
+  "_spec": "0.3.26",
+  "_where": "/Users/kitajchuk/Sites/kitajchuk/thecircuitgym-sqs-boxen",
+  "bugs": {
+    "url": "https://github.com/ProperJS/hobo/issues"
+  },
+  "config": {
+    "build_all": "is eq not one next prev attr last first index parent filter detach append remove trigger prepend closest children removeAttr toggleClass"
+  },
+  "contributors": [
+    {
+      "name": "Brandon Kitajchuk",
+      "email": "bk@kitajchuk.com",
+      "url": "https://kitajchuk.com"
+    }
+  ],
+  "dependencies": {
+    "properjs-matchelement": "^0.3.0"
+  },
+  "description": "A very small, modular DOM utility for modern web apps.",
+  "devDependencies": {
+    "expose-loader": "^0.7.5",
+    "webpack": "^4.12.0",
+    "webpack-cli": "^3.0.4"
+  },
+  "hobo": "dist/hobo.build",
+  "homepage": "https://github.com/ProperJS/hobo",
+  "keywords": [
+    "properjs",
+    "event",
+    "jquery",
+    "data",
+    "promise",
+    "classes",
+    "ajax",
+    "xhr",
+    "query",
+    "dom",
+    "library",
+    "browser",
+    "hobo"
+  ],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/ProperJS/hobo/blob/master/LICENSE"
+    }
+  ],
+  "main": "hobo",
+  "name": "properjs-hobo",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ProperJS/hobo.git"
+  },
+  "scripts": {
+    "build": "rm -rf dist/* && node build.js",
+    "postbuild": "webpack --env.production --progress --profile --display-modules --colors -p",
+    "test": "npm run build -- '$npm_package_config_build_all' && cp ./dist/hobo.build.dist.js ./test/hobo.js"
+  },
+  "title": "hobo",
+  "version": "0.3.26"
+}

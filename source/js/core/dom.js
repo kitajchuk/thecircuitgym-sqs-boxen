@@ -1,4 +1,4 @@
-import $ from "properjs-hobo";
+import $ from "../../../properjs-hobo/dist/hobo.build";
 import config from "./config";
 
 
