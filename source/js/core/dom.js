@@ -47,7 +47,7 @@ const dom = {
     /**
      *
      * @public
-     * @member views
+     * @member page
      * @memberof core.dom
      * @description The cached <page> node.
      *
@@ -58,7 +58,7 @@ const dom = {
     /**
      *
      * @public
-     * @member views
+     * @member navi
      * @memberof core.dom
      * @description The cached <navi> node.
      *
@@ -69,12 +69,22 @@ const dom = {
     /**
      *
      * @public
-     * @member views
+     * @member intro
      * @memberof core.dom
      * @description The cached <intro> node.
      *
      */
-    intro: $( ".js-intro" )
+    intro: $( ".js-intro" ),
+
+    /**
+     *
+     * @public
+     * @member footer
+     * @memberof core.dom
+     * @description The cached <footer> node.
+     *
+     */
+    footer: $( ".js-footer" ),
 };
 
 

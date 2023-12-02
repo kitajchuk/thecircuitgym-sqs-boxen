@@ -1,5 +1,6 @@
 import * as core from "../core";
 import Controller from "properjs-controller";
+import $ from "../../../properjs-hobo/dist/hobo.build";
 
 
 /**
@@ -7,7 +8,7 @@ import Controller from "properjs-controller";
  * @public
  * @global
  * @class CoverController
- * @param {Element} element The dom element to work with.
+ * @param {Element} element The dom elements to work with.
  * @classdesc Handle fullbleed cover image moments.
  *
  */
@@ -15,7 +16,8 @@ class CoverController extends Controller {
     constructor ( element ) {
         super();
 
-        this.element = element;
+        this.element = element[ 0 ];
+        this.footer = core.dom.footer[ 0 ];
 
         this.start();
     }
@@ -30,9 +32,13 @@ class CoverController extends Controller {
      *
      */
     start () {
-        // Call on parent cycle
         this.go(() => {
-            if ( core.util.isElementVisible( this.element[ 0 ] ) ) {
+            const elementBounds = this.element.getBoundingClientRect();
+            const footerBounds = this.footer.getBoundingClientRect();
+            const elementIntersecting = elementBounds.top <= 0 && elementBounds.bottom > 0;
+            const footerIntersecting = footerBounds.top <= 0 && footerBounds.bottom > 0;
+
+            if ( elementIntersecting || footerIntersecting ) {
                 core.dom.html.addClass( "is-cover" );
 
             } else {
@@ -54,12 +60,6 @@ class CoverController extends Controller {
         this.stop();
     }
 }
-
-
-
-CoverController.removeClass = () => {
-    core.dom.html.removeClass( "is-cover" );
-};
 
 
 

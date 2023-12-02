@@ -51,9 +51,10 @@ const pluginHooks = new BoxenHooksPlugin({
 
         // Subsequent builds trigger SQS reloads
         } else {
-            fetch( config.reloadUrl ).then(() => {
-                lager.server( "sqs local-api reload trigger" );
-            });
+            // This isn't working anymore...
+            // fetch( config.reloadUrl ).then(() => {
+            //     lager.server( "sqs local-api reload trigger" );
+            // });
         }
     },
 });

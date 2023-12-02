@@ -79,7 +79,7 @@ const router = {
     execControllers () {
         this.images = core.dom.page.find( core.config.lazyImageSelector );
         this.videofs = core.dom.page.find( ".js-video-fs" );
-        this.cover = core.dom.page.find( ".js-cover" );
+        this.cover = core.dom.body.find( ".js-cover" );
         this.carousel = core.dom.page.find( ".js-carousel" );
         this.tabs = core.dom.page.find( ".js-tabs" );
         this.blocks = core.dom.page.find( "#block-yui_3_17_2_1_1492899785996_100777, #block-yui_3_17_2_1_1492364839208_29283" );
@@ -90,13 +90,9 @@ const router = {
                 this.videofsController = new VideoFS( this.videofs );
             }
 
-            // Mostly better transitions this way...
             if ( this.cover.length ) {
                 this.coverController = new CoverController( this.cover );
-
-            } else {
-                CoverController.removeClass();
-            }
+            } 
 
             if ( this.carousel.length ) {
                 this.carouselController = new CarouselController( this.carousel );
