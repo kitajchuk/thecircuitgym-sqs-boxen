@@ -1,6 +1,5 @@
 import * as core from "../core";
 import Controller from "properjs-controller";
-import $ from "../../../properjs-hobo/dist/hobo.build";
 
 
 /**
